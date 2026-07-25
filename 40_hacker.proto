@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+// Categoria: 40_hacker
+// Total: 3 segments
+
+// Message: proto.HackerTagInfo
+message HackerTagInfo {
+    System_UInt32 hacker_tag = 1;
+    System_Int64 hackerpool_time = 2;
+}
+
+// Message: proto.HackerInfo
+message HackerInfo {
+    System_UInt32 hacker_cdt_id = 1;
+    System_UInt32 hacker_tag = 2;
+    System_Int64 hackerpool_time = 3;
+}
+
+// Message: proto.EHacker
+message EHacker {
+    // Sem campos definidos no dump
+}
+

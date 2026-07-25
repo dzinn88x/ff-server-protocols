@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+// Categoria: 38_pool_leaderboard
+// Total: 1 segments
+
+// Message: proto.EPoolLeaderboard
+message EPoolLeaderboard {
+    // Sem campos definidos no dump
+}
+

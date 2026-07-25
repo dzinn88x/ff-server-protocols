@@ -1,0 +1,393 @@
+syntax = "proto3";
+
+// Categoria: 24_workshop
+// Total: 51 segments
+
+// Enum: enum proto.EWorkshop.UnlockSlotCostType
+enum UnlockSlotCostType {
+    ConsumeType_GEMS = 3;
+    ConsumeType_COINS = 2;
+    ConsumeType_NONE = 0;
+    ConsumeType_ITEMS = 1;
+}
+
+// Enum: enum proto.EWorkshop.SlotType
+enum SlotType {
+    SlotType_EDIT = 1;
+    SlotType_CLASSIC = 4;
+    SlotType_SHARE = 2;
+    SlotType_ALL = 0;
+    SlotType_SUBSCRIPTION = 3;
+}
+
+// Enum: enum proto.EWorkshop.SlotState
+enum SlotState {
+    SlotState_EMPTY = 0;
+    SlotState_LOCK = 2;
+    SlotState_DELETED = 4;
+    SlotState_EXPIRED = 5;
+    SlotState_BAN = 6;
+    SlotState_NORMAL = 1;
+    SlotState_UPDATABLE = 3;
+}
+
+// Enum: enum proto.EWorkshop.ExpireType
+enum ExpireType {
+    ExpireType_WORKSHOP_CODE = 1;
+    ExpireType_WORKSHOP_CODE_BANNED = 2;
+    ExpireType_NONE = 0;
+}
+
+// Enum: enum proto.EWorkshop.TaskType
+enum TaskType {
+    TaskType_CREATE_ROOM = 2;
+    TaskType_NONE = 0;
+    TaskType_DAILY_PLAY = 1;
+    TaskType_LIKED = 3;
+    TaskType_WSCODE_USED = 4;
+}
+
+// Enum: enum proto.EWorkshop.MatchPoolType
+enum MatchPoolType {
+    MatchPoolType_ALL = 99;
+    MatchPoolType_SENIOR = 1;
+    MatchPoolType_MIDDLE = 2;
+    MatchPoolType_JUNIOR = 3;
+    MatchPoolType_RECOMMEND = 0;
+}
+
+// Enum: enum proto.EWorkshop.DataAPIType
+enum DataAPIType {
+    DataAPIType_MATCH_POOL = 2;
+    DataAPIType_RECOMMEND = 1;
+    DataAPIType_NONE = 0;
+}
+
+// Enum: enum proto.EWorkshop.SwitchType
+enum SwitchType {
+    SwitchType_NONE = 0;
+    SwitchType_DATA_API_MATCH_POOL = 2;
+    SwitchType_DATA_API_RECOMMEND = 1;
+}
+
+// Enum: enum proto.EWorkshop.LikeType
+enum LikeType {
+    LikeType_Dislike = 1;
+    LikeType_Like = 0;
+}
+
+// Message: proto.EWorkshop
+message EWorkshop {
+    // Sem campos definidos no dump
+}
+
+// Message: proto.WorkshopBasicInfo
+message WorkshopBasicInfo {
+    System_String workshop_name = 1;
+    System_UInt64 author_id = 2;
+    System_UInt64 perf_cost = 3;
+    System_Int64 update_time = 4;
+    System_UInt64 resource_statistics = 5;
+    System_String author_name = 6;
+    System_UInt64 like_count = 7;
+    System_UInt64 subscribe_count = 8;
+    System_String workshop_desc = 9;
+    System_UInt32 game_mode = 10;
+    System_UInt32 group_mode = 11;
+    repeated System_UInt32 tags = 12;
+    repeated System_Byte mode_settings = 13;
+    System_UInt32 team_count = 14;
+    repeated System_Byte mini_map_settings = 15;
+    repeated System_Byte mini_map_object_settings = 16;
+}
+
+// Message: proto.WorkshopInfo
+message WorkshopInfo {
+    repeated System_Byte workshop_settings = 1;
+    System_String workshop_code = 2;
+    proto_EWorkshop_SlotType slot_type = 3;
+    System_UInt32 slot_id = 4;
+    proto_WorkshopBasicInfo workshop_basic_info = 5;
+    repeated System_Byte object_attribute_settings = 6;
+}
+
+// Message: proto.WorkshopEditSlotInfo
+message WorkshopEditSlotInfo {
+    System_UInt32 slot_id = 1;
+    proto_EWorkshop_SlotState slot_state = 2;
+    proto_WorkshopBasicInfo workshop_basic_info = 3;
+}
+
+// Message: proto.WorkshopShareSlotInfo
+message WorkshopShareSlotInfo {
+    System_UInt32 slot_id = 1;
+    proto_EWorkshop_SlotState slot_state = 2;
+    System_String workshop_code = 3;
+    proto_WorkshopBasicInfo workshop_basic_info = 4;
+}
+
+// Message: proto.WorkshopSubscribeSlotInfo
+message WorkshopSubscribeSlotInfo {
+    System_UInt32 slot_id = 1;
+    proto_EWorkshop_SlotState slot_state = 2;
+    System_String workshop_code = 3;
+    proto_WorkshopBasicInfo workshop_basic_info = 4;
+}
+
+// Message: proto.WorkshopClassicSlotInfo
+message WorkshopClassicSlotInfo {
+    System_UInt32 slot_id = 1;
+    proto_EWorkshop_SlotState slot_state = 2;
+    System_String workshop_code = 3;
+    proto_WorkshopBasicInfo workshop_basic_info = 4;
+}
+
+// Message: proto.WorkshopHotInfo
+message WorkshopHotInfo {
+    System_UInt32 order = 1;
+    System_String picture = 2;
+    System_UInt32 map_logo = 3;
+    proto_WorkshopBasicInfo workshop_basic_info = 4;
+    System_String workshop_code = 5;
+}
+
+// Message: proto.WorkshopWeeklyLeaderboardInfo
+message WorkshopWeeklyLeaderboardInfo {
+    System_UInt32 order = 1;
+    System_UInt32 map_score = 2;
+    proto_WorkshopBasicInfo workshop_basic_info = 3;
+    System_String workshop_code = 4;
+    System_String picture = 5;
+}
+
+// Message: proto.WorkshopLatestInfo
+message WorkshopLatestInfo {
+    proto_WorkshopBasicInfo workshop_basic_info = 1;
+    proto_EWorkshop_SlotState slot_state = 2;
+    System_String workshop_code = 3;
+    System_Int64 play_at = 4;
+}
+
+// Message: proto.WorkshopHistoryInfo
+message WorkshopHistoryInfo {
+    proto_WorkshopBasicInfo workshop_basic_info = 1;
+    proto_EWorkshop_SlotState slot_state = 2;
+    System_UInt32 play_times = 3;
+    System_String workshop_code = 4;
+    System_Int64 latest_play_at = 5;
+}
+
+// Message: proto.WorkshopAccountInfo
+message WorkshopAccountInfo {
+    System_UInt32 exp = 1;
+    System_UInt32 create_times = 2;
+    System_UInt64 liked_times = 3;
+    System_Int64 play_duration = 4;
+    System_UInt32 play_count = 5;
+    System_UInt32 create_room_times = 6;
+    System_UInt64 subscription_times = 7;
+}
+
+// Message: proto.WorkshopPersonalRecommendationInfo
+message WorkshopPersonalRecommendationInfo {
+    System_String workshop_code = 1;
+    proto_WorkshopBasicInfo workshop_basic_info = 2;
+}
+
+// Message: proto.CSUploadWorkshopReq
+message CSUploadWorkshopReq {
+    System_String workshop_name = 1;
+    System_UInt64 performance_cost = 2;
+    repeated System_Byte workshop_settings = 3;
+    System_UInt32 slot_id = 4;
+    System_UInt64 resource_statistics = 5;
+    System_String workshop_desc = 6;
+    System_UInt32 game_mode = 7;
+    repeated System_Byte mode_settings = 8;
+    System_UInt32 group_mode = 9;
+    repeated System_UInt32 tags = 10;
+    repeated System_Byte object_attribute_settings = 11;
+    System_UInt32 team_count = 12;
+    repeated System_Byte mini_map_settings = 13;
+    repeated System_Byte mini_map_object_settings = 14;
+}
+
+// Message: proto.CSUploadWorkshopRes
+message CSUploadWorkshopRes {
+    System_UInt32 share_slot_id = 1;
+    proto_EWorkshop_SlotState share_slot_state = 2;
+    System_Int64 update_time = 3;
+}
+
+// Message: proto.CSUpdateWorkshopBasicInfoReq
+message CSUpdateWorkshopBasicInfoReq {
+    System_UInt32 slot_id = 1;
+    proto_EWorkshop_SlotType slot_type = 2;
+    proto_WorkshopBasicInfo basic_info = 3;
+}
+
+// Message: proto.CSUpdateWorkshopBasicInfoRes
+message CSUpdateWorkshopBasicInfoRes {
+    System_UInt32 slot_id = 1;
+    proto_EWorkshop_SlotType slot_type = 2;
+    System_Int64 update_time = 3;
+}
+
+// Message: proto.CSDownloadWorkshopReq
+message CSDownloadWorkshopReq {
+    proto_EWorkshop_SlotType slot_type = 1;
+    System_UInt32 slot_id = 2;
+}
+
+// Message: proto.CSDownloadWorkshopRes
+message CSDownloadWorkshopRes {
+    repeated System_Byte workshop_settings = 1;
+    proto_EWorkshop_SlotType slot_type = 2;
+    System_UInt32 slot_id = 3;
+    repeated System_Byte mode_settings = 4;
+    repeated System_Byte object_attribute_settings = 5;
+}
+
+// Message: proto.CSShareWorkshopSlotReq
+message CSShareWorkshopSlotReq {
+    System_UInt32 slot_id = 1;
+    System_Boolean is_update = 2;
+}
+
+// Message: proto.CSShareWorkshopSlotRes
+message CSShareWorkshopSlotRes {
+    System_UInt32 slot_id = 1;
+    System_String workshop_code = 2;
+    proto_EWorkshop_SlotState share_slot_state = 3;
+    System_Int64 update_time = 4;
+}
+
+// Message: proto.CSPreviewWorkshopCodeReq
+message CSPreviewWorkshopCodeReq {
+    System_String workshop_code = 1;
+}
+
+// Message: proto.CSPreviewWorkshopCodeRes
+message CSPreviewWorkshopCodeRes {
+    repeated System_Byte workshop_settings = 1;
+    repeated System_Byte mode_settings = 2;
+    repeated System_Byte object_attribute_settings = 3;
+}
+
+// Message: proto.CSGetWorkshopBasicInfoReq
+message CSGetWorkshopBasicInfoReq {
+    proto_EWorkshop_SlotType slot_type = 1;
+}
+
+// Message: proto.CSGetWorkshopBasicInfoRes
+message CSGetWorkshopBasicInfoRes {
+    repeated proto_WorkshopEditSlotInfo edit_slots_info = 1;
+    repeated proto_WorkshopShareSlotInfo share_slots_info = 2;
+    repeated proto_WorkshopSubscribeSlotInfo subscribe_slots_info = 3;
+    repeated proto_WorkshopClassicSlotInfo classic_slots_info = 4;
+    System_Boolean workshop_banned = 5;
+}
+
+// Message: proto.CSUnlockWorkshopSlotReq
+message CSUnlockWorkshopSlotReq {
+    proto_EWorkshop_UnlockSlotCostType cost_type = 1;
+}
+
+// Message: proto.CSUnlockWorkshopSlotRes
+message CSUnlockWorkshopSlotRes {
+    System_UInt32 share_slot_id = 1;
+    proto_EWorkshop_SlotState share_slot_state = 2;
+}
+
+// Message: proto.CSSubscribeWorkshopCodeReq
+message CSSubscribeWorkshopCodeReq {
+    System_UInt32 slot_id = 1;
+    System_String workshop_code = 2;
+    System_UInt32 subscription_source = 3;
+}
+
+// Message: proto.CSSubscribeWorkshopCodeRes
+message CSSubscribeWorkshopCodeRes {
+    proto_WorkshopBasicInfo workshop_basic_info = 1;
+    System_String workshop_code = 2;
+}
+
+// Message: proto.CSReportWorkshopCodeReq
+message CSReportWorkshopCodeReq {
+    System_UInt32 report_type = 1;
+    System_String workshop_code = 2;
+    System_UInt32 report_channel = 3;
+}
+
+// Message: proto.CSDeleteWorkshopInfoReq
+message CSDeleteWorkshopInfoReq {
+    proto_EWorkshop_SlotType slot_type = 1;
+    System_UInt32 slot_id = 2;
+}
+
+// Message: proto.CSDeleteWorkshopInfoRes
+message CSDeleteWorkshopInfoRes {
+    proto_EWorkshop_SlotType slot_type = 1;
+    System_UInt32 slot_id = 2;
+}
+
+// Message: proto.CSSearchWorkshopCodeReq
+message CSSearchWorkshopCodeReq {
+    System_String workshop_code = 1;
+}
+
+// Message: proto.CSSearchWorkshopCodeRes
+message CSSearchWorkshopCodeRes {
+    proto_WorkshopBasicInfo workshop_basic_info = 1;
+}
+
+// Message: proto.CSGetWorkshopRecommendationInfoRes
+message CSGetWorkshopRecommendationInfoRes {
+    repeated proto_WorkshopHotInfo hot_infos = 1;
+    repeated proto_WorkshopWeeklyLeaderboardInfo weekly_leaderboard_infos = 2;
+}
+
+// Message: proto.CSGetWorkshopLatestInfoRes
+message CSGetWorkshopLatestInfoRes {
+    repeated proto_WorkshopLatestInfo latest_infos = 1;
+}
+
+// Message: proto.CSGetWorkshopHistoryInfoRes
+message CSGetWorkshopHistoryInfoRes {
+    repeated proto_WorkshopHistoryInfo history_infos = 1;
+}
+
+// Message: proto.CSGetWorkshopAccountInfoRes
+message CSGetWorkshopAccountInfoRes {
+    proto_WorkshopAccountInfo account_info = 1;
+}
+
+// Message: proto.CSSendWorkshopLikeReq
+message CSSendWorkshopLikeReq {
+    System_String workshop_code = 1;
+    System_UInt64 match_id = 2;
+    proto_EWorkshop_LikeType like_type = 3;
+    System_UInt32 match_mode = 4;
+    System_UInt32 game_mode = 5;
+}
+
+// Message: proto.CSGetWorkshopMatchInfoReq
+message CSGetWorkshopMatchInfoReq {
+    System_UInt32 player_cnt = 1;
+    proto_EWorkshop_MatchPoolType match_pool_type = 2;
+    System_Boolean is_in_group = 3;
+}
+
+// Message: proto.CSGetWorkshopMatchInfoRes
+message CSGetWorkshopMatchInfoRes {
+    System_UInt32 group_mode = 1;
+    repeated System_String workshop_codes = 2;
+    System_Boolean is_workshop_team_contest = 3;
+    repeated System_UInt32 workshop_team_counts = 4;
+}
+
+// Message: proto.CSGetWorkshopPersonalRecommendationInfoRes
+message CSGetWorkshopPersonalRecommendationInfoRes {
+    repeated proto_WorkshopPersonalRecommendationInfo workshop_personal_recommendation_infos = 1;
+}
+

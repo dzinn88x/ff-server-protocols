@@ -1,0 +1,571 @@
+syntax = "proto3";
+
+// Categoria: 22_limited_event
+// Total: 90 segments
+
+// Message: proto.ELimitedEvent
+message ELimitedEvent {
+    // Sem campos definidos no dump
+}
+
+// Message: proto.CSGetLimitedEventStoreReq
+message CSGetLimitedEventStoreReq {
+    System_UInt32 event_id = 1;
+    System_UInt32 store_type = 2;
+}
+
+// Message: proto.CSClaimAnniversaryRewardsReq
+message CSClaimAnniversaryRewardsReq {
+    repeated System_UInt32 node_ids = 1;
+}
+
+// Message: proto.AnniversaryNodeShort
+message AnniversaryNodeShort {
+    System_UInt32 node_id = 1;
+    proto_ELimitedEvent_NodeStatus status = 2;
+    System_UInt32 unlocked_timestamp = 3;
+    System_UInt64 materials_progress = 4;
+}
+
+// Message: proto.CSGetAnniversaryNodesInfoRes
+message CSGetAnniversaryNodesInfoRes {
+    repeated proto_AnniversaryNodeShort nodes = 1;
+}
+
+// Message: proto.CSClaimAnniversaryRewardsRes
+message CSClaimAnniversaryRewardsRes {
+    proto_AwardData awards = 1;
+}
+
+// Message: proto.CSGetLimitedEventStoreRes
+message CSGetLimitedEventStoreRes {
+    repeated proto_LimitedEventStore limited_event_stores = 1;
+}
+
+// Message: proto.LimitedEventStore
+message LimitedEventStore {
+    proto_BigEventStoreDesc store_desc = 1;
+    repeated proto_BigEventStoreCommodityDesc store_commodities = 2;
+}
+
+// Message: proto.CSLimitedEventStorePurchaseReq
+message CSLimitedEventStorePurchaseReq {
+    System_UInt32 event_id = 1;
+    System_UInt32 store_id = 2;
+    System_UInt32 sku_id = 3;
+    System_UInt32 cnt = 4;
+    System_UInt32 currency_id = 5;
+    System_UInt32 currency_price = 6;
+}
+
+// Message: proto.CSLimitedEventStorePurchaseRes
+message CSLimitedEventStorePurchaseRes {
+    proto_ExchangeChangeData data = 1;
+}
+
+// Message: proto.CSGetLimitedEventOpenInfoRes
+message CSGetLimitedEventOpenInfoRes {
+    repeated proto_BigEventOpenInfoDesc open_infos = 1;
+    repeated proto_BigEventCDNDesc cdns = 2;
+    repeated proto_BigEventEntryDesc entries = 3;
+    repeated proto_BigEventEntranceSettingDesc entrances = 4;
+    repeated proto_BigEventMovieDesc movies = 5;
+}
+
+// Message: proto.CSGetRampageSettingRes
+message CSGetRampageSettingRes {
+    proto_RampageSettingDesc setting = 1;
+}
+
+// Message: proto.CSGetAnniversarySettingRes
+message CSGetAnniversarySettingRes {
+    proto_AnniversarySettingDesc setting = 1;
+}
+
+// Message: proto.CSGetProcessRampagePointsRes
+message CSGetProcessRampagePointsRes {
+    repeated proto_RampagePoints rampage_points = 1;
+}
+
+// Message: proto.RampagePoints
+message RampagePoints {
+    proto_ELimitedEvent_RampageFaction faction = 1;
+    System_UInt64 points = 2;
+}
+
+// Message: proto.CSGetPlayerRampageInfoRes
+message CSGetPlayerRampageInfoRes {
+    System_UInt64 account_id = 1;
+    proto_ELimitedEvent_RampageFaction faction = 2;
+    System_UInt64 rampage_points = 3;
+    System_UInt32 rampage_rank = 4;
+}
+
+// Message: proto.CSChooseFactionReq
+message CSChooseFactionReq {
+    proto_ELimitedEvent_RampageFaction faction = 1;
+}
+
+// Message: proto.CSChooseFactionRes
+message CSChooseFactionRes {
+    System_UInt64 account_id = 1;
+    proto_ELimitedEvent_RampageFaction faction = 2;
+}
+
+// Message: proto.CSGetRampageRankRes
+message CSGetRampageRankRes {
+    repeated proto_RampageRankDesc rampage_ranks = 1;
+}
+
+// Message: proto.CSGetRampageConfigRes
+message CSGetRampageConfigRes {
+    proto_CSGetRampageSettingRes rampage_setting = 1;
+    proto_CSGetProcessRampagePointsRes process_rampage_points = 2;
+    proto_CSGetRampageRankRes rampage_rank = 3;
+}
+
+// Message: proto.CSAccelerateCashPrinterByTokenReq
+message CSAccelerateCashPrinterByTokenReq {
+    System_UInt32 cost_token_cnt = 1;
+}
+
+// Message: proto.CSAccelerateCashPrinterByTokenRes
+message CSAccelerateCashPrinterByTokenRes {
+    System_UInt32 deposit = 1;
+    System_UInt32 current_speed_from_tokens = 2;
+    System_UInt32 speed_change_time = 3;
+}
+
+// Message: proto.CSAddMoneyHeistHelpReq
+message CSAddMoneyHeistHelpReq {
+    System_UInt64 be_helped_id = 1;
+}
+
+// Message: proto.CSGetCollectTokenInfoRes
+message CSGetCollectTokenInfoRes {
+    repeated proto_LdcpTokenDesc desc = 1;
+    System_UInt32 collected_tokens = 2;
+}
+
+// Message: proto.CSGetMoneyHeistRewardsReq
+message CSGetMoneyHeistRewardsReq {
+    System_UInt32 money_sum = 1;
+}
+
+// Message: proto.CSGetMoneyHeistRewardsRes
+message CSGetMoneyHeistRewardsRes {
+    repeated proto_AwardDesc award_goods = 1;
+}
+
+// Message: proto.CSGetMoneyHeistInfoRes
+message CSGetMoneyHeistInfoRes {
+    System_UInt32 speed_from_friend = 1;
+    System_UInt32 speed_from_task = 2;
+    System_UInt32 speed_from_tokens = 3;
+    repeated System_UInt32 rewarded = 4;
+    repeated System_UInt64 help_other = 5;
+    repeated proto_HelpPlayer be_helped = 6;
+    System_UInt32 deposit = 7;
+    System_UInt32 speed_change_time = 8;
+    System_Int64 reset_time = 9;
+}
+
+// Message: proto.HelpPlayer
+message HelpPlayer {
+    System_UInt64 account_id = 1;
+    System_String nickname = 2;
+}
+
+// Message: proto.CSGetMoneyHeistDescRes
+message CSGetMoneyHeistDescRes {
+    repeated proto_MoneyHeistAward money_heist_award = 1;
+}
+
+// Message: proto.MoneyHeistAward
+message MoneyHeistAward {
+    System_UInt32 money = 1;
+    System_Boolean big_one = 2;
+    repeated proto_AwardDesc awards = 3;
+}
+
+// Message: proto.CSGetWeaponSkinOpenTimeRes
+message CSGetWeaponSkinOpenTimeRes {
+    repeated proto_WeaponSkinOpenTimeDesc weapon_skin_open_time_desc = 1;
+}
+
+// Message: proto.CSGetWeaponSkinUpgradeReq
+message CSGetWeaponSkinUpgradeReq {
+    repeated System_UInt32 weapon_skin = 1;
+}
+
+// Message: proto.CSGetWeaponSkinUpgradeRes
+message CSGetWeaponSkinUpgradeRes {
+    repeated proto_WeaponSkinUpgradeDesc weapon_skin_upgrade_desc = 1;
+}
+
+// Message: proto.CSUpgradeWeaponSkinReq
+message CSUpgradeWeaponSkinReq {
+    System_UInt32 weapon_skin = 1;
+    System_UInt32 weapon_id = 2;
+}
+
+// Message: proto.CSUpgradeWeaponSkinRes
+message CSUpgradeWeaponSkinRes {
+    System_UInt32 next_weapon_skin = 1;
+    System_UInt32 reward_item = 2;
+}
+
+// Message: proto.CSGetBooyahDaySettingRes
+message CSGetBooyahDaySettingRes {
+    proto_BooyahDaySettingDesc setting = 1;
+    repeated proto_BigEventTokenTipsDesc exchange_token_tips = 2;
+    repeated proto_BigEventTokenTipsDesc sugar_token_tips = 3;
+    repeated proto_BooyahDayProcessRewardDesc process_reward_info = 4;
+    repeated proto_BigEventProcessSettingDesc process_setting = 5;
+    repeated proto_BooyahDaySignInDesc sign_in = 6;
+}
+
+// Message: proto.CSGetBooyahDayInfoRes
+message CSGetBooyahDayInfoRes {
+    repeated System_UInt32 process = 1;
+    System_UInt32 is_sign_in = 2;
+}
+
+// Message: proto.CSClaimBooyahDayProcessRewardsReq
+message CSClaimBooyahDayProcessRewardsReq {
+    System_UInt32 process_id = 1;
+}
+
+// Message: proto.CSClaimBooyahDayProcessRewardsRes
+message CSClaimBooyahDayProcessRewardsRes {
+    proto_AwardData awards = 1;
+}
+
+// Message: proto.CSBooyahDaySignInReq
+message CSBooyahDaySignInReq {
+    System_UInt32 sign_id = 1;
+}
+
+// Message: proto.CSBooyahDaySignInRes
+message CSBooyahDaySignInRes {
+    proto_AwardData awards = 1;
+}
+
+// Message: proto.CSGetBooyahDayLeaderboardAwardDescRes
+message CSGetBooyahDayLeaderboardAwardDescRes {
+    repeated proto_BooyahDayLeaderboardRewardDesc game_leaderboard_awards = 1;
+    repeated proto_BooyahDayLeaderboardRewardDesc chess_leaderboard_awards = 2;
+}
+
+// Message: proto.CSGetBountySettingRes
+message CSGetBountySettingRes {
+    proto_BountySettingDesc setting = 1;
+    repeated proto_BigEventTokenTipsDesc exchange_token_tips = 2;
+    repeated proto_BountyPlayerRatingDesc player_ratings = 3;
+}
+
+// Message: proto.CSGetBountyWarmUpStatusRes
+message CSGetBountyWarmUpStatusRes {
+    System_UInt32 percent = 1;
+}
+
+// Message: proto.CSGetBountyInfoRes
+message CSGetBountyInfoRes {
+    System_UInt64 main_percent = 1;
+    System_UInt64 popularity = 2;
+    System_UInt32 bounty_tokens = 3;
+}
+
+// Message: proto.BermudaRewardInfo
+message BermudaRewardInfo {
+    System_UInt32 group_id = 1;
+    System_UInt32 id = 2;
+}
+
+// Message: proto.CSGetBermudaInfoRes
+message CSGetBermudaInfoRes {
+    repeated proto_BermudaRewardInfo bermuda_reward_info = 1;
+}
+
+// Message: proto.CSGetBermudaSettingsRes
+message CSGetBermudaSettingsRes {
+    proto_BermudaSettingsDesc bermuda_settings_desc = 1;
+    repeated proto_BermudaAwardDesc bermuda_awards = 2;
+    repeated proto_BermudaIntroDesc bermuda_intro_desc = 3;
+}
+
+// Message: proto.CSClaimBermudaAwardReq
+message CSClaimBermudaAwardReq {
+    System_UInt32 group_id = 1;
+    System_UInt32 id = 2;
+}
+
+// Message: proto.CSClaimBermudaAwardRes
+message CSClaimBermudaAwardRes {
+    proto_AwardData awards = 1;
+}
+
+// Message: proto.CSGetGoliathSettingRes
+message CSGetGoliathSettingRes {
+    proto_GoliathSettingDesc desc = 1;
+    repeated proto_GoliathAFKTaskDesc task_list = 2;
+}
+
+// Message: proto.GoliathAFKGroupInfo
+message GoliathAFKGroupInfo {
+    System_UInt64 group_id = 1;
+    System_UInt64 captain_id = 2;
+    repeated proto_GoliathAFKGroupMember members = 3;
+    System_UInt32 task_id = 4;
+    System_Int64 start_time_stamp = 5;
+    System_Int64 create_time_stamp = 6;
+}
+
+// Message: proto.GoliathAFKGroupMember
+message GoliathAFKGroupMember {
+    System_UInt64 account_id = 1;
+    System_String nickname = 2;
+    System_Boolean award_claimed = 3;
+}
+
+// Message: proto.CSGetAccountGoliathInfo
+message CSGetAccountGoliathInfo {
+    repeated proto_GoliathAFKGroupInfo group_list = 1;
+    System_UInt32 activity_id = 2;
+}
+
+// Message: proto.CSGetGoliathAFKGroupInfoReq
+message CSGetGoliathAFKGroupInfoReq {
+    System_UInt64 group_id = 1;
+    System_Boolean before_start = 2;
+}
+
+// Message: proto.CSGetGoliathAFKGroupInfoRes
+message CSGetGoliathAFKGroupInfoRes {
+    proto_GoliathAFKGroupInfo group_info = 1;
+}
+
+// Message: proto.CSCreateGoliathAFKGroupRes
+message CSCreateGoliathAFKGroupRes {
+    proto_GoliathAFKGroupInfo group_info = 1;
+}
+
+// Message: proto.CSJoinGoliathAFKGroupReq
+message CSJoinGoliathAFKGroupReq {
+    System_UInt64 group_id = 1;
+    proto_ELimitedEvent_GoliathGroupJoinSource source = 2;
+}
+
+// Message: proto.CSJoinGoliathAFKGroupRes
+message CSJoinGoliathAFKGroupRes {
+    proto_GoliathAFKGroupInfo group_info = 1;
+}
+
+// Message: proto.CSOpenGoliathAFKGroupActivityReq
+message CSOpenGoliathAFKGroupActivityReq {
+    System_String language = 1;
+}
+
+// Message: proto.CSOpenGoliathAFKGroupActivityRes
+message CSOpenGoliathAFKGroupActivityRes {
+    System_UInt32 activity_id = 1;
+}
+
+// Message: proto.CSClaimGoliathAFKGroupAwardsReq
+message CSClaimGoliathAFKGroupAwardsReq {
+    System_UInt64 group_id = 1;
+    System_String language = 2;
+}
+
+// Message: proto.CSClaimGoliathAFKGroupAwardsRes
+message CSClaimGoliathAFKGroupAwardsRes {
+    proto_AwardData awards = 1;
+}
+
+// Message: proto.CSGetSuperFighterSettingRes
+message CSGetSuperFighterSettingRes {
+    proto_SuperFighterSettingDesc setting_desc = 1;
+    repeated proto_SuperFighterBoxingDesc boxing_descs = 2;
+    repeated proto_SuperFighterEnemyDesc enemy_descs = 3;
+}
+
+// Message: proto.CSAccountSuperFighterInfo
+message CSAccountSuperFighterInfo {
+    System_UInt32 win_round = 1;
+    System_UInt32 enemy_stage = 2;
+    System_UInt32 player_health = 3;
+    System_UInt32 enemy_health = 4;
+}
+
+// Message: proto.CSSuperFighterAttackReq
+message CSSuperFighterAttackReq {
+    proto_ELimitedEvent_SuperFighterManner manner = 1;
+}
+
+// Message: proto.CSSuperFighterAttackRes
+message CSSuperFighterAttackRes {
+    System_UInt32 player_damage = 1;
+    proto_ELimitedEvent_SuperFighterManner enemy_manner = 2;
+    System_UInt32 enemy_damage = 3;
+    proto_ELimitedEvent_SuperFighterResult result = 4;
+    System_Boolean is_big_reward = 5;
+    proto_AwardDesc reward = 6;
+}
+
+// Message: proto.CSHelpToAccelerateSupercarReq
+message CSHelpToAccelerateSupercarReq {
+    System_UInt32 car_id = 1;
+    System_String helper_name = 2;
+    System_UInt64 helpee_id = 3;
+}
+
+// Message: proto.CSTokenToAccelerateSupercarReq
+message CSTokenToAccelerateSupercarReq {
+    System_UInt32 cnt = 1;
+}
+
+// Message: proto.CSClaimSupercarRewardsReq
+message CSClaimSupercarRewardsReq {
+    System_UInt32 round_num = 1;
+}
+
+// Message: proto.CSGetSupercarSettingRes
+message CSGetSupercarSettingRes {
+    proto_SupercarSettingDesc supercar_setting = 1;
+    repeated proto_SupercarSpeedDesc cars = 2;
+    repeated proto_SupercarRoundAward awards = 3;
+}
+
+// Message: proto.CSGetSupercarInfoRes
+message CSGetSupercarInfoRes {
+    System_UInt32 car_id = 1;
+    System_UInt32 exchange_tokens = 2;
+    System_UInt32 rewarded_to = 3;
+    repeated proto_SupercarHelpPlayer helpers = 4;
+    System_UInt32 drive_sum = 5;
+    System_Int64 update_time = 6;
+    System_Int64 next_reset_time = 7;
+}
+
+// Message: proto.CSTokenToAccelerateSupercarRes
+message CSTokenToAccelerateSupercarRes {
+    System_UInt32 drive_sum = 1;
+    System_UInt32 cur_exchange_tokens = 2;
+    System_Int64 speed_change_time = 3;
+}
+
+// Message: proto.CSClaimSupercarRewardsRes
+message CSClaimSupercarRewardsRes {
+    proto_AwardDesc award = 1;
+}
+
+// Message: proto.CSSupercarChangeCarReq
+message CSSupercarChangeCarReq {
+    System_UInt32 car_id = 1;
+}
+
+// Message: proto.CSSupercarChangeCarRes
+message CSSupercarChangeCarRes {
+    System_UInt32 drive_sum = 1;
+    System_Int64 speed_change_time = 2;
+}
+
+// Message: proto.CSGetSutoritoSettingRes
+message CSGetSutoritoSettingRes {
+    proto_SutoritoSettingDesc setting_desc = 1;
+    repeated proto_SutoritoBoxingDesc boxing_descs = 2;
+    repeated proto_SutoritoEnemyDesc enemy_descs = 3;
+}
+
+// Message: proto.CSAccountSutoritoInfo
+message CSAccountSutoritoInfo {
+    System_UInt32 win_round = 1;
+    System_UInt32 enemy_stage = 2;
+    System_UInt32 player_health = 3;
+    System_UInt32 enemy_health = 4;
+    proto_ELimitedEvent_SutoritoCharacter character = 5;
+}
+
+// Message: proto.CSSutoritoAttackReq
+message CSSutoritoAttackReq {
+    proto_ELimitedEvent_SutoritoManner manner = 1;
+}
+
+// Message: proto.CSSutoritoAttackRes
+message CSSutoritoAttackRes {
+    System_UInt32 player_damage = 1;
+    proto_ELimitedEvent_SutoritoManner enemy_manner = 2;
+    System_UInt32 enemy_damage = 3;
+    proto_ELimitedEvent_SutoritoResult result = 4;
+    System_Boolean is_big_reward = 5;
+    proto_AwardDesc reward = 6;
+}
+
+// Message: proto.CSSutoritoChooseReq
+message CSSutoritoChooseReq {
+    proto_ELimitedEvent_SutoritoCharacter character = 1;
+}
+
+// Message: proto.CSFourSymbolsRoadAdvanceReq
+message CSFourSymbolsRoadAdvanceReq {
+    proto_ELimitedEvent_FourSymbolsID symbol_id = 1;
+}
+
+// Message: proto.CSFourSymbolsRoadAdvanceRes
+message CSFourSymbolsRoadAdvanceRes {
+    proto_ELimitedEvent_FourSymbolsID symbol_id = 1;
+    System_UInt32 node_id = 2;
+}
+
+// Message: proto.CSGetFourSymbolsRoadInfoRes
+message CSGetFourSymbolsRoadInfoRes {
+    System_UInt64 account_id = 1;
+    System_UInt32 azure_dragon_node = 2;
+    System_UInt32 white_tiger_node = 3;
+    System_UInt32 black_tortoise_node = 4;
+    System_UInt32 vermillion_bird_node = 5;
+    System_Boolean big_prize_claimed = 6;
+}
+
+// Message: proto.CSHoodedkillerBAssassinateReq
+message CSHoodedkillerBAssassinateReq {
+    System_UInt32 target_id = 1;
+    proto_ELimitedEvent_HoodedkillerBWeaponType weapon_type = 2;
+}
+
+// Message: proto.CSHoodedkillerBAssassinateRes
+message CSHoodedkillerBAssassinateRes {
+    System_UInt32 sword_times = 1;
+    System_UInt32 sleeve_arrow_times = 2;
+    System_Int64 escaped_time = 3;
+    System_Boolean is_dead = 4;
+    proto_ExchangeChangeData exchange_change_data = 5;
+}
+
+// Message: proto.HoodedkillerBAssassinateInfo
+message HoodedkillerBAssassinateInfo {
+    System_UInt32 target_id = 1;
+    System_UInt32 sword_times = 2;
+    System_UInt32 sleeve_arrow_times = 3;
+    System_Int64 success_at = 4;
+    System_Boolean is_dead = 5;
+}
+
+// Message: proto.HoodedkillerBAssassinateInfos
+message HoodedkillerBAssassinateInfos {
+    repeated proto_HoodedkillerBAssassinateInfo assassinate_infos = 1;
+}
+
+// Message: proto.CSGetHoodedkillerBSettingRes
+message CSGetHoodedkillerBSettingRes {
+    proto_HoodedkillerBSettingDesc setting = 1;
+    repeated proto_HoodedkillerBMissionDesc missions = 2;
+    repeated proto_HoodedkillerBTargetResourceDesc resources = 3;
+    repeated proto_HoodedkillerBRewardDesc rewards = 4;
+}
+
+// Message: proto.CSGetHoodedkillerBInfoRes
+message CSGetHoodedkillerBInfoRes {
+    repeated proto_HoodedkillerBAssassinateInfo assassinate_infos = 1;
+}
+

@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+// Categoria: 33_client_info
+// Total: 3 segments
+
+// Enum: enum proto.EClientInfo.ChannelType
+enum ChannelType {
+    ChannelType_GP = 3;
+    ChannelType_SAMSUNG = 5;
+    ChannelType_THIRDPARTY = 6;
+    ChannelType_DEV = 0;
+    ChannelType_TRAIL = 1;
+    ChannelType_HUAWEI = 4;
+    ChannelType_MAX = 2;
+}
+
+// Enum: enum proto.EClientInfo.Architecture
+enum Architecture {
+    Architecture_ARM64 = 2;
+    Architecture_X86 = 3;
+    Architecture_None = 0;
+    Architecture_ARM = 1;
+}
+
+// Message: proto.EClientInfo
+message EClientInfo {
+    // Sem campos definidos no dump
+}
+

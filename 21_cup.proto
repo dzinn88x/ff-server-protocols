@@ -1,0 +1,355 @@
+syntax = "proto3";
+
+// Categoria: 21_cup
+// Total: 48 segments
+
+// Message: proto.ECup
+message ECup {
+    // Sem campos definidos no dump
+}
+
+// Message: proto.CSGetAllCupConfigReq
+message CSGetAllCupConfigReq {
+    System_String language = 1;
+}
+
+// Message: proto.CSGetCupConfigReq
+message CSGetCupConfigReq {
+    System_UInt32 cup_type = 1;
+    System_UInt32 cup_id = 2;
+    System_String language = 3;
+}
+
+// Message: proto.CSGetAllCupConfigRes
+message CSGetAllCupConfigRes {
+    repeated proto_CSGetCupConfigRes settings = 1;
+    proto_CupTeamDesc team_setting = 2;
+    proto_CupRuleDesc rule = 3;
+}
+
+// Message: proto.CSGetCupConfigRes
+message CSGetCupConfigRes {
+    proto_CupOpenInfoDesc open_info = 1;
+    proto_CupSettingDesc cup_setting = 2;
+    repeated proto_CupTierDesc tiers = 3;
+    proto_CupCDNSettingDesc cdn_setting = 4;
+    repeated proto_CupNameOverwriteDesc name_overwrite = 5;
+    repeated proto_CupChestDesc chests = 6;
+    System_Boolean is_in_blocklist = 7;
+}
+
+// Message: proto.CSGetAccountCupInfoReq
+message CSGetAccountCupInfoReq {
+    System_UInt32 cup_type = 1;
+    System_UInt32 cup_id = 2;
+}
+
+// Message: proto.CSAccountCupInfoBundleRes
+message CSAccountCupInfoBundleRes {
+    repeated proto_CSAccountCupInfoRes account_infos = 1;
+}
+
+// Message: proto.CSAccountCupInfoRes
+message CSAccountCupInfoRes {
+    System_UInt64 account_id = 1;
+    System_UInt32 cup_type = 2;
+    System_UInt32 cup_id = 3;
+    System_UInt32 tier = 4;
+    proto_CupTeamInfo team_info = 5;
+    System_UInt64 team_id = 6;
+    System_Boolean award_claimed = 7;
+    System_Boolean use_ticket = 8;
+    System_UInt32 member_type = 9;
+    System_UInt64 join_at = 10;
+}
+
+// Message: proto.CSInitAccountCupInfoRes
+message CSInitAccountCupInfoRes {
+    repeated proto_CSAccountCupInfoRes infos = 1;
+}
+
+// Message: proto.CupPlayerMatchStats
+message CupPlayerMatchStats {
+    System_UInt32 assists = 1;
+    System_UInt32 cup_type = 2;
+    System_UInt32 deaths = 3;
+    System_UInt32 mvp_count = 4;
+    System_UInt32 kills = 5;
+    System_UInt32 double_kills = 6;
+    System_UInt32 triple_kills = 7;
+    System_UInt32 four_kills = 8;
+    System_UInt32 damage = 9;
+    System_UInt32 head_shot_kills = 10;
+    System_UInt32 knock_downs = 11;
+    System_UInt32 revivals = 12;
+}
+
+// Message: proto.CSGetAccountCupInfoBundleByAccountIDsOrderlyReq
+message CSGetAccountCupInfoBundleByAccountIDsOrderlyReq {
+    System_UInt32 cup_type = 1;
+    System_UInt32 cup_id = 2;
+    repeated System_UInt64 account_ids = 3;
+    System_Boolean need_team_info = 4;
+}
+
+// Message: proto.CupBattleRecord
+message CupBattleRecord {
+    System_UInt64 team_id = 1;
+    System_Boolean win = 2;
+    System_String name = 3;
+    System_UInt32 head_pic = 4;
+}
+
+// Message: proto.CSCreateCupTeamReq
+message CSCreateCupTeamReq {
+    System_UInt32 cup_type = 1;
+    System_UInt32 cup_id = 2;
+    System_String team_name = 3;
+    System_String country_or_area = 4;
+    System_UInt32 head_pic = 5;
+    System_UInt32 banner_id = 6;
+}
+
+// Message: proto.CSCreateCupTeamRes
+message CSCreateCupTeamRes {
+    System_UInt64 team_id = 1;
+}
+
+// Message: proto.CSGetCupTeamMemberByMemberIDReq
+message CSGetCupTeamMemberByMemberIDReq {
+    System_UInt32 cup_type = 1;
+    System_UInt32 cup_id = 2;
+}
+
+// Message: proto.CSCupTeamIDReq
+message CSCupTeamIDReq {
+    System_UInt64 team_id = 1;
+}
+
+// Message: proto.CSGetCupTeamInfoByTeamIDReq
+message CSGetCupTeamInfoByTeamIDReq {
+    System_UInt64 team_id = 1;
+}
+
+// Message: proto.CSCupTeamIDSliceReq
+message CSCupTeamIDSliceReq {
+    repeated System_UInt64 team_ids = 1;
+}
+
+// Message: proto.CSGetAccountCupMatchInfoReq
+message CSGetAccountCupMatchInfoReq {
+    System_UInt32 cup_type = 1;
+    System_UInt32 cup_id = 2;
+}
+
+// Message: proto.CSJoinCupTeamReq
+message CSJoinCupTeamReq {
+    System_UInt64 team_id = 1;
+    System_Boolean recruit_by_chat = 2;
+}
+
+// Message: proto.CSApproveJoinCupTeamApplicationReq
+message CSApproveJoinCupTeamApplicationReq {
+    System_UInt64 applicant_id = 1;
+    System_UInt64 team_id = 2;
+}
+
+// Message: proto.CSDeclineJoinCupTeamApplicationReq
+message CSDeclineJoinCupTeamApplicationReq {
+    repeated System_UInt64 applicant_ids = 1;
+    System_UInt64 team_id = 2;
+}
+
+// Message: proto.CSInviteToCupTeamReq
+message CSInviteToCupTeamReq {
+    System_UInt64 team_id = 1;
+    System_UInt64 invitee_id = 2;
+}
+
+// Message: proto.CSGetCupTeamInvitationListReq
+message CSGetCupTeamInvitationListReq {
+    System_UInt32 cup_type = 1;
+    System_UInt32 cup_id = 2;
+}
+
+// Message: proto.CSRemoveCupTeamMemberReq
+message CSRemoveCupTeamMemberReq {
+    System_UInt64 team_id = 1;
+    System_UInt64 removee_id = 2;
+}
+
+// Message: proto.CSQuitCupTeamReq
+message CSQuitCupTeamReq {
+    System_UInt64 team_id = 1;
+}
+
+// Message: proto.CSModifyCupTeamInfoReq
+message CSModifyCupTeamInfoReq {
+    System_UInt64 team_id = 1;
+    System_String team_name = 2;
+    System_String country_or_area = 3;
+    System_UInt32 head_pic = 4;
+    System_UInt32 banner_id = 5;
+}
+
+// Message: proto.CSDismissCupTeamReq
+message CSDismissCupTeamReq {
+    System_UInt64 team_id = 1;
+}
+
+// Message: proto.CSDeclineInviteToCupTeamReq
+message CSDeclineInviteToCupTeamReq {
+    repeated System_UInt64 inviter_ids = 1;
+    System_UInt32 cup_type = 2;
+    System_UInt32 cup_id = 3;
+}
+
+// Message: proto.CSApproveInviteToCupTeamReq
+message CSApproveInviteToCupTeamReq {
+    System_UInt64 team_id = 1;
+    System_UInt64 inviter_id = 2;
+}
+
+// Message: proto.CSCupTeamInvitationList
+message CSCupTeamInvitationList {
+    repeated proto_CupTeamInvitationRes cup_team_invitation_list = 1;
+}
+
+// Message: proto.CupTeamInvitationRes
+message CupTeamInvitationRes {
+    System_UInt64 account_id = 1;
+    System_UInt32 tier = 2;
+    System_UInt64 team_id = 3;
+    System_UInt32 cup_type = 4;
+    System_UInt32 cup_id = 5;
+    System_UInt64 inviter_id = 6;
+    System_UInt64 create_at = 7;
+}
+
+// Message: proto.CSCupTeamApplicantList
+message CSCupTeamApplicantList {
+    repeated proto_CupTeamApplicantRes cup_team_applicant_list = 1;
+}
+
+// Message: proto.CupTeamApplicantRes
+message CupTeamApplicantRes {
+    System_UInt64 applicant_id = 1;
+    System_UInt32 tier = 2;
+    System_UInt64 cup_team_id = 3;
+    System_UInt64 create_at = 4;
+}
+
+// Message: proto.CSGetCupTeamInfoByTeamIDsOrderlyRes
+message CSGetCupTeamInfoByTeamIDsOrderlyRes {
+    repeated proto_CupTeamInfo infos = 1;
+}
+
+// Message: proto.CSGetCupTeamInvitationListRes
+message CSGetCupTeamInvitationListRes {
+    proto_AccountInfoBasicBundleRes members_info = 1;
+    proto_CSCupTeamInvitationList members_cup_info = 2;
+}
+
+// Message: proto.CSGetCupTeamApplicantListRes
+message CSGetCupTeamApplicantListRes {
+    proto_AccountInfoBasicBundleRes members_info = 1;
+    proto_CSCupTeamApplicantList members_cup_info = 2;
+}
+
+// Message: proto.CSCupTeamMemberListWithAccountInfo
+message CSCupTeamMemberListWithAccountInfo {
+    repeated proto_CupTeamMemberWithAccountInfo member_list = 1;
+}
+
+// Message: proto.CupTeamMemberWithAccountInfo
+message CupTeamMemberWithAccountInfo {
+    proto_AccountInfoBasic basic_info = 1;
+    proto_CSAccountCupInfoRes cup_info = 2;
+}
+
+// Message: proto.CupTeamInfo
+message CupTeamInfo {
+    System_UInt64 team_id = 1;
+    System_UInt32 cup_type = 2;
+    System_UInt32 cup_id = 3;
+    System_UInt32 tier = 4;
+    System_String team_name = 5;
+    System_String country_or_area = 6;
+    System_UInt32 head_pic = 7;
+    System_UInt32 banner_id = 8;
+    repeated proto_CupBattleRecord records = 9;
+    System_Boolean is_locked = 10;
+    System_UInt64 captain_id = 11;
+    System_UInt32 member_num = 12;
+    System_UInt32 win_count = 13;
+    repeated System_Boolean battle_record = 14;
+}
+
+// Message: proto.CSVerifyAndLockCupTeamReq
+message CSVerifyAndLockCupTeamReq {
+    System_UInt32 cup_type = 1;
+    System_UInt32 cup_id = 2;
+    repeated System_UInt64 member_account_ids = 3;
+}
+
+// Message: proto.SubmitTeamCupMatchStatsReq
+message SubmitTeamCupMatchStatsReq {
+    System_UInt64 match_id = 1;
+    System_String lock_region = 2;
+    System_String noti_region = 3;
+    proto_CupMatchStats stats = 4;
+}
+
+// Message: proto.CSClaimCupRewardReq
+message CSClaimCupRewardReq {
+    System_UInt32 cup_type = 1;
+    System_UInt32 cup_id = 2;
+}
+
+// Message: proto.CSClaimCupRewardRes
+message CSClaimCupRewardRes {
+    proto_ExchangeChangeData data = 1;
+}
+
+// Message: proto.CSToggleCupTicketReq
+message CSToggleCupTicketReq {
+    System_UInt32 cup_type = 1;
+    System_UInt32 cup_id = 2;
+}
+
+// Message: proto.AccountCupMatchInfo
+message AccountCupMatchInfo {
+    repeated proto_AccountTypedCupMatchInfo infos = 1;
+    System_UInt32 limited_level = 2;
+    System_UInt32 limited_rank = 3;
+    System_UInt32 upper_limited_level = 4;
+    System_UInt32 upper_limited_rank = 5;
+    System_UInt32 player_count_limit = 6;
+}
+
+// Message: proto.AccountTypedCupMatchInfo
+message AccountTypedCupMatchInfo {
+    System_UInt64 team_id = 1;
+    System_UInt32 cup_type = 2;
+    System_UInt32 cup_id = 3;
+    System_UInt32 tier = 4;
+    System_String team_name = 5;
+    System_String country_or_area = 6;
+    System_UInt32 head_pic = 7;
+    System_UInt32 banner_id = 8;
+    System_Boolean is_locked = 9;
+    System_UInt64 captain_id = 10;
+    System_UInt32 member_num = 11;
+    System_UInt32 win_count = 12;
+    repeated System_UInt64 member_ids = 13;
+    System_Boolean is_qualified = 14;
+    repeated System_Boolean battle_record = 15;
+}
+
+// Message: proto.CupMatchStats
+message CupMatchStats {
+    System_UInt64 team_id = 1;
+    System_UInt64 opponent_id = 2;
+    System_Boolean win = 3;
+}
+

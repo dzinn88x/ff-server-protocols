@@ -1,0 +1,408 @@
+syntax = "proto3";
+
+// Categoria: 02_account
+// Total: 39 segments
+
+// Message: proto.AccountInfoBasic
+message AccountInfoBasic {
+    System_UInt64 account_id = 1;
+    System_UInt32 account_type = 2;
+    System_String nickname = 3;
+    System_String external_id = 4;
+    System_String region = 5;
+    System_UInt32 level = 6;
+    System_UInt32 exp = 7;
+    System_UInt32 external_type = 8;
+    System_String external_name = 9;
+    System_String external_icon = 10;
+    System_UInt32 banner_id = 11;
+    System_UInt32 head_pic = 12;
+    System_String clan_name = 13;
+    System_UInt32 rank = 14;
+    System_UInt32 ranking_points = 15;
+    System_UInt32 role = 16;
+    System_Boolean has_elite_pass = 17;
+    System_UInt32 badge_cnt = 18;
+    System_UInt32 badge_id = 19;
+    System_UInt32 season_id = 20;
+    System_UInt32 liked = 21;
+    System_Boolean is_deleted = 22;
+    System_Boolean show_rank = 23;
+    System_Int64 last_login_at = 24;
+    System_UInt64 external_uid = 25;
+    System_Int64 return_at = 26;
+    System_String championship_team_name = 27;
+    System_UInt32 championship_team_member_num = 28;
+    System_UInt64 championship_team_id = 29;
+    System_UInt32 cs_rank = 30;
+    System_UInt32 cs_ranking_points = 31;
+    repeated System_UInt32 weapon_skin_shows = 32;
+    System_UInt32 pin_id = 33;
+    System_Boolean is_cs_ranking_ban = 34;
+    System_UInt32 max_rank = 35;
+    System_UInt32 cs_max_rank = 36;
+    System_UInt32 max_ranking_points = 37;
+    System_UInt32 game_bag_show = 38;
+    System_UInt32 peak_rank_pos = 39;
+    System_UInt32 cs_peak_rank_pos = 40;
+    proto_AccountPrefers account_prefers = 41;
+    System_UInt32 periodic_ranking_points = 42;
+    System_UInt32 periodic_rank = 43;
+}
+
+// Message: proto.AccountInfoWithStats
+message AccountInfoWithStats {
+    System_UInt64 account_id = 1;
+    System_UInt32 games_played = 2;
+    System_UInt32 wins = 3;
+    System_UInt32 kills = 4;
+    System_String detailed_stats = 5;
+    System_Boolean is_cs_ranking = 6;
+}
+
+// Message: proto.AccountInfoWithPresence
+message AccountInfoWithPresence {
+    System_UInt64 account_id = 1;
+    System_UInt32 account_type = 2;
+    System_String nickname = 3;
+    System_String external_id = 4;
+    System_String external_name = 5;
+    System_String region = 6;
+    System_String portrait = 7;
+    System_UInt32 level = 8;
+    System_UInt32 exp = 9;
+    System_Int64 update_time = 10;
+    proto_AccountInfoWithStats solo_stats = 11;
+    proto_AccountInfoWithStats duo_stats = 12;
+    proto_AccountInfoWithStats quad_stats = 13;
+    System_UInt32 external_type = 14;
+    proto_AccountInfoWithStats solo_ranking_stats = 15;
+    proto_AccountInfoWithStats duo_ranking_stats = 16;
+    proto_AccountInfoWithStats quad_ranking_stats = 17;
+    System_UInt32 rank = 18;
+    System_UInt32 ranking_points = 19;
+    proto_AccountInfoWithStats solo_casual_stats = 20;
+    proto_AccountInfoWithStats duo_casual_stats = 21;
+    proto_AccountInfoWithStats quad_casual_stats = 22;
+    System_UInt32 banner_id = 23;
+    System_UInt32 head_pic = 24;
+    System_String clan_name = 25;
+    System_Boolean has_elite_pass = 26;
+    System_UInt32 badge_cnt = 27;
+    System_UInt32 badge_id = 28;
+    System_Boolean is_deleted = 29;
+    System_Boolean show_rank = 30;
+    System_Int64 last_login_at = 31;
+    System_UInt64 external_uid = 32;
+    System_UInt32 role = 33;
+    System_String championship_team_name = 34;
+    System_UInt32 championship_team_member_num = 35;
+    System_UInt32 friend_intimacy = 36;
+    System_UInt64 championship_team_id = 37;
+    System_UInt32 cs_rank = 38;
+    System_UInt32 cs_ranking_points = 39;
+    System_UInt32 pin_id = 40;
+    proto_AccountInfoWithStats cs_ranking_stats = 41;
+    System_Boolean is_cs_ranking_ban = 42;
+    System_UInt32 peak_rank_pos = 43;
+    System_UInt32 cs_peak_rank_pos = 44;
+    System_UInt32 periodic_ranking_points = 45;
+    System_UInt32 periodic_rank = 46;
+}
+
+// Message: proto.AccountPrefers
+message AccountPrefers {
+    System_Boolean hide_my_lobby = 1;
+    repeated System_UInt32 pregame_show_choices = 2;
+}
+
+// Message: proto.AccountPresence
+message AccountPresence {
+    System_UInt64 account_id = 1;
+    System_String noti_region = 2;
+    proto_EPresence_AccountPresence presence = 3;
+    System_Int64 update_time = 4;
+    System_Int64 login_time = 5;
+    System_UInt64 group_id = 6;
+    System_String group_region = 7;
+    System_String lock_region = 8;
+    System_UInt32 match_mode = 9;
+    System_UInt32 game_mode = 10;
+    System_UInt32 map_id = 11;
+}
+
+// Message: proto.AccountNewsContent
+message AccountNewsContent {
+    repeated System_UInt32 item_ids = 1;
+    System_UInt32 rank = 2;
+    System_UInt32 match_mode = 3;
+    System_UInt32 map_id = 4;
+    System_UInt32 game_mode = 5;
+    System_UInt32 group_mode = 6;
+    System_UInt32 treasurebox_id = 7;
+    System_UInt32 commodity_id = 8;
+    System_UInt32 store_id = 9;
+}
+
+// Message: proto.AccountNews
+message AccountNews {
+    proto_EAccount_NewsType type = 1;
+    proto_AccountNewsContent content = 2;
+    System_Int64 update_time = 3;
+}
+
+// Message: proto.AccountBriefInfo
+message AccountBriefInfo {
+    proto_AccountInfoBasic basic_info = 1;
+    proto_SocialBasicInfo social_info = 2;
+}
+
+// Message: proto.AccountPersonalShowInfo
+message AccountPersonalShowInfo {
+    proto_AccountInfoBasic basic_info = 1;
+    proto_AvatarProfile profile_info = 2;
+    System_Int32 ranking_leaderboard_pos = 3;
+    repeated proto_AccountNews news = 4;
+    repeated proto_BasicEPInfo history_ep_info = 5;
+    proto_ClanInfoBasic clan_basic_info = 6;
+    proto_AccountInfoBasic captain_basic_info = 7;
+    proto_PetInfo pet_info = 8;
+    proto_SocialBasicInfo social_info = 9;
+    proto_DiamondCostRes diamond_cost_res = 10;
+}
+
+// Message: proto.AccountFriendRes
+message AccountFriendRes {
+    repeated proto_AccountInfoWithPresence friends = 1;
+    repeated System_UInt64 star_friends = 2;
+    repeated proto_FriendAliasInfo friends_alias_info = 3;
+}
+
+// Message: proto.AccountInfoWithSocialInfo
+message AccountInfoWithSocialInfo {
+    proto_AccountInfoBasic account_info_basic = 1;
+    proto_SocialBasicInfo social_basic_info = 2;
+}
+
+// Message: proto.AccountInfoWithPresenceAndSocialInfo
+message AccountInfoWithPresenceAndSocialInfo {
+    proto_AccountInfoWithPresence account_info_with_presence = 1;
+    proto_SocialBasicInfo social_basic_info = 2;
+}
+
+// Message: proto.AccountAntiAddictionInfo
+message AccountAntiAddictionInfo {
+    proto_EAntiAddiction_TotalTimeBanMode ban_mode = 1;
+    System_UInt32 unban_time = 2;
+}
+
+// Message: proto.AccountInfoWithStatsToClient
+message AccountInfoWithStatsToClient {
+    System_UInt64 account_id = 1;
+    System_UInt32 games_played = 2;
+    System_UInt32 wins = 3;
+    System_UInt32 kills = 4;
+    proto_PlayerDetailedStats detailed_stats = 5;
+}
+
+// Message: proto.AccountInfoWithTCStats
+message AccountInfoWithTCStats {
+    System_UInt64 account_id = 1;
+    System_UInt32 games_played = 2;
+    System_UInt32 wins = 3;
+    System_UInt32 kills = 4;
+    proto_DetailedTCStats detailed_stats = 5;
+}
+
+// Message: proto.CSGetAccountInfoReq
+message CSGetAccountInfoReq {
+    System_Int32 input_type = 1;
+    System_String input_value = 2;
+}
+
+// Message: proto.CSRegisterReq
+message CSRegisterReq {
+    System_String device_id = 1;
+    System_String nickname = 2;
+    System_String region = 3;
+    System_UInt32 avatar_id = 4;
+}
+
+// Message: proto.CSRegisterRes
+message CSRegisterRes {
+    System_Boolean success = 1;
+    System_String reason = 2;
+}
+
+// Message: proto.CSFbRegisterReq
+message CSFbRegisterReq {
+    System_String nickname = 1;
+    System_String input_token = 2;
+    System_String region = 3;
+    System_UInt32 avatar_id = 4;
+}
+
+// Message: proto.CSChooseRegionReq
+message CSChooseRegionReq {
+    System_String region = 1;
+}
+
+// Message: proto.CSChooseRegionRes
+message CSChooseRegionRes {
+    System_String region = 1;
+}
+
+// Message: proto.CSModifyNicknameReq
+message CSModifyNicknameReq {
+    System_String nickname = 1;
+    System_Boolean use_card = 2;
+}
+
+// Message: proto.CSModifyNicknameRes
+message CSModifyNicknameRes {
+    System_String nickname = 1;
+}
+
+// Message: proto.CSFuzzySearchAccountByNameReq
+message CSFuzzySearchAccountByNameReq {
+    System_String nickname = 1;
+}
+
+// Message: proto.AccountInfoBasicBundleRes
+message AccountInfoBasicBundleRes {
+    repeated proto_AccountInfoBasic infos = 1;
+}
+
+// Message: proto.CSGetAnniversaryNodesInfoReq
+message CSGetAnniversaryNodesInfoReq {
+    System_UInt64 account_id = 1;
+    System_String lock_region = 2;
+    System_String noti_region = 3;
+}
+
+// Message: proto.CSDelAccountReq
+message CSDelAccountReq {
+    System_String login_token = 1;
+}
+
+// Message: proto.CSActivateAccountReq
+message CSActivateAccountReq {
+    System_String email = 1;
+    System_String code = 2;
+}
+
+// Message: proto.CSNewbieChoiceReq
+message CSNewbieChoiceReq {
+    System_UInt32 choice = 1;
+}
+
+// Message: proto.CSSetPregameShowChoicesReq
+message CSSetPregameShowChoicesReq {
+    repeated System_UInt32 pregame_show_choices = 1;
+}
+
+// Message: proto.CSSetHideMyLobbyInPrefersReq
+message CSSetHideMyLobbyInPrefersReq {
+    System_Boolean hide_my_lobby = 1;
+}
+
+// Message: proto.CSSettingsTransferRes
+message CSSettingsTransferRes {
+    proto_SettingsTransferStatus transfer_status = 1;
+}
+
+// Message: proto.CSPlayerSettingsReq
+message CSPlayerSettingsReq {
+    repeated System_Byte settings = 1;
+    System_String version = 2;
+    proto_SettingsTransferStatus transfer_status = 3;
+}
+
+// Message: proto.CSPlayerSettingsRes
+message CSPlayerSettingsRes {
+    repeated System_Byte settings = 1;
+    System_String version = 2;
+    proto_SettingsTransferStatus transfer_status = 3;
+    System_Boolean is_compressed = 4;
+}
+
+// Message: proto.CSDownloadPlayerSettingsReq
+message CSDownloadPlayerSettingsReq {
+    System_String version = 1;
+    proto_SettingsTransferStatus transfer_status = 2;
+}
+
+// Message: proto.CSSendMatchLikeInfoReq
+message CSSendMatchLikeInfoReq {
+    System_UInt64 match_id = 1;
+    System_UInt32 game_mode = 2;
+    System_UInt32 match_mode = 3;
+    repeated proto_LikeReceiverInfo like_receiver_list = 4;
+}
+
+// Message: proto.GetAttendanceRes
+message GetAttendanceRes {
+    proto_CSGetNewPlayerRewardsListRes new_player_res = 1;
+    proto_CSGetAttendanceListRes attendance_res = 2;
+    proto_CSGetVeteranRewardListRes veteran_res = 3;
+    proto_CSClanSignInRes clan_sign_in_info = 4;
+    proto_CSGetBatchShowContentRes batch_show_content = 5;
+}
+
+// Message: proto.LoginSplashRes
+message LoginSplashRes {
+    proto_CSAnnouncementRes accouncement_res = 1;
+    proto_SplashBannerDescList splash_res = 2;
+    proto_CSGetActivityInfoRes activity_info_res = 3;
+}
+
+// Message: proto.LoginDescRes
+message LoginDescRes {
+    proto_CSGetAdvertRes advert_res = 1;
+    proto_CSGetAllSwitchsRes switchs_res = 2;
+    proto_CSGetActivityDescRes activity_res = 3;
+    proto_CSGetGachaDescRes gacha_res = 4;
+    proto_CSGetCurrentOrRecentRankingSeasonConfigRes ranking_res = 5;
+    proto_CSGetUnlockProfileInfoRes profile_res = 6;
+    proto_CSGetHideAvatarRes hide_res = 7;
+    proto_CSGetTreasureBoxRes treasure_res = 8;
+    proto_CSGetBundleRes bundle_res = 9;
+    proto_CSGetGiftStoreRes gift_store_res = 10;
+    proto_RankingMatchParam ranking_match_param = 11;
+    proto_GetRankingItemRankConfigRes ranking_item_rank = 12;
+    proto_CSGetDiscountStoreDescRes discount_store_res = 13;
+    proto_CSGetRankingActivityConfigRes ranking_activity_config_res = 14;
+    proto_CSGetGoogleRewardsDescRes google_rewards_desc = 15;
+    proto_CSGetFullscreenCgRes fullscreen_cg_res = 16;
+    proto_CSGetGameBonusEventDescRes game_bonus_event_res = 17;
+    proto_CSChampionshipBasicInfoRes championship_basic_info_res = 18;
+    proto_CSGetStoreTabRes store_tab_res = 19;
+    proto_CSGetFullscreenItemRes fullscreen_item_res = 20;
+    proto_CSGetExchangeWebsiteRes exchange_website_res = 21;
+    proto_CSGetAvatarAwakenRes avatar_awaken_res = 22;
+    proto_DiamondCostRes diamond_cost_res = 23;
+    proto_CSGetIPTagConfigRes ip_tag_config_res = 24;
+    proto_CSGetCurrentOrRecentCSRankingSeasonConfigRes cs_ranking_res = 25;
+    proto_CSGetGoPosRes gopos_res = 26;
+    proto_CSGetMysteryExpressionRes mystery_expression_res = 27;
+    proto_CSGetExchangeCurrencyAllDescRes exchange_currency_all_res = 28;
+    proto_CSGetPayLevelConfigRes pay_level_config_res = 29;
+    proto_CSGetPBWSpecialStoreRes pbw_special_store_res = 30;
+    proto_CSGetRoleDebrisDescRes role_debris_desc = 31;
+    proto_GetOppositeSexModelRes opposite_sex_model_res = 32;
+    System_Int64 weapon_skin_system_time = 33;
+    proto_CSGetRateAppSwitchRes rate_app_switch_res = 34;
+    proto_CSGetLiveDescRes live_desc_res = 35;
+    proto_CSGetAndroidApplicationToDetectRes android_apps_to_detect_res = 36;
+    proto_CSGetOptionalBundleRes optional_bundle_res = 37;
+    proto_CSGetExchangeCurrencyLocalRes exchange_currency_local = 38;
+    proto_CSClanWarBasicInfoRes clan_war_basic_info = 39;
+    proto_CSClanLuckyBagInfoDescRes clan_lucky_bag_info = 40;
+    proto_CSGetUniversalLinkSettingRes universal_link_setting_res = 41;
+    proto_CSShareSettingDescRes share_setting_desc = 42;
+    proto_CSGetAllFriendDescRes friend_desc = 43;
+    proto_CSSkinTimelineDescRes skin_timeline_res = 44;
+    proto_CSQuitControlDescRes quit_control_desc = 45;
+    proto_CSAntiAddictionSwitchDescRes anti_addiction_switch_res = 46;
+}
+

@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+// Categoria: 44_notification
+// Total: 4 segments
+
+// Message: proto.ENotification
+message ENotification {
+    // Sem campos definidos no dump
+}
+
+// Message: proto.MessageNotify
+message MessageNotify {
+    System_UInt64 account_id = 1;
+    System_UInt32 protocol = 2;
+    System_UInt32 ret = 3;
+    System_UInt32 cmd = 4;
+    repeated System_Byte content = 5;
+}
+
+// Message: proto.MessageNotifySlice
+message MessageNotifySlice {
+    repeated proto_MessageNotify msgs = 1;
+}
+
+// Message: proto.MsgToPlayers
+message MsgToPlayers {
+    repeated System_UInt64 account_ids = 1;
+    System_UInt32 protocol = 2;
+    System_UInt32 ret = 3;
+    System_UInt32 cmd = 4;
+    repeated System_Byte content = 5;
+}
+

@@ -1,0 +1,79 @@
+syntax = "proto3";
+
+// Categoria: 14_linkage
+// Total: 11 segments
+
+// Message: proto.ELinkage
+message ELinkage {
+    // Sem campos definidos no dump
+}
+
+// Message: proto.GetBasicLinkageInfoReq
+message GetBasicLinkageInfoReq {
+    System_UInt64 account_id = 1;
+    System_String lock_region = 2;
+}
+
+// Message: proto.GetBasicLinkageInfoRes
+message GetBasicLinkageInfoRes {
+    System_UInt32 activity_id = 1;
+    System_UInt32 activity_type = 2;
+    System_UInt32 today_data = 3;
+    System_UInt32 day = 4;
+}
+
+// Message: proto.LinkageInfo
+message LinkageInfo {
+    System_UInt32 type = 1;
+    System_UInt32 link_activity_map_token_id = 2;
+}
+
+// Message: proto.CSGetLinkageActivityInfoRes
+message CSGetLinkageActivityInfoRes {
+    System_UInt32 day = 1;
+    System_UInt32 activity_id = 2;
+    System_UInt32 activity_type = 3;
+    System_UInt32 today_data = 4;
+    System_UInt32 total_data = 5;
+    proto_EActivity_State state = 6;
+    System_Int64 timezone_offset_secs = 7;
+    System_UInt64 global_ep_badges = 8;
+    repeated proto_LinkageProcessRewards process_rewards = 9;
+    System_String cdn_url = 10;
+}
+
+// Message: proto.LinkageProcessRewards
+message LinkageProcessRewards {
+    System_UInt32 process_id = 1;
+    proto_EPProcess_Status status = 2;
+    System_UInt64 target_value = 3;
+}
+
+// Message: proto.CSGetProcessRewardsRes
+message CSGetProcessRewardsRes {
+    proto_AwardData awards = 1;
+    System_UInt32 process_id = 2;
+    System_Boolean is_button_open = 3;
+}
+
+// Message: proto.CSGetLinkageActivityRewardsRes
+message CSGetLinkageActivityRewardsRes {
+    proto_AwardData awards = 1;
+}
+
+// Message: proto.CSGetProcessActivityRewardsReq
+message CSGetProcessActivityRewardsReq {
+    System_UInt32 process_id = 1;
+}
+
+// Message: proto.CSLinkageActivityTriggerReq
+message CSLinkageActivityTriggerReq {
+    System_UInt32 event_type = 1;
+}
+
+// Message: proto.LinkageProcessRewardsStatus
+message LinkageProcessRewardsStatus {
+    System_UInt32 process_id = 1;
+    proto_EPProcess_Status status = 2;
+}
+

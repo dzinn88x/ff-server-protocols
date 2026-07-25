@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+// Categoria: 35_config
+// Total: 1 segments
+
+// Message: proto.EConfig
+message EConfig {
+    // Sem campos definidos no dump
+}
+

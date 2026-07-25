@@ -1,0 +1,654 @@
+syntax = "proto3";
+
+// Categoria: 07_match_stats
+// Total: 48 segments
+
+// Message: proto.WeaponKill
+message WeaponKill {
+    System_UInt32 weapon_id = 1;
+    System_UInt32 cnt = 2;
+    System_UInt32 head_cnt = 3;
+}
+
+// Message: proto.TeammateMember
+message TeammateMember {
+    System_UInt64 account_id = 1;
+    System_String clan_name = 2;
+    System_UInt32 kills = 3;
+    System_UInt32 damage = 4;
+    System_UInt32 headshot_kills = 5;
+    System_UInt32 hp_used_count = 6;
+}
+
+// Message: proto.WeaponSkinKill
+message WeaponSkinKill {
+    System_UInt32 weapon_skin_id = 1;
+    System_UInt32 cnt = 2;
+}
+
+// Message: proto.WeaponSkinDamage
+message WeaponSkinDamage {
+    System_UInt32 weapon_skin_id = 1;
+    System_UInt32 damage = 2;
+}
+
+// Message: proto.WeaponDamage
+message WeaponDamage {
+    System_UInt32 weapon_id = 1;
+    System_UInt32 damage = 2;
+}
+
+// Message: proto.MatchPlayer
+message MatchPlayer {
+    System_UInt64 account_id = 1;
+    System_Int32 ranking_points = 2;
+    System_UInt32 dead_order = 3;
+}
+
+// Message: proto.CamouflageKill
+message CamouflageKill {
+    System_UInt32 camouflage_id = 1;
+    System_UInt32 cnt = 2;
+}
+
+// Message: proto.VehicleKill
+message VehicleKill {
+    System_UInt32 vehicle_id = 1;
+    System_UInt32 cnt = 2;
+}
+
+// Message: proto.PoseKill
+message PoseKill {
+    System_UInt32 pose = 1;
+    System_UInt32 cnt = 2;
+}
+
+// Message: proto.RedEnvelope
+message RedEnvelope {
+    System_UInt32 id = 1;
+    System_UInt32 cnt = 2;
+}
+
+// Message: proto.ReceivedRedEnvelope
+message ReceivedRedEnvelope {
+    System_UInt32 boss_id = 1;
+    System_String boss_name = 2;
+    System_UInt32 coins = 3;
+    System_UInt32 gems = 4;
+    repeated proto_Item items = 5;
+    System_Boolean is_lucky = 6;
+}
+
+// Message: proto.ReviveTokenUsed
+message ReviveTokenUsed {
+    System_UInt32 used_gems = 1;
+    System_UInt32 used_coins = 2;
+    repeated proto_Item used_items = 3;
+}
+
+// Message: proto.PlayerDetailedStats
+message PlayerDetailedStats {
+    System_UInt32 deaths = 1;
+    System_UInt32 top10_times = 2;
+    System_UInt32 top_n_times = 3;
+    System_UInt32 distance_travelled = 4;
+    System_UInt32 survival_time = 5;
+    System_UInt32 revives = 6;
+    System_UInt32 highest_kills = 7;
+    System_UInt32 damage = 8;
+    System_UInt32 road_kills = 9;
+    System_UInt32 headshots = 10;
+    System_UInt32 headshot_kills = 11;
+    System_UInt32 knock_down = 12;
+    System_UInt32 pick_ups = 13;
+}
+
+// Message: proto.DetailedTCStats
+message DetailedTCStats {
+    System_UInt32 mvp_count = 1;
+    System_UInt32 double_kills = 2;
+    System_UInt32 triple_kills = 3;
+    System_UInt32 four_kills = 4;
+    System_UInt32 damage = 5;
+    System_UInt32 head_shot_kills = 6;
+    System_UInt32 knock_downs = 7;
+    System_UInt32 revivals = 8;
+    System_UInt32 assists = 9;
+    System_UInt32 deaths = 10;
+}
+
+// Message: proto.CSGetAccountMatchStatsReq
+message CSGetAccountMatchStatsReq {
+    System_UInt64 match_id = 1;
+    System_Boolean is_pve = 2;
+}
+
+// Message: proto.CSGetAccountMatchStatsRes
+message CSGetAccountMatchStatsRes {
+    proto_MatchIncome income = 1;
+    proto_MatchStats stats = 2;
+}
+
+// Message: proto.CSGetPlayerStatsReq
+message CSGetPlayerStatsReq {
+    System_UInt64 account_id = 1;
+    System_UInt32 match_mode = 2;
+}
+
+// Message: proto.CSGetPlayerStatsRes
+message CSGetPlayerStatsRes {
+    proto_AccountInfoWithStatsToClient solo_stats = 1;
+    proto_AccountInfoWithStatsToClient duo_stats = 2;
+    proto_AccountInfoWithStatsToClient quad_stats = 3;
+}
+
+// Message: proto.CSGetPlayerTCStatsReq
+message CSGetPlayerTCStatsReq {
+    System_UInt64 account_id = 1;
+    System_UInt32 season_id = 2;
+    System_UInt32 game_mode = 3;
+    System_UInt32 match_mode = 4;
+}
+
+// Message: proto.CSGetPlayerTCStatsRes
+message CSGetPlayerTCStatsRes {
+    proto_AccountInfoWithTCStats cs_stats = 1;
+}
+
+// Message: proto.CSMatchDailyBonusRes
+message CSMatchDailyBonusRes {
+    System_Boolean has_exp_achieved = 1;
+    System_UInt32 exp_bonus = 2;
+    System_Boolean has_gold_achieved = 3;
+    System_UInt32 gold_bonus = 4;
+}
+
+// Message: proto.CSMatchHistoryReq
+message CSMatchHistoryReq {
+    System_UInt64 account_id = 1;
+}
+
+// Message: proto.MatchAccountStats
+message MatchAccountStats {
+    System_UInt64 match_id = 1;
+    System_UInt64 account_id = 2;
+    System_UInt32 create_time = 3;
+    System_UInt32 end_time = 4;
+    proto_MatchIncome income = 5;
+    proto_MatchStats stats = 6;
+}
+
+// Message: proto.CSGetMatchStatsListRes
+message CSGetMatchStatsListRes {
+    repeated proto_MatchAccountStats match_stats_list = 1;
+}
+
+// Message: proto.CSGetGameBonusEventDescRes
+message CSGetGameBonusEventDescRes {
+    repeated proto_GameBonusEventDesc game_bonus_events = 1;
+}
+
+// Message: proto.MatchIncome
+message MatchIncome {
+    System_UInt32 exp = 1;
+    System_UInt32 coins = 2;
+    System_UInt32 rank_points = 3;
+    System_UInt32 kill_points = 4;
+    System_UInt32 damage_points = 5;
+    System_UInt32 level_before = 6;
+    System_UInt32 level_after = 7;
+    System_UInt32 exp_before = 8;
+    System_UInt32 exp_after = 9;
+    System_UInt32 coins_before = 10;
+    System_UInt32 coins_after = 11;
+    System_UInt32 coins_gained_today = 12;
+    System_UInt32 coins_gain_limit = 13;
+    System_Int32 mmr_delta = 14;
+    System_Int32 ranking_points_delta = 15;
+    System_Int32 ranking_points_before = 16;
+    System_Int32 ranking_points_after = 17;
+    proto_AwardData level_rewards = 18;
+    System_UInt32 daily_reward_exp = 19;
+    System_UInt32 daily_reward_coins = 20;
+    System_UInt32 rank_before = 21;
+    System_UInt32 rank_after = 22;
+    System_Boolean has_rank_upgrade_rewards = 23;
+    System_Boolean is_rank = 24;
+    System_Boolean is_logout_match = 25;
+    System_UInt32 honor_point_delta = 26;
+    repeated proto_GameDrop game_drops = 27;
+    System_Boolean is_loss_prevented = 28;
+    System_UInt32 coin_limit_event_bonus = 29;
+    System_UInt32 debris_limit_event_bonus = 30;
+    proto_RankingPointsDetail ranking_points_detail = 31;
+    System_UInt32 race_point_delta = 32;
+    System_UInt32 ranking_token_id = 33;
+    System_UInt32 ranking_token_delta = 34;
+    System_UInt32 ranking_token_num = 35;
+    proto_CoinsDetail coins_detail = 36;
+    proto_ExpDetail exp_detail = 37;
+    proto_PetExpDetail pet_exp_detail = 38;
+    repeated proto_DebrisDetail debris_detail = 39;
+    repeated proto_IngameItem ingame_items = 40;
+    System_UInt32 ranking_token_max = 41;
+    System_Boolean is_double_ranking_point_activity = 42;
+    System_Boolean is_double_token_activity = 43;
+    System_UInt32 double_ranking_point_card_id = 44;
+    System_UInt32 chip_num = 45;
+    System_UInt32 no_deduct_card_id = 46;
+    System_Boolean is_championship = 47;
+    repeated System_UInt32 linkage_award_ids = 48;
+    System_Boolean is_cs_rank = 49;
+    System_Boolean is_cs_rank_protect = 50;
+    System_Boolean is_cs_streak_bonus = 51;
+    System_Single random_map_rp_param = 52;
+    System_UInt32 pre_cs_star_protect_points = 53;
+    System_UInt32 cur_cs_star_protect_points = 54;
+    System_Boolean is_cs_star_protect = 55;
+    System_UInt32 pre_br_heroic_count = 56;
+    System_UInt32 after_br_heroic_count = 57;
+    System_UInt32 pre_cs_heroic_count = 58;
+    System_UInt32 after_cs_heroic_count = 59;
+    System_Boolean is_periodic_rank = 60;
+    System_Boolean is_periodic_rank_protect = 61;
+    System_Boolean is_periodic_streak_bonus = 62;
+    System_UInt32 pre_periodic_ranking_protect_points = 63;
+    System_UInt32 cur_periodic_ranking_protect_points = 64;
+    System_Boolean is_periodic_ranking_protect = 65;
+    System_UInt32 ludo_token_id = 66;
+    System_UInt32 ludo_token_num = 67;
+}
+
+// Message: proto.MatchStats
+message MatchStats {
+    System_UInt64 account_id = 1;
+    System_UInt64 group_id = 2;
+    System_UInt32 survival_time = 3;
+    System_UInt32 rank = 4;
+    System_UInt32 kills = 5;
+    System_UInt32 damage = 6;
+    System_UInt32 moving_distance = 7;
+    System_UInt32 revival_count = 8;
+    System_UInt32 vehicle_kills = 9;
+    System_UInt32 headshot_count = 10;
+    System_UInt32 headshot_kills = 11;
+    System_UInt32 knockdown_count = 12;
+    System_UInt32 pickup_count = 13;
+    System_UInt32 assists = 14;
+    System_Boolean is_survive = 15;
+    System_UInt32 out_index = 16;
+    System_Int32 ranking_points = 17;
+    proto_MatchPlayer killer = 18;
+    repeated proto_MatchPlayer killed_players = 19;
+    System_UInt32 down_count = 20;
+    repeated System_UInt32 achievements = 21;
+    System_UInt32 kill_bots = 22;
+    System_Boolean enable_achievements = 23;
+    System_UInt32 avatar_id = 24;
+    repeated proto_TeammateStats teammates = 25;
+    System_Int32 avg_ranking_points = 26;
+    System_UInt32 fratricide_damage = 27;
+    System_UInt32 direct_kills = 28;
+    System_UInt32 group_mode = 29;
+    System_UInt32 match_mode = 30;
+    System_UInt32 player_count = 31;
+    System_UInt32 banner_id = 32;
+    System_UInt32 head_pic = 33;
+    System_String clan_name = 34;
+    System_UInt32 level = 35;
+    System_UInt32 season_rank = 36;
+    System_UInt32 game_mode = 37;
+    System_UInt32 map_id = 38;
+    System_Boolean has_elite_pass = 39;
+    System_UInt32 badge_id = 40;
+    System_UInt32 badge_cnt = 41;
+    repeated System_UInt32 clothes_id = 42;
+    System_UInt32 ep_goldlimit_bonus = 43;
+    System_UInt32 liked = 44;
+    System_UInt32 real_player_rank = 45;
+    System_UInt32 real_player_count = 46;
+    System_Boolean show_rank = 47;
+    repeated proto_RedEnvelope use_red_envelope = 48;
+    repeated proto_ReceivedRedEnvelope received_red_envelope = 49;
+    System_UInt32 pet_id = 50;
+    System_String pet_name = 51;
+    repeated proto_Item ingame_items = 52;
+    System_UInt32 difficulty = 53;
+    System_UInt32 ai_type = 54;
+    System_UInt32 pve_primary_weapon_skin = 55;
+    System_UInt32 pet_skin_id = 56;
+    proto_ReviveTokenUsed used_revive_tokens = 57;
+    System_UInt32 hack_reason = 58;
+    System_Boolean sit_on_throne = 59;
+    proto_EStats_WinnerTakesAllCurrencyType wta_curr_type = 60;
+    proto_WarmGameInfo warm_game = 61;
+    System_UInt32 role = 62;
+    System_UInt32 championship_type = 63;
+    proto_LinkageInfo linkage_info = 64;
+    System_UInt32 revenge_success_times = 65;
+    System_UInt32 game_round = 66;
+    repeated System_UInt32 teams_game_point = 67;
+    repeated proto_TeammateStats opponents = 68;
+    proto_EAuth_ClientUsingVersion using_version = 69;
+    System_UInt32 real_damage = 70;
+    System_UInt32 settle_bomb = 71;
+    System_UInt32 remove_bomb = 72;
+    System_UInt32 deaths = 73;
+    System_UInt32 mvp_count = 74;
+    System_UInt32 double_kills = 75;
+    System_UInt32 triple_kills = 76;
+    System_UInt32 four_kills = 77;
+    System_UInt32 newbie_choice = 78;
+    System_UInt32 pin_id = 79;
+    System_UInt32 cs_ranking_hang_ups = 80;
+    System_UInt32 random_map_cnt = 81;
+    System_Int32 cs_star_protect_points = 82;
+    System_UInt32 hacker_tag = 83;
+    System_UInt32 banned_duration = 84;
+    System_Boolean online_cs_rank_settle = 85;
+    System_UInt32 battle_time = 86;
+    System_UInt32 society_time = 87;
+    System_Boolean is_cs_rank_draw = 88;
+    System_UInt32 num_kill_smaller_than_1m = 89;
+    System_UInt32 num_kill_smaller_than_2m = 90;
+    System_UInt32 num_kill_greater_than_10m = 91;
+    System_UInt32 num_kill_greater_than_50m = 92;
+    System_UInt32 num_kill_greater_than_100m = 93;
+    System_UInt32 num_kill_greater_than_500m = 94;
+    System_UInt32 num_different_weapon_kill = 95;
+    System_UInt32 num_kill_better_rank_player = 96;
+    System_UInt32 avg_kill_rest_hp = 97;
+    System_UInt32 total_shot = 98;
+    System_Boolean has_swum = 99;
+    System_UInt32 grenade_use = 100;
+    System_UInt32 kill_swimming_count = 101;
+    System_UInt32 medkit_use = 102;
+    System_UInt32 mushroom_recovery = 103;
+    System_UInt32 mushroom_use = 104;
+    System_UInt32 ob_count = 105;
+    System_UInt32 offline_seconds = 106;
+    System_UInt32 offline_times = 107;
+    System_UInt32 vehicle_time = 108;
+    System_UInt32 strop_use_count = 109;
+    System_Single aim_rot_speed = 110;
+    System_Single auto_aim_count = 111;
+    proto_GainedTrainingToken gained_training_token = 112;
+    repeated System_UInt32 kills_distance = 113;
+    System_String group_name = 114;
+    System_UInt32 group_icon = 115;
+    repeated System_UInt32 battle_tags = 116;
+    System_UInt32 restore_count = 117;
+    System_UInt32 be_restored_count = 118;
+    System_UInt32 in_videozone_time = 119;
+    System_UInt32 cup_type = 120;
+    proto_WerewolvesInfo werewolves_info = 121;
+    proto_ClanWarAccountMatchStats clan_war_account_match_stats = 122;
+    System_UInt64 pre_group_id = 123;
+    System_Int32 periodic_ranking_protect_points = 124;
+    System_UInt32 finish_chess_time = 125;
+    System_UInt32 finish_chess_num = 126;
+    System_UInt32 total_chess_num = 127;
+    proto_UGCMatchStats ugc_matchstats = 128;
+}
+
+// Message: proto.MatchStatsExtra
+message MatchStatsExtra {
+    System_UInt32 walk_distance = 1;
+    System_UInt32 profile_avatar = 2;
+    repeated proto_ItemCollect items = 3;
+    repeated proto_WeaponKill wp_kills = 4;
+    System_UInt32 air_drop_count = 5;
+    System_UInt32 vehicle_distance = 6;
+    System_UInt32 hp_used_count = 7;
+    System_UInt32 drive_time_seconds = 8;
+    repeated System_UInt32 loadouts = 9;
+    System_UInt32 carepackage_count = 10;
+    System_UInt32 treasure_count = 11;
+    System_UInt32 kill_swimming_count = 12;
+    System_UInt32 swim_distance = 13;
+    System_UInt32 damage_on_strop = 14;
+    repeated proto_WeaponSkinKill wp_skin_kill = 15;
+    repeated proto_WeaponSkinDamage wp_skin_damage = 16;
+    System_UInt32 strop_moving_distance = 17;
+    repeated proto_WeaponDamage wp_damage = 18;
+    System_UInt32 oildrum_kill = 19;
+    System_UInt32 vehicle_explode_kill = 20;
+    repeated proto_CamouflageKill cm_kill = 21;
+    System_UInt32 use_ice_wall = 22;
+    repeated proto_VehicleKill ve_kill = 23;
+    repeated proto_PoseKill po_kill = 24;
+    System_UInt32 smog_oil_drum_destroy_count = 25;
+    System_UInt32 uav_kill_count = 26;
+    repeated System_UInt32 manual_event_ids = 27;
+    System_UInt32 dbox_count = 28;
+    repeated System_UInt32 emote_times = 29;
+    repeated proto_locationKill locations_kill = 30;
+    repeated proto_wpIdAndKill wp_ids_and_kill = 31;
+    System_Boolean emote_used = 32;
+    System_Boolean search_air_drop = 33;
+    System_UInt32 vehicle_destroyed_count = 34;
+    System_UInt32 paint_used_count = 35;
+    System_UInt32 wp_id_no_skin_count = 36;
+    repeated proto_locationInfo location_info = 37;
+    repeated proto_killInfo kill_info = 38;
+    System_UInt32 oildrum_damage = 39;
+    proto_highKillInfo high_kill_info = 40;
+    repeated proto_wpIdAndDistance wp_id_distance = 41;
+    repeated proto_killAndDistances kill_and_distances = 42;
+    System_UInt32 limited_event_rampage = 43;
+    repeated System_UInt32 interacted_npc_ids = 44;
+    repeated System_UInt32 photo_npc_ids = 45;
+    repeated proto_ThrowingCount throwing_count = 46;
+    repeated System_UInt64 like_id_list = 47;
+    System_UInt32 cs_shop_cost = 48;
+}
+
+// Message: proto.killAndDistances
+message killAndDistances {
+    System_UInt32 wp_id = 1;
+    System_UInt32 distance = 2;
+}
+
+// Message: proto.wpIdAndKill
+message wpIdAndKill {
+    System_UInt32 wp_id = 1;
+    System_UInt32 kills = 2;
+    System_Boolean pre_cdt_triggered = 3;
+}
+
+// Message: proto.wpIdAndDistance
+message wpIdAndDistance {
+    System_UInt32 wp_id = 1;
+    System_Double distance = 2;
+}
+
+// Message: proto.wpSecondsAndDamage
+message wpSecondsAndDamage {
+    System_UInt32 seconds = 1;
+    System_UInt32 damage = 2;
+}
+
+// Message: proto.killInfo
+message killInfo {
+    System_UInt32 kill_time = 1;
+    System_UInt32 kill_hp = 2;
+}
+
+// Message: proto.highKillInfo
+message highKillInfo {
+    System_UInt32 kill = 1;
+    System_UInt32 damage = 2;
+}
+
+// Message: proto.locationInfo
+message locationInfo {
+    System_UInt32 trigger_name = 1;
+    System_UInt32 damage = 2;
+    repeated proto_wpIdAndKill wp_ids_and_kill = 3;
+    System_Boolean emote_used = 4;
+    System_UInt32 vehicle = 5;
+    System_UInt32 revival_count = 6;
+}
+
+// Message: proto.locationKill
+message locationKill {
+    System_UInt32 trigger_name = 1;
+    System_UInt32 kills = 2;
+}
+
+// Message: proto.GameDrop
+message GameDrop {
+    System_UInt32 drop_id = 1;
+    proto_Item item = 2;
+}
+
+// Message: proto.RankingPointsDetail
+message RankingPointsDetail {
+    System_Int32 ranking_score = 1;
+    System_Int32 battle_score = 2;
+    System_Int32 newbie_score = 3;
+    System_Int32 victory_score = 4;
+    System_Int32 first_win_score = 5;
+    System_Boolean chicken_protect = 6;
+    System_Int32 birth_island_quit_score = 7;
+    System_Int32 scale_ranking_score = 8;
+    System_Int32 scale_battle_score = 9;
+}
+
+// Message: proto.CoinsDetail
+message CoinsDetail {
+    System_UInt32 coin_match = 1;
+    System_UInt32 coin_clan_buff = 2;
+    System_UInt32 coin_event_bonus = 3;
+    System_UInt32 coin_card = 4;
+    System_UInt32 coin_ranking = 5;
+    System_UInt32 coin_championship = 6;
+}
+
+// Message: proto.ExpDetail
+message ExpDetail {
+    System_UInt32 exp_match = 1;
+    System_UInt32 exp_clan_buff = 2;
+    System_UInt32 exp_event_bonus = 3;
+    System_UInt32 exp_card = 4;
+    System_UInt32 exp_ranking = 5;
+    System_UInt32 exp_championship = 6;
+    System_UInt32 exp_other_bonus = 7;
+}
+
+// Message: proto.PetExpDetail
+message PetExpDetail {
+    System_UInt32 id = 1;
+    System_String name = 2;
+    System_UInt32 level_before = 3;
+    System_UInt32 level_after = 4;
+    System_UInt32 exp_before = 5;
+    System_UInt32 exp_after = 6;
+    System_UInt32 skin_id = 7;
+}
+
+// Message: proto.DebrisDetail
+message DebrisDetail {
+    proto_Item debris = 1;
+    System_UInt32 debris_gained_today = 2;
+    System_UInt32 debris_gain_limit = 3;
+    System_Boolean debris_reach_avatar_limit = 4;
+    proto_DebrisDetail_Source source = 5;
+}
+
+// Message: proto.IngameItem
+message IngameItem {
+    System_UInt32 itemtable_id = 1;
+    proto_Item item = 2;
+    System_Boolean reach_daily_limit = 3;
+    System_UInt32 daily_limit_cnt = 4;
+}
+
+// Message: proto.TeammateStats
+message TeammateStats {
+    System_UInt64 account_id = 1;
+    System_String nickname = 2;
+    System_UInt32 kills = 3;
+    System_UInt32 avatar_id = 4;
+    System_UInt32 banner_id = 5;
+    System_UInt32 head_pic = 6;
+    System_String clan_name = 7;
+    System_UInt32 season_rank = 8;
+    System_UInt32 level = 9;
+    System_Boolean has_elite_pass = 10;
+    System_UInt32 badge_id = 11;
+    System_UInt32 badge_cnt = 12;
+    System_Boolean show_rank = 13;
+    System_String lock_region = 14;
+    System_UInt32 pve_damage = 15;
+    System_UInt32 pve_primary_weapon_skin = 16;
+    System_UInt32 role = 17;
+    System_UInt32 damage = 18;
+    System_UInt32 deads = 19;
+    System_UInt32 score = 20;
+    System_UInt32 assists = 21;
+    System_UInt32 rank = 22;
+    System_UInt32 settle_bomb = 23;
+    System_UInt32 remove_bomb = 24;
+    repeated System_UInt32 big_head_level_and_count = 25;
+    System_UInt32 token_pick_count = 26;
+    System_UInt32 escort_time = 27;
+    System_UInt32 on_zone_time = 28;
+    System_UInt32 buff_trigger_count = 29;
+    System_UInt32 pin_id = 30;
+    System_UInt32 team_score = 31;
+    System_UInt32 headshot_kills = 32;
+    System_UInt32 hp_used_count = 33;
+    System_UInt32 survival_time = 34;
+    System_String group_name = 35;
+    System_UInt32 group_icon = 36;
+    repeated System_UInt32 battle_tags = 37;
+    System_UInt32 liked = 38;
+    System_UInt32 relation_mask = 39;
+    System_UInt32 finish_chess_time = 40;
+    System_UInt32 finish_chess_num = 41;
+    System_UInt32 total_chess_num = 42;
+    System_UInt32 peak_rank_pos = 43;
+}
+
+// Message: proto.CSGetWinnerTakesAllInfoRes
+message CSGetWinnerTakesAllInfoRes {
+    System_UInt64 account_id = 1;
+    System_UInt32 match_num = 2;
+    System_UInt32 last_update_at = 3;
+    proto_WinnerTakesAllDesc wta_desc = 4;
+    System_Int64 refresh_at = 5;
+}
+
+// Message: proto.CSGetLinkEquipSetRes
+message CSGetLinkEquipSetRes {
+    // Sem campos definidos no dump
+}
+
+// Message: proto.GameDropInfo
+message GameDropInfo {
+    System_UInt32 drop_id = 1;
+    System_UInt32 item_id = 2;
+    System_UInt32 start_time = 3;
+    System_UInt32 end_time = 4;
+    System_UInt32 match_mode = 5;
+    System_UInt32 map_id = 6;
+    System_Int32 group_mode = 7;
+    System_UInt32 rank = 8;
+    System_UInt32 time = 9;
+    System_UInt32 max_drop_count = 10;
+    System_UInt32 region_max_drop_count = 11;
+    System_UInt32 time_span = 12;
+    System_Boolean is_mail_notice = 13;
+    System_String event_detail_url = 14;
+    System_UInt32 award_time = 15;
+    repeated System_UInt32 game_mode = 16;
+}
+
+// Message: proto.GameDropRate
+message GameDropRate {
+    System_UInt32 drop_id = 1;
+    System_UInt32 drop_count = 2;
+    System_UInt32 weight = 3;
+}
+

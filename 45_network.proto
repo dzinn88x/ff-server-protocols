@@ -1,0 +1,169 @@
+syntax = "proto3";
+
+// Categoria: 45_network
+// Total: 23 segments
+
+// Message: GCommon.HttpManager
+message HttpManager {
+    static readonly = 1;
+    static readonly = 2;
+    static readonly = 3;
+}
+
+// Message: GCommon.HttpManager.HttpChannel
+message HttpChannel {
+    System_Collections_Generic_Queue_GCommon_HttpRequest m_requests = 1;
+}
+
+// Message: GCommon.HttpRequest
+message HttpRequest {
+    static system._boolean = 1;
+    System_String url = 2;
+    System_String cmd = 3;
+    System_Single timeout = 4;
+    repeated System_Byte data = 5;
+    System_Collections_Generic_Dictionary_System_StringSystem_String headers = 6;
+    UnityEngine_WWW www = 7;
+    System_Action_GCommon_HttpErrorCodeSystem_Object on_finished = 8;
+    System_Type response_type = 9;
+    GCommon_EHttpDataType data_type = 10;
+    System_UInt32 http_option = 11;
+    System_Boolean is_done = 12;
+    System_Boolean is_block = 13;
+    System_Boolean is_time_out = 14;
+    System_Boolean get_answer = 15;
+}
+
+// Message: GCommon.NetworkByteStream
+message NetworkByteStream {
+    // Sem campos definidos no dump
+}
+
+// Message: GCommon.NetworkClient
+message NetworkClient {
+    // Sem campos definidos no dump
+}
+
+// Message: GCommon.NetDetectionResult
+message NetDetectionResult {
+    System_String target_ip = 1;
+}
+
+// Message: GCommon.TracerouteResult
+message TracerouteResult {
+    repeated GCommon_TracerouteNodeResult traceroute_node_results = 1;
+    System_Int64 time_stamp = 2;
+    GCommon_ETraceRouteError err_code = 3;
+}
+
+// Message: GCommon.PingResult
+message PingResult {
+    System_Int32 average_delay = 1;
+    System_Int32 loss_rate = 2;
+}
+
+// Message: GCommon.CDNResult
+message CDNResult {
+    System_Single req_time = 1;
+    System_Int64 reponse_code = 2;
+}
+
+// Message: GCommon.NetworkDetection
+message NetworkDetection {
+    // Sem campos definidos no dump
+}
+
+// Message: GCommon.NetworkMessageHandlerPair
+message NetworkMessageHandlerPair {
+    repeated System_Delegate call_backs = 1;
+    System_Type msg_type = 2;
+}
+
+// Message: GCommon.NetworkMessageDispatcher
+message NetworkMessageDispatcher {
+    // Sem campos definidos no dump
+}
+
+// Message: GCommon.NetworkSession
+message NetworkSession {
+    // Sem campos definidos no dump
+}
+
+// Message: GCommon.TCPClientMessageBase
+message TCPClientMessageBase {
+    // Sem campos definidos no dump
+}
+
+// Message: GCommon.TCPMsgPacket
+message TCPMsgPacket {
+    System_Byte cmd = 1;
+    System_Byte region = 2;
+    System_Int32 length = 3;
+    repeated System_Byte data = 4;
+}
+
+// Message: GCommon.TCPSession
+message TCPSession {
+    // Sem campos definidos no dump
+}
+
+// Message: GCommon.UDPClientMessageBase
+message UDPClientMessageBase {
+    // Sem campos definidos no dump
+}
+
+// Message: GCommon.UDPMsgPacket
+message UDPMsgPacket {
+    System_Byte msg_key = 1;
+    System_Byte crc7 = 2;
+    System_Byte send_option = 3;
+    System_UInt16 cmd = 4;
+    System_UInt16 sequence_id = 5;
+    System_UInt16 order_id = 6;
+    System_Byte flags = 7;
+    System_UInt16 length = 8;
+    repeated System_Byte data = 9;
+    System_UInt32 tracking_id = 10;
+}
+
+// Message: GCommon.UDPReliableTracking.CircularValue
+message CircularValue {
+    // Sem campos definidos no dump
+}
+
+// Message: GCommon.SocketClient
+message SocketClient {
+    // Sem campos definidos no dump
+}
+
+// Message: GCommon.UDPSession
+message UDPSession {
+    static system._boolean = 1;
+    static system._boolean = 2;
+}
+
+// Message: proto.Gameserver2ServicePkg
+message Gameserver2ServicePkg {
+    proto_EGameServerManager_Proto cmd = 1;
+    System_UInt32 match_mode = 2;
+    System_UInt64 account_id = 3;
+    repeated System_Byte data = 4;
+    System_UInt32 room_id = 5;
+    System_UInt64 group_id = 6;
+    System_UInt64 pre_group_id = 7;
+}
+
+// Message: proto.MatchClientInfo
+message MatchClientInfo {
+    System_String tpsdk_str = 1;
+    System_UInt32 start_time = 2;
+    repeated System_Byte file_exception = 3;
+    repeated System_Byte lib_result = 4;
+    System_UInt32 exception_count = 5;
+    System_UInt32 scan_count = 6;
+    repeated System_Byte native_result = 7;
+    System_String client_version = 8;
+    System_UInt32 channel_type = 9;
+    System_UInt32 architecture_type = 10;
+}
+

@@ -1,0 +1,344 @@
+syntax = "proto3";
+
+// Categoria: 08_lottery
+// Total: 38 segments
+
+// Message: proto.QuestIDs
+message QuestIDs {
+    repeated System_UInt32 quest_ids = 1;
+    repeated System_UInt32 daily_quest_ids = 2;
+    System_UInt32 daily_quest_completed_cnt = 3;
+    System_UInt32 daily_quest_today_cnt = 4;
+    System_UInt32 quest_completed_cnt = 5;
+}
+
+// Message: proto.ELottery
+message ELottery {
+    // Sem campos definidos no dump
+}
+
+// Message: proto.ProbabilityShow
+message ProbabilityShow {
+    repeated proto_RareProbability rare = 1;
+    repeated proto_ItemProbability item = 2;
+    repeated proto_AwardTypeProbability award_type = 3;
+}
+
+// Message: proto.LevelProbability
+message LevelProbability {
+    proto_ELottery_WeightType level = 1;
+    repeated proto_RareProbability rare_prs = 2;
+}
+
+// Message: proto.RareProbability
+message RareProbability {
+    System_UInt32 rare = 1;
+    System_UInt32 probability = 2;
+}
+
+// Message: proto.AwardTypeProbability
+message AwardTypeProbability {
+    proto_EInventory_AwardType award_type = 1;
+    System_UInt32 award_num = 2;
+    System_UInt32 probability = 3;
+}
+
+// Message: proto.CompletionItem
+message CompletionItem {
+    System_UInt32 item_id = 1;
+    System_UInt32 item_type = 2;
+    System_UInt32 cnt = 3;
+    System_UInt32 expire_time = 4;
+    System_UInt32 id = 5;
+    System_UInt32 repeat_change_item_id = 6;
+    System_UInt32 repeat_change_item_type = 7;
+    System_UInt32 repeat_change_item_num = 8;
+}
+
+// Message: proto.CSLotteryReq
+message CSLotteryReq {
+    System_UInt32 chest_id = 1;
+    System_UInt32 gacha_type = 2;
+    System_UInt32 chest_sub_id = 3;
+    proto_ELottery_ConsumeType consume_type = 4;
+    System_UInt32 finite_jackpot = 5;
+    System_UInt32 finite_lottery_count = 6;
+    System_UInt32 show_type = 7;
+}
+
+// Message: proto.CSLotteryRes
+message CSLotteryRes {
+    repeated proto_ExchangedAward lottery_goods = 1;
+    repeated proto_ExchangedAward reward_goods = 2;
+    repeated proto_ExchangedAward extra_one_goods = 3;
+    System_UInt32 lottery_count_weekly = 4;
+    System_Int64 next_free_time = 5;
+    System_UInt32 limit_purchase_count_one = 6;
+    System_UInt32 limit_purchase_count_ten = 7;
+    System_UInt32 not_got_num = 8;
+    System_UInt32 first_draw_reward_num = 9;
+    repeated proto_ExchangeItemNum exchange_item_num = 10;
+    System_Boolean has_big_reward = 11;
+    repeated System_UInt32 act_goods_ids = 12;
+    System_UInt32 act_progress = 13;
+    System_UInt32 energy_gacha_buff_display_one = 14;
+    System_UInt32 energy_gacha_buff_display_ten = 15;
+}
+
+// Message: proto.CSLotteryExtraRewardReq
+message CSLotteryExtraRewardReq {
+    System_UInt32 chest_id = 1;
+    System_UInt32 condition_num = 2;
+    System_UInt32 chest_sub_id = 3;
+}
+
+// Message: proto.CSExchangeGachaExtraRewardRes
+message CSExchangeGachaExtraRewardRes {
+    repeated System_UInt32 exchanged_reward_list = 1;
+    repeated proto_ExchangedAward extra_rewards = 2;
+}
+
+// Message: proto.CSGetLotteryProbabilityReq
+message CSGetLotteryProbabilityReq {
+    System_UInt32 chest_id = 1;
+    System_UInt32 chest_sub_id = 2;
+}
+
+// Message: proto.CSGetLotteryProbabilityRes
+message CSGetLotteryProbabilityRes {
+    repeated proto_RareProbability rare_pr = 1;
+    repeated proto_LevelProbability level_pr = 2;
+}
+
+// Message: proto.CSGetGachaDescRes
+message CSGetGachaDescRes {
+    repeated proto_GachaDesc gacha_desc_list = 1;
+}
+
+// Message: proto.CSGetGachaInfoRes
+message CSGetGachaInfoRes {
+    repeated proto_GachaInfo gacha_info_list = 1;
+    repeated proto_CompletionBackpackInfo completion_backpack_list = 2;
+}
+
+// Message: proto.CSGetActGachaInfoReq
+message CSGetActGachaInfoReq {
+    System_UInt32 chest_id = 1;
+    System_UInt32 chest_sub_id = 2;
+}
+
+// Message: proto.CSGetActGachaInfoRes
+message CSGetActGachaInfoRes {
+    repeated System_UInt32 unlocked_pools = 1;
+    repeated proto_ActIds act_ids = 2;
+    System_UInt32 act_progress = 3;
+    repeated System_UInt32 exchanged_reward_list = 4;
+}
+
+// Message: proto.CSEliminateGoodsFromLimitPoolRes
+message CSEliminateGoodsFromLimitPoolRes {
+    System_UInt32 after_eliminate = 1;
+}
+
+// Message: proto.ActIds
+message ActIds {
+    System_UInt32 pool = 1;
+    repeated System_UInt32 ids = 2;
+}
+
+// Message: proto.CSGetGachaSpecialExchangeDescReq
+message CSGetGachaSpecialExchangeDescReq {
+    System_String language = 1;
+}
+
+// Message: proto.CSGetGachaSpecialExchangeDescRes
+message CSGetGachaSpecialExchangeDescRes {
+    repeated proto_ChestSpecialExchangeDesc chest_special_exchange_descs = 1;
+}
+
+// Message: proto.CSDoGachaSpecialExchangeReq
+message CSDoGachaSpecialExchangeReq {
+    System_UInt32 forge_tab_id = 1;
+    System_UInt32 exchange_cnt = 2;
+    System_UInt32 id = 3;
+}
+
+// Message: proto.CSEliminateGoodsFromLimitPoolReq
+message CSEliminateGoodsFromLimitPoolReq {
+    System_UInt32 lottery_id = 1;
+    System_UInt32 lottery_sub_id = 2;
+    repeated System_UInt32 eliminated_goods = 3;
+}
+
+// Message: proto.CSDoGachaSpecialExchangeRes
+message CSDoGachaSpecialExchangeRes {
+    proto_ExchangeChangeData data = 1;
+    System_UInt32 purchase_times = 2;
+}
+
+// Message: proto.GachaDesc
+message GachaDesc {
+    System_UInt32 chest_id = 1;
+    proto_ClientChestType chest_type = 2;
+    repeated proto_GachaShowItemsWithJackpot item_list_with_jackpot = 3;
+    repeated proto_ExtraRewardDesc extra_rewards = 4;
+}
+
+// Message: proto.GachaInfo
+message GachaInfo {
+    System_UInt32 chest_id = 1;
+    System_UInt32 lottery_count_weekly = 2;
+    repeated System_UInt32 exchanged_reward_list = 3;
+    System_Int64 next_free_time = 4;
+    System_UInt32 not_got_num = 5;
+    System_UInt32 limit_purchase_count_one = 6;
+    System_UInt32 limit_purchase_count_ten = 7;
+    System_UInt32 first_draw_reward_num = 8;
+}
+
+// Message: proto.ClientChestType
+message ClientChestType {
+    System_UInt32 chest_id = 1;
+    System_UInt32 priority = 2;
+    System_UInt32 coin_type = 3;
+    System_String start_time = 4;
+    System_String end_time = 5;
+    System_String chest_name = 6;
+    repeated System_UInt32 exchange_itemid = 7;
+    System_UInt32 free_type = 8;
+    System_UInt32 chest_activity = 9;
+    System_UInt32 chest_model_id = 10;
+    System_Int64 start_time_stamp = 11;
+    System_Int64 end_time_stamp = 12;
+    System_UInt32 once_price = 13;
+    System_UInt32 ten_price = 14;
+    System_UInt32 exchange_once_num = 15;
+    System_UInt32 exchange_ten_num = 16;
+    System_UInt32 color_id = 17;
+    System_Boolean extra_reward = 18;
+    System_UInt32 once_num = 19;
+    System_UInt32 ten_num = 20;
+    System_Int64 limit_start_time = 21;
+    System_Int64 limit_end_time = 22;
+    System_UInt32 limit_num_one = 23;
+    repeated System_UInt32 limit_price_one = 24;
+    System_UInt32 limit_num_ten = 25;
+    repeated System_UInt32 limit_price_ten = 26;
+    System_Int64 discount_start_time = 27;
+    System_Int64 discount_end_time = 28;
+    System_UInt32 discount_price_one = 29;
+    System_UInt32 discount_price_ten = 30;
+    System_UInt32 show_model_male = 31;
+    System_UInt32 show_model_female = 32;
+    System_UInt32 rare_item_max = 33;
+    System_UInt32 first_reward_max = 34;
+    System_UInt32 second_level_count = 35;
+    System_UInt32 third_level_count = 36;
+    repeated System_UInt32 extra_reward_reset_day = 37;
+    System_UInt32 chest_sub_id = 38;
+    System_Boolean first_reward_switch = 39;
+    System_UInt32 chest_model_id2 = 40;
+    System_Boolean drop_probability_switch = 41;
+    System_UInt32 open_priority_switch = 42;
+    proto_ELottery_Type type = 43;
+    System_UInt32 forge_tab_id = 44;
+    System_UInt32 extra_reward_icon = 45;
+    System_UInt32 chest_hint_color = 46;
+    System_Int64 drop_up_start_time = 47;
+    System_Int64 drop_up_end_time = 48;
+    System_UInt32 limit_num = 49;
+    System_UInt32 limit_type = 50;
+    System_UInt32 drop_up_price = 51;
+    repeated System_UInt32 show_type = 52;
+    System_UInt32 show_ui_color = 53;
+    repeated System_UInt32 multi_once_price = 54;
+    repeated System_UInt32 price_one_type = 55;
+    System_UInt32 energy_gacha_buff_price = 56;
+    System_UInt32 energy_gacha_buff_reset_price = 57;
+    System_UInt32 legend_cloth_id = 58;
+    System_String bag_icon = 59;
+    System_UInt32 independent_entrance_type = 60;
+}
+
+// Message: proto.GachaShowItemsWithJackpot
+message GachaShowItemsWithJackpot {
+    repeated proto_GachaShowItem items = 1;
+    System_UInt32 jackpot = 2;
+}
+
+// Message: proto.GachaShowItem
+message GachaShowItem {
+    System_UInt32 item_id = 1;
+    System_Boolean is_show = 2;
+    System_UInt32 repeated_item_id = 3;
+    System_UInt32 repeated_item_num = 4;
+    proto_EInventory_AwardType item_type = 5;
+    System_UInt32 item_num = 6;
+    System_UInt32 reward_level = 7;
+    System_UInt32 turntable_props_type = 8;
+    System_Single drop_up_ratio = 9;
+    System_Boolean is_drop_up_buffed = 10;
+    System_UInt32 id = 11;
+    System_UInt32 item_duration = 12;
+    System_Boolean token_flag = 13;
+    System_Boolean un_quick_selection = 14;
+    proto_ELottery_RareType rare_item = 15;
+}
+
+// Message: proto.ExchangeItemNum
+message ExchangeItemNum {
+    System_UInt32 item_id = 1;
+    System_UInt32 num = 2;
+}
+
+// Message: proto.CompletionBackpackInfo
+message CompletionBackpackInfo {
+    System_UInt32 lottery_id = 1;
+    repeated proto_CompletionItem items = 2;
+}
+
+// Message: proto.CSReRandomCompletionLotteryReq
+message CSReRandomCompletionLotteryReq {
+    System_UInt32 lottery_id = 1;
+    System_UInt32 lottery_sub_id = 2;
+    repeated System_UInt32 id_list = 3;
+    System_String nick_name = 4;
+}
+
+// Message: proto.CSCompletionLotteryGainItemsReq
+message CSCompletionLotteryGainItemsReq {
+    System_UInt32 lottery_id = 1;
+    System_UInt32 lottery_sub_id = 2;
+    repeated System_UInt32 id_list = 3;
+}
+
+// Message: proto.CSCompletionLotteryGainItemsRes
+message CSCompletionLotteryGainItemsRes {
+    repeated proto_ExchangedAward exchanged_awards = 1;
+}
+
+// Message: proto.CSGetCardsReq
+message CSGetCardsReq {
+    System_UInt32 lottery_id = 1;
+    repeated System_UInt32 id_list = 2;
+}
+
+// Message: proto.CSGetCardsRes
+message CSGetCardsRes {
+    proto_PVPCardInfo pvp_cards = 1;
+    proto_PVECardInfo pve_cards = 2;
+}
+
+// Message: proto.CSFlipCardReq
+message CSFlipCardReq {
+    System_Boolean is_pve = 1;
+    System_Boolean is_all = 2;
+    System_UInt32 flip_order = 3;
+}
+
+// Message: proto.GetCardsAndIAPInfoRes
+message GetCardsAndIAPInfoRes {
+    proto_CSGetCardsRes cards_res = 1;
+    proto_CSGetAccountIAPInfoRes iap_info_res = 2;
+}
+

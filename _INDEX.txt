@@ -1,0 +1,53 @@
+// ============================================
+//  ÍNDICE DE PROTOBUF POR CATEGORIA
+// ============================================
+
+// Total: 230 enums, 927 messages
+
+📄 45_network.proto
+📄 37_custom_event.proto
+📄 38_pool_leaderboard.proto
+📄 26_chummy.proto
+📄 12_blacklist.proto
+📄 06_mail.proto
+📄 30_live.proto
+📄 24_workshop.proto
+📄 01_login.proto
+📄 20_championship.proto
+📄 27_presence.proto
+📄 22_limited_event.proto
+📄 23_mini_game.proto
+📄 32_recommend.proto
+📄 33_client_info.proto
+📄 17_queue.proto
+📄 25_vip_card.proto
+📄 07_match_stats.proto
+📄 40_hacker.proto
+📄 21_cup.proto
+📄 03_inventory.proto
+📄 28_lobby_display.proto
+📄 19_pet.proto
+📄 13_anti_addiction.proto
+📄 16_social.proto
+📄 14_linkage.proto
+📄 42_subscription.proto
+📄 99_enums.proto
+📄 44_notification.proto
+📄 29_ranking.proto
+📄 04_clan.proto
+📄 39_abtest.proto
+📄 05_friend.proto
+📄 08_lottery.proto
+📄 10_room.proto
+📄 46_crypto.proto
+📄 35_config.proto
+📄 18_avatar.proto
+📄 11_platform.proto
+📄 15_custom_room.proto
+📄 34_switch.proto
+📄 36_schedule.proto
+📄 43_emulator.proto
+📄 41_mem_check.proto
+📄 02_account.proto
+📄 09_store.proto
+📄 31_manual.proto

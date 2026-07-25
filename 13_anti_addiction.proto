@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+// Categoria: 13_anti_addiction
+// Total: 3 segments
+
+// Message: proto.EAntiAddiction
+message EAntiAddiction {
+    // Sem campos definidos no dump
+}
+
+// Message: proto.CSAntiAddictionSwitchDescRes
+message CSAntiAddictionSwitchDescRes {
+    proto_AntiAddictionSwitchDesc anti_addiction_switch_desc = 1;
+}
+
+// Message: proto.CSSetAntiAddictionAgeStateReq
+message CSSetAntiAddictionAgeStateReq {
+    proto_EAntiAddiction_AgeState age_state = 1;
+    System_String country_code = 2;
+}
+

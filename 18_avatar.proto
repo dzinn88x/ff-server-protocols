@@ -1,0 +1,350 @@
+syntax = "proto3";
+
+// Categoria: 18_avatar
+// Total: 51 segments
+
+// Enum: enum proto.EProfile.TaskState
+enum TaskState {
+    TaskState_FINISHED = 1;
+    TaskState_AWARDED = 2;
+    TaskState_RECEIVED = 0;
+}
+
+// Enum: enum proto.EProfile.TaskType
+enum TaskType {
+    TaskType_TASK_FINISHED_CUMU = 5;
+    TaskType_KILL = 2;
+    TaskType_WEAPON_DAMAGE = 7;
+    TaskType_WIN = 3;
+    TaskType_WEAPON_KILL = 8;
+    TaskType_REVIVAL_COUNT = 9;
+    TaskType_NONE = 0;
+    TaskType_MOVE_DISTANCE = 1;
+    TaskType_GROUP_WITH_FRIEND = 4;
+    TaskType_ITEM_COLLECT = 6;
+    TaskType_WEAPON_TYPE_KILL = 10;
+    TaskType_LOW_HP_KILL = 11;
+    TaskType_CS_ACHIEVED_KILL = 12;
+    TaskType_THROWING_COUNT = 13;
+}
+
+// Enum: enum proto.EProfile.DispatchLine
+enum DispatchLine {
+    DispatchLine_FOURTH = 4;
+    DispatchLine_SECOND = 2;
+    DispatchLine_NONE = 0;
+    DispatchLine_FIRST = 1;
+    DispatchLine_THIRD = 3;
+}
+
+// Enum: enum proto.EProfile.DispatchQuestState
+enum DispatchQuestState {
+    DispatchQuestState_PROCESSING = 1;
+    DispatchQuestState_NONE = 0;
+    DispatchQuestState_FINISHED = 2;
+}
+
+// Message: proto.AvatarSkillSlot
+message AvatarSkillSlot {
+    System_UInt32 slot_id = 1;
+    System_UInt32 skill_id = 2;
+}
+
+// Message: proto.AvatarProfile
+message AvatarProfile {
+    System_UInt32 avatar_id = 1;
+    System_UInt32 unlocked_level = 2;
+    System_UInt32 skin_color = 3;
+    repeated System_UInt32 clothes = 4;
+    repeated proto_AvatarSkillSlot equiped_skills = 5;
+    System_Boolean is_selected = 6;
+    System_UInt32 pve_primary_weapon = 7;
+    System_Boolean is_selected_awaken = 8;
+    System_UInt32 end_time = 9;
+}
+
+// Message: proto.AvatarProfileWithID
+message AvatarProfileWithID {
+    System_UInt64 account_id = 1;
+    proto_AvatarProfile avatar_profile = 2;
+}
+
+// Message: proto.AwakenTask
+message AwakenTask {
+    System_UInt64 account_id = 1;
+    System_UInt32 avatar_id = 2;
+    System_UInt32 task_type = 3;
+    System_UInt32 data = 4;
+    proto_EProfile_TaskState state = 5;
+}
+
+// Message: proto.AwakenComic
+message AwakenComic {
+    System_UInt64 account_id = 1;
+    System_UInt32 original_avatar_id = 2;
+    System_UInt32 comic_id = 3;
+    System_UInt32 unlock_num = 4;
+}
+
+// Message: proto.AvatarAwakenRefreshCount
+message AvatarAwakenRefreshCount {
+    System_UInt32 original_avatar_id = 1;
+    System_UInt32 refresh_count = 2;
+}
+
+// Message: proto.EProfile
+message EProfile {
+    // Sem campos definidos no dump
+}
+
+// Message: proto.AvatarDispatchStatus
+message AvatarDispatchStatus {
+    System_UInt32 avatar_id = 1;
+    proto_EProfile_DispatchLine status = 2;
+}
+
+// Message: proto.AvatarDispatchQuest
+message AvatarDispatchQuest {
+    System_UInt32 quest_line = 1;
+    System_UInt32 quest_id = 2;
+    proto_EProfile_DispatchQuestState state = 3;
+    System_Int64 start_time = 4;
+}
+
+// Message: proto.CSGetProfileListRes
+message CSGetProfileListRes {
+    repeated proto_AvatarProfile profiles = 1;
+}
+
+// Message: proto.CSGetSkillListRes
+message CSGetSkillListRes {
+    System_UInt64 account_id = 1;
+    repeated System_UInt32 skills = 2;
+}
+
+// Message: proto.CSSelectProfileReq
+message CSSelectProfileReq {
+    System_UInt32 avatar_id = 1;
+    System_UInt64 group_id = 2;
+}
+
+// Message: proto.CSSelectProfileRes
+message CSSelectProfileRes {
+    proto_AvatarProfile profile = 1;
+}
+
+// Message: proto.CSUnlockProfileReq
+message CSUnlockProfileReq {
+    System_UInt32 avatar_id = 1;
+    System_UInt32 unlock_level = 2;
+    System_Boolean use_general_debris = 3;
+}
+
+// Message: proto.CSUnlockProfileRes
+message CSUnlockProfileRes {
+    repeated proto_AvatarProfile affected_profiles = 1;
+    repeated proto_Item award_items = 2;
+}
+
+// Message: proto.CSEquipSkillReq
+message CSEquipSkillReq {
+    System_UInt32 avatar_id = 1;
+    System_UInt32 slot_id = 2;
+    System_UInt32 skill_id = 3;
+    System_UInt64 group_id = 4;
+    System_UInt64 room_id = 5;
+}
+
+// Message: proto.CSEquipSkillRes
+message CSEquipSkillRes {
+    repeated proto_AvatarProfile profiles = 1;
+}
+
+// Message: proto.CSChangeClothesReq
+message CSChangeClothesReq {
+    System_UInt32 avatar_id = 1;
+    repeated System_UInt32 clothes = 2;
+    System_UInt32 skin_color = 3;
+    System_UInt64 room_id = 4;
+    System_UInt64 group_id = 5;
+}
+
+// Message: proto.CSChangeClothesRes
+message CSChangeClothesRes {
+    proto_AvatarProfile profile = 1;
+}
+
+// Message: proto.CSUnlockSkillSlotReq
+message CSUnlockSkillSlotReq {
+    System_UInt32 avatar_id = 1;
+    System_UInt32 slot_id = 2;
+    System_UInt32 currency_type = 3;
+}
+
+// Message: proto.CSUnlockSkillSlotRes
+message CSUnlockSkillSlotRes {
+    proto_ExchangeChangeData change_data = 1;
+    repeated proto_AvatarProfile profiles = 2;
+}
+
+// Message: proto.CSGetUnlockProfileInfoRes
+message CSGetUnlockProfileInfoRes {
+    repeated proto_UnlockProfileConfig infos = 1;
+}
+
+// Message: proto.CSGetHideAvatarRes
+message CSGetHideAvatarRes {
+    repeated System_UInt32 avatar_id = 1;
+    repeated System_UInt32 ip_expired_avatar_id = 2;
+}
+
+// Message: proto.CSGetGoPosRes
+message CSGetGoPosRes {
+    repeated proto_GoPos go_pos = 1;
+}
+
+// Message: proto.CSGetAvatarAwakenRes
+message CSGetAvatarAwakenRes {
+    repeated proto_AvatarAwaken infos = 1;
+}
+
+// Message: proto.CSGetIPTagConfigRes
+message CSGetIPTagConfigRes {
+    repeated proto_IPTagConfigDesc ip_tag_config = 1;
+}
+
+// Message: proto.GetStoreAllDescRes
+message GetStoreAllDescRes {
+    proto_CSGetGiftStoreRes gift_store = 1;
+    proto_CSGetStoreTabRes store_tab = 2;
+    proto_CSGetExchangeWebsiteRes exchange_website = 3;
+    proto_CSGetIPTagConfigRes ip_tag_config = 4;
+    proto_CSGetExchangeCurrencyAllDescRes exchange_currency = 5;
+    proto_CSGetPayLevelConfigRes pay_level_config_res = 6;
+    proto_CSGetPBWSpecialStoreRes pbw_special_store_res = 7;
+    proto_CSGetExchangeCurrencyLocalRes exchange_currency_local = 8;
+}
+
+// Message: proto.ProfileNewProfileNtf
+message ProfileNewProfileNtf {
+    proto_AvatarProfile new_profile = 1;
+    repeated proto_Item rewards = 2;
+}
+
+// Message: proto.LoginProfileRes
+message LoginProfileRes {
+    proto_CSGetProfileListRes profile_res = 1;
+    proto_CSGetSkillListRes skill_res = 2;
+    proto_PetInfo pet_info = 3;
+}
+
+// Message: proto.CSGetAvatarAwakenTaskInfoRes
+message CSGetAvatarAwakenTaskInfoRes {
+    repeated proto_AwakenTask awaken_task_info = 1;
+    repeated proto_AvatarAwakenRefreshCount refresh_count = 2;
+}
+
+// Message: proto.CSClaimAwakenTaskRewardsReq
+message CSClaimAwakenTaskRewardsReq {
+    System_UInt32 original_avatar_id = 1;
+    System_UInt32 task_type = 2;
+}
+
+// Message: proto.CSClaimAwakenTaskRewardsRes
+message CSClaimAwakenTaskRewardsRes {
+    proto_AwardData awards = 1;
+}
+
+// Message: proto.CSGetDispatchInfoReq
+message CSGetDispatchInfoReq {
+    System_UInt32 activity_id = 1;
+}
+
+// Message: proto.CSExecuteDispatchQuestReq
+message CSExecuteDispatchQuestReq {
+    System_UInt32 quest_line = 1;
+    System_UInt32 quest_id = 2;
+    repeated System_UInt32 avatar_ids = 3;
+}
+
+// Message: proto.CSClaimDispatchQuestRewardsReq
+message CSClaimDispatchQuestRewardsReq {
+    System_UInt32 quest_line = 1;
+    System_UInt32 quest_id = 2;
+}
+
+// Message: proto.CSGetDispatchInfoRes
+message CSGetDispatchInfoRes {
+    repeated proto_AvatarDispatchStatus avatar_dispatch_status = 1;
+    repeated proto_AvatarDispatchQuest avatar_dispatch_quest = 2;
+}
+
+// Message: proto.CSExecuteDispatchQuestRes
+message CSExecuteDispatchQuestRes {
+    // Sem campos definidos no dump
+}
+
+// Message: proto.CSClaimDispatchQuestRewardsRes
+message CSClaimDispatchQuestRewardsRes {
+    proto_AvatarDispatchQuest avatar_dispatch_state = 1;
+    System_UInt32 critical_times = 2;
+    repeated proto_ExchangedAward exchanged_awards = 3;
+}
+
+// Message: proto.CSRefreshAvatarAwakenTaskInfoRes
+message CSRefreshAvatarAwakenTaskInfoRes {
+    repeated proto_AwakenTask awaken_task_info = 1;
+    System_UInt32 refresh_count = 2;
+}
+
+// Message: proto.CSRefreshAvatarAwakenTaskInfoReq
+message CSRefreshAvatarAwakenTaskInfoReq {
+    System_UInt32 original_avatar_id = 1;
+}
+
+// Message: proto.CSGetAvatarAwakenComicInfoRes
+message CSGetAvatarAwakenComicInfoRes {
+    repeated proto_AwakenComic awaken_comic_info = 1;
+}
+
+// Message: proto.CSUnlockAvatarAwakenComicReq
+message CSUnlockAvatarAwakenComicReq {
+    System_UInt32 original_avatar_id = 1;
+    System_UInt32 comic_id = 2;
+}
+
+// Message: proto.CSGetAwakenAvatarByAwakenComicRes
+message CSGetAwakenAvatarByAwakenComicRes {
+    proto_AwardData awards = 1;
+}
+
+// Message: proto.CSGetAwakenAvatarByAwakenComicReq
+message CSGetAwakenAvatarByAwakenComicReq {
+    System_UInt32 original_avatar_id = 1;
+}
+
+// Message: proto.AwakenTaskDesc
+message AwakenTaskDesc {
+    System_UInt32 id = 1;
+    System_UInt32 task_type = 2;
+    System_UInt32 task_value = 3;
+    repeated proto_AwardDesc awards = 4;
+    System_UInt32 task_sub_value = 5;
+}
+
+// Message: proto.AvatarSkillSlotUnlockInfo
+message AvatarSkillSlotUnlockInfo {
+    System_UInt32 avatar_id = 1;
+    System_UInt32 slot_id = 2;
+    System_UInt32 gems = 3;
+    System_UInt32 coins = 4;
+}
+
+// Message: proto.AwakenComicDesc
+message AwakenComicDesc {
+    System_UInt32 original_avatar_id = 1;
+    System_UInt32 comic_id = 2;
+    System_UInt32 unlock_item_id = 3;
+    System_UInt32 unlock_item_cnt = 4;
+}
+

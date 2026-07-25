@@ -1,0 +1,907 @@
+syntax = "proto3";
+
+// Categoria: 03_inventory
+// Total: 86 segments
+
+// Enum: enum proto.EInventory.ItemType
+enum ItemType {
+    ItemType_TREASUREBOX = 4;
+    ItemType_DEBRIS = 8;
+    ItemType_AVATAR = 1;
+    ItemType_COLLECTION = 9;
+    ItemType_STICKER = 12;
+    ItemType_BATTLEFLAG = 14;
+    ItemType_PET = 13;
+    ItemType_OPTIONAL_BUNDLE = 17;
+    ItemType_LOADOUTBOX = 5;
+    ItemType_ROOMCARD = 6;
+    ItemType_NONE = 0;
+    ItemType_BUNDLE = 7;
+    ItemType_EP_DEBRIS = 15;
+    ItemType_LIMITEDCARD = 3;
+    ItemType_CLOTHES = 2;
+    ItemType_BONUSCARD = 11;
+    ItemType_VIRTUAL = 10;
+}
+
+// Enum: enum proto.EInventory.ItemSubType
+enum ItemSubType {
+    ItemSubType_LIMITED_EVENT_BOUNTY_TOKEN = 20;
+    ItemSubType_REDENVELOPE = 6;
+    ItemSubType_AVATARLEVELCARD = 12;
+    ItemSubType_LIMITED_EVENT_POINTS = 18;
+    ItemSubType_TRAINING_TOKEN = 21;
+    ItemSubType_ROOMCARD_ADVANCED = 23;
+    ItemSubType_PETFOOD = 7;
+    ItemSubType_ROOMCARD_WEREWOLVES = 24;
+    ItemSubType_FORGECURRENCY = 8;
+    ItemSubType_CHIP = 13;
+    ItemSubType_VOUCHER = 4;
+    ItemSubType_ROOMCARD_RUSHING_PETS = 26;
+    ItemSubType_ELITEPASS = 3;
+    ItemSubType_ROOMCARD_WORKSHOP = 25;
+    ItemSubType_NONE = 0;
+    ItemSubType_REVIVETOKEN = 11;
+    ItemSubType_LOTTERYTOKEN = 2;
+    ItemSubType_PETSKILL = 15;
+    ItemSubType_CRATE = 16;
+    ItemSubType_PETACTION = 9;
+    ItemSubType_ROOMCARD_NORMAL = 22;
+    ItemSubType_GENERAL_DEBRIS = 17;
+    ItemSubType_RENAMECARD = 5;
+    ItemSubType_VIPCARD_RESIGN_CARD = 27;
+    ItemSubType_GUILD_TOKEN = 14;
+    ItemSubType_PETSKIN = 10;
+    ItemSubType_TIME_LIMITED_LOTTERYTOKEN = 19;
+}
+
+// Enum: enum proto.EInventory.CollectionType
+enum CollectionType {
+    CollectionType_LOOTBOX = 3;
+    CollectionType_PARACHUTE = 5;
+    CollectionType_PIN = 10;
+    CollectionType_GROUPANIM = 12;
+    CollectionType_SKATE = 6;
+    CollectionType_HEADPIC = 2;
+    CollectionType_WEAPON_SKIN = 7;
+    CollectionType_VIHICLE_SKIN = 8;
+    CollectionType_NONE = 0;
+    CollectionType_EMOTE = 9;
+    CollectionType_Flight = 11;
+    CollectionType_GAMEBAG = 4;
+    CollectionType_MUSIC = 13;
+    CollectionType_BANNER = 1;
+}
+
+// Enum: enum proto.EInventory.ClothesType
+enum ClothesType {
+    ClothesType_PARACHUTE = 9;
+    ClothesType_HEAD = 1;
+    ClothesType_NONE = 0;
+    ClothesType_PANTS = 4;
+    ClothesType_SHOE = 5;
+    ClothesType_FACE = 8;
+    ClothesType_PARACHUTE_BAG = 10;
+    ClothesType_COAT = 3;
+    ClothesType_GLOVE = 2;
+    ClothesType_HAIR = 11;
+    ClothesType_HEAD_ADDITIVE = 14;
+    ClothesType_SET = 12;
+    ClothesType_EYE = 7;
+    ClothesType_WAIST = 6;
+}
+
+// Enum: enum proto.EInventory.GenderType
+enum GenderType {
+    GenderType_NONE = 0;
+    GenderType_MAN = 2;
+    GenderType_WOMAN = 1;
+}
+
+// Enum: enum proto.EInventory.AwardType
+enum AwardType {
+    AwardType_GEMS = 3;
+    AwardType_NONE = 0;
+    AwardType_ITEM = 1;
+    AwardType_COINS = 2;
+    AwardType_EXP = 5;
+    AwardType_ACCELERATORS = 7;
+    AwardType_SKILL = 4;
+    AwardType_ACTIVENESS = 6;
+    AwardType_LIMITED_EVENT_BADGE = 8;
+}
+
+// Enum: enum proto.EInventory.CurrencyType
+enum CurrencyType {
+    CurrencyType_GEMS = 2;
+    CurrencyType_NONE = 0;
+    CurrencyType_COINS = 1;
+}
+
+// Enum: enum proto.EInventory.LimitedCardType
+enum LimitedCardType {
+    LimitedCardType_DISCOUNT = 3;
+    LimitedCardType_ITEM_NUM = 2;
+    LimitedCardType_NONE = 0;
+    LimitedCardType_ITEM_TIME = 1;
+}
+
+// Enum: enum proto.EInventory.LoadoutType
+enum LoadoutType {
+    LoadoutType_NEW = 2;
+    LoadoutType_OLD = 1;
+    LoadoutType_NONE = 0;
+}
+
+// Enum: enum proto.EInventory.BonusCardType
+enum BonusCardType {
+    BonusCardType_NONE = 0;
+    BonusCardType_EPDEBRIS = 3;
+    BonusCardType_MENTORING_INTIMACY = 4;
+    BonusCardType_EXP = 2;
+    BonusCardType_GOLD = 1;
+}
+
+// Enum: enum proto.EInventory.VoucherType
+enum VoucherType {
+    VoucherType_GEMS = 2;
+    VoucherType_NONE = 0;
+    VoucherType_COINS = 1;
+}
+
+// Enum: enum proto.EInventory.TransReason
+enum TransReason {
+    TransReason_SEASON_REWARD = 22;
+    TransReason_VIPCARD_RESIGN_DAILY_REWARD = 138;
+    TransReason_SUBSCRIPTION = 68;
+    TransReason_EPCHALLENGE = 26;
+    TransReason_ROLE_DEBRIS_PURCHASE = 91;
+    TransReason_CHUMMY_CLAIM_INTIMACY_AWARDS = 143;
+    TransReason_PURCHASE = 2;
+    TransReason_MYSTERY_BONUS = 59;
+    TransReason_RANK_REWARD = 21;
+    TransReason_DISCOUNTSTORE_PURCHASE = 47;
+    TransReason_LIMITED_EVENT_ACCELERATE_CASHPRINTER = 86;
+    TransReason_EPUNLOCK = 24;
+    TransReason_EP_WEEKLY_PROCESS_REWARDS = 97;
+    TransReason_LIMITED_EVENT_MUSICFEST_SEND_TOKEN = 121;
+    TransReason_LIMITED_EVENT_MOCO_MONTH_GAME = 126;
+    TransReason_EPPURCHASE = 23;
+    TransReason_LOTTERY_SPECIAL_EXCHANGE = 42;
+    TransReason_CLAN_LUCKY_BAG = 54;
+    TransReason_MINI_GAME = 94;
+    TransReason_PROFILE_AWAKEN_TASK_REWARDS = 72;
+    TransReason_INTIMACY_RANK_AWARD = 101;
+    TransReason_INSTALLMENT_PURCHASE = 60;
+    TransReason_REFRESH_AWAKEN_TASK = 110;
+    TransReason_CLAN_WAR_PERSONAL_REWARD = 129;
+    TransReason_VIPCARD_INIT_REWARD = 130;
+    TransReason_LIMITED_CHEST = 140;
+    TransReason_PAY_BUNDLE_WINDOW_PURCHASE = 49;
+    TransReason_NEW_PALAYER_LEVEL_UP_TASK = 73;
+    TransReason_REBATESUBSCRIPTION = 56;
+    TransReason_CHAT_ITEMS = 43;
+    TransReason_ACTIVITY = 9;
+    TransReason_RENAME = 19;
+    TransReason_LIMITED_EVENT_SUTORITO_REWARD = 112;
+    TransReason_MAIL_ATTACHMENT = 11;
+    TransReason_AVATAR_LEVEL_CARD = 51;
+    TransReason_GIFT_RANK_REWARD = 41;
+    TransReason_PERIODIC_RANK_REWARD = 144;
+    TransReason_BOX_REWARD = 62;
+    TransReason_CUP_CLAIM_REWARDS = 114;
+    TransReason_FEED_PET = 45;
+    TransReason_LINKAGE_ACTIVITY = 65;
+    TransReason_CUP_USE_TICKET = 117;
+    TransReason_SEND_GIFT = 30;
+    TransReason_PET_LEVEL_UP = 48;
+    TransReason_LOADOUT = 4;
+    TransReason_DISPATCH_QUEST_REWARD = 85;
+    TransReason_CLAN_WAR_TEAM_REWARD = 128;
+    TransReason_LIMITED_EVENT_BERMUDA_PROGRESS = 96;
+    TransReason_MANUAL_WEAPON = 57;
+    TransReason_CLAN_BADGE = 135;
+    TransReason_UNLOCK_PROFIILE_REWARD = 18;
+    TransReason_UPGRADE_WEAPON_SKIN = 92;
+    TransReason_LIMITED_EVENT_BOOYAH_DAY_SIGN = 93;
+    TransReason_LIMITED_EVENT_WINTERFEST21B = 142;
+    TransReason_EPSUBSCRIPTION = 55;
+    TransReason_CBT_GIFTS = 6;
+    TransReason_CC_SUPPORT_PRIX = 80;
+    TransReason_LOTTERY = 27;
+    TransReason_CUSTOM_EVENT_PROCESS = 134;
+    TransReason_MANUAL_MAP = 58;
+    TransReason_ADMIN = 14;
+    TransReason_BINGO_ACTIVITY_REWARDS = 53;
+    TransReason_LIMITED_EVENT_HURRICANEB = 146;
+    TransReason_LIMITED_EVENT_HOODEDKILLERB = 147;
+    TransReason_CLAN_SIGN_IN = 37;
+    TransReason_PAYLEVELREWARD = 87;
+    TransReason_CLAN = 13;
+    TransReason_EP_DEBRIS = 76;
+    TransReason_QUICK_PURCHASE = 149;
+    TransReason_LIMITED_EVENT_MUSICFEST_PUZZLE_PROGRESS_REWARD = 123;
+    TransReason_UNLOCK_PROFIILE = 17;
+    TransReason_EXTERNAL_CALL = 16;
+    TransReason_LIMITED_EVENT_MUSICFEST_RECEIVE_TOKEN = 122;
+    TransReason_CLAN_RACE_UNLOCK = 39;
+    TransReason_ROOMCARD = 36;
+    TransReason_LIMITED_EVENT_FFWS03 = 137;
+    TransReason_LIMITED_EVENT_BOOYAHDAY21_PROCESS = 133;
+    TransReason_VETERAN_TASK = 70;
+    TransReason_LIMITED_EVENT_SUPERFIGHTER_REWARD = 104;
+    TransReason_AVATAR_AWAKEN_COMIC = 108;
+    TransReason_LIMITED_EVENT_MVP_PROCESS = 99;
+    TransReason_NONE = 0;
+    TransReason_CARD = 33;
+    TransReason_LIMITED_EVENT_FOURSYMBOLS_CLAIM_ACCUMULATIVE_AWARD = 119;
+    TransReason_LIMITED_EVENT_MUSICFEST_PUZZLE_RANGE_REWARD = 124;
+    TransReason_GET_AWAKEN_AVATAR = 109;
+    TransReason_LIMITED_EVENT_BOOYAH_DAY_PROCESS = 95;
+    TransReason_LIMITED_EVENT_MUSICFEST_CARD_REWARD = 125;
+    TransReason_WORKSHOP_UNLOCK_SLOT = 127;
+    TransReason_VIPCARD_STORE_PURCHASE = 132;
+    TransReason_COMPLETION_GACHA_BACKPACK = 98;
+    TransReason_PET_RENAME = 44;
+    TransReason_LIMITED_EVENT_MONEY_HEIST_HELP = 88;
+    TransReason_LIMITED_EVENT_FFWS = 106;
+    TransReason_LIMITED_EVENT_FOURSYMBOLS_ROAD = 113;
+    TransReason_FRESH_ACTIVITY = 63;
+    TransReason_MATCH = 5;
+    TransReason_ATTENDANCE = 7;
+    TransReason_TRANSFORM_GENERAL_DEBRIS = 74;
+    TransReason_LIMITED_EVENT_STORE_PURCHASE = 81;
+    TransReason_LIMITED_EVENT_SUPERCAR = 105;
+    TransReason_EPPURCHASE_BUNDLE = 31;
+    TransReason_POOL_LEADERBOARD_CLAIM_AWARDS = 139;
+    TransReason_LEVEL_REWARD = 10;
+    TransReason_IAPPURCHASE = 34;
+    TransReason_LOTTERY_DROPUP_BUFF = 61;
+    TransReason_VETERAN_RETURN = 35;
+    TransReason_CS_RANK_REWARD = 75;
+    TransReason_EPPREORDER = 38;
+    TransReason_TOPUP = 12;
+    TransReason_UNLOCK_SKILL_SLOT = 29;
+    TransReason_INSTALLMENT_MODIFY_ITEMS = 64;
+    TransReason_NEWPLAYERSIGNIN = 8;
+    TransReason_REISSUE = 20;
+    TransReason_SUBSCRIPTION_BONUS = 67;
+    TransReason_MYSTERY_STORE_PURCHASE = 83;
+    TransReason_BUNDLE = 15;
+    TransReason_EPPURCHASE_BADGE = 25;
+    TransReason_LIMITED_EVENT_JUMPSUIT = 141;
+    TransReason_USECARD = 1;
+    TransReason_LIMITED_EVENT_EP = 148;
+    TransReason_CLAN_RACE_ALL_MEMBER = 40;
+    TransReason_CC_SUPPORT_REWARDS = 79;
+    TransReason_CC_LIVE_REWARDS = 77;
+    TransReason_EPTREASUREBOX = 69;
+    TransReason_VIPCARD_RETURN_GEMS = 136;
+    TransReason_SWAP_ACCOUNTS = 66;
+    TransReason_FINISH_BINGO_ACTIVITY = 52;
+    TransReason_MYSTERY_STORE_UNLOCK_POOL = 84;
+    TransReason_OFFER_PURCHASE = 71;
+    TransReason_OPTIONAL_BUNDLE = 107;
+    TransReason_UNLOCK_FITTING_SLOT = 145;
+    TransReason_EXCHANGESTORE_PURCHASE = 32;
+    TransReason_PVE_CARD = 46;
+    TransReason_PETREISSUE = 90;
+    TransReason_LIMITED_EVENT_GOLIATH_REWARD = 100;
+    TransReason_LUCKY_WHEEL_PURCHASE = 116;
+    TransReason_LIMITED_EVENT_FOURSYMBOLS_SIGNIN = 118;
+    TransReason_LOTTERY_EXTRA_REWARD = 28;
+    TransReason_CC_GUESS_REWARDS = 78;
+    TransReason_LUCKY_WHEEL_REFRESH = 115;
+    TransReason_FESTIVAL_ATTENDANCE = 50;
+    TransReason_LIMITED_EVENT_SUTORITO_CONSUME = 111;
+    TransReason_TREASUREBOX = 3;
+    TransReason_LIMITED_EVENT_CLAIM_NODE_REWARD = 82;
+    TransReason_LIMITED_EVENT_MUSICFEST_USE_TOKEN = 120;
+    TransReason_LIMITED_EVENT_SUPERFIGHTER_CONSUME = 103;
+    TransReason_VIPCARD_DAILY_REWARD = 131;
+    TransReason_LIMITED_EVENT_MONEY_HEIST_REWARDS = 89;
+    TransReason_INTIMACY_CREATE_SPECIAL_RELATION = 102;
+}
+
+// Enum: enum proto.EInventory.DeleteReason
+enum DeleteReason {
+    DeleteReason_NONE = 0;
+    DeleteReason_ZERO_CNT = 1;
+    DeleteReason_OUT_EXPIRE = 2;
+    DeleteReason_NO_ITEM_ID = 3;
+}
+
+// Enum: enum proto.EInventory.ItemStatus
+enum ItemStatus {
+    ItemStatus_OUTEXPIRE = 3;
+    ItemStatus_INEXPIRE = 2;
+    ItemStatus_NONE = 0;
+    ItemStatus_PERMANENT = 1;
+}
+
+// Enum: enum proto.EInventory.InstallmentStatus
+enum InstallmentStatus {
+    InstallmentStatus_INSTALLMENT = 1;
+    InstallmentStatus_LOCK = 2;
+    InstallmentStatus_NONE = 0;
+}
+
+// Enum: enum proto.EInventory.InstallmentType
+enum InstallmentType {
+    InstallmentType_WEEK = 1;
+    InstallmentType_QUARTER = 3;
+    InstallmentType_MONTH = 2;
+    InstallmentType_NONE = 0;
+}
+
+// Enum: enum proto.EInventory.StoreTag
+enum StoreTag {
+    StoreTag_EARLY_ACCESS = 6;
+    StoreTag_PURCHASELIMITED = 5;
+    StoreTag_DISPLAY_LEFTTIME = 7;
+    StoreTag_DISCOUNT = 1;
+    StoreTag_HOT = 2;
+    StoreTag_LIMITEDTIME = 4;
+    StoreTag_NONE = 0;
+    StoreTag_NEW = 3;
+}
+
+// Enum: enum proto.EInventory.TopupTxnType
+enum TopupTxnType {
+    TopupTxnType_PROMO = 4;
+    TopupTxnType_REBATE = 5;
+    TopupTxnType_NONE = 0;
+    TopupTxnType_INGAME = 1;
+    TopupTxnType_MSHOP = 2;
+    TopupTxnType_ADMIN = 3;
+}
+
+// Enum: enum proto.EInventory.RareType
+enum RareType {
+    RareType_Red = 7;
+    RareType_White = 1;
+    RareType_Purple_Plus = 8;
+    RareType_Orange = 5;
+    RareType_Card = 6;
+    RareType_NONE = 0;
+    RareType_Blue = 3;
+    RareType_Purple = 4;
+    RareType_Green = 2;
+}
+
+// Enum: enum proto.EInventory.EPCardErrorType
+enum EPCardErrorType {
+    EPCardErrorType_ACTIVE = 3;
+    EPCardErrorType_DISABLE = 1;
+    EPCardErrorType_NO_RETURN = 2;
+    EPCardErrorType_NONE = 0;
+}
+
+// Enum: enum proto.EInventory.StorePromotionType
+enum StorePromotionType {
+    StorePromotionType_NORMAL = 0;
+    StorePromotionType_DISCOUNT = 1;
+}
+
+// Enum: enum proto.EInventory.ItemSourceType
+enum ItemSourceType {
+    ItemSourceType_BACKPACK = 7;
+    ItemSourceType_TREASUREBOX = 8;
+    ItemSourceType_PROFILE = 11;
+    ItemSourceType_FRESH_ACTIVITY = 9;
+    ItemSourceType_WEBPAGE = 3;
+    ItemSourceType_ACTIVITY = 5;
+    ItemSourceType_MYSTERYSHOP = 13;
+    ItemSourceType_BUNDLE = 1;
+    ItemSourceType_LUCKYWHEEL = 18;
+    ItemSourceType_OPTIONAL_BUNDLE = 17;
+    ItemSourceType_LIMITED_CHEST = 21;
+    ItemSourceType_DEFAULT = 0;
+    ItemSourceType_COMPETITION = 12;
+    ItemSourceType_STORE = 4;
+    ItemSourceType_LIMITED_EVENT = 14;
+    ItemSourceType_LINKAGE_ACTIVITY = 10;
+    ItemSourceType_LOTTERY = 6;
+    ItemSourceType_INTIMACY = 15;
+    ItemSourceType_VIPCARD = 19;
+    ItemSourceType_POOL_LEADERBOARD = 20;
+    ItemSourceType_GIFTMAIL = 2;
+}
+
+// Enum: enum proto.EInventory.MaterialItemType
+enum MaterialItemType {
+    MaterialItemType_ITEMS = 1;
+    MaterialItemType_GEMS = 3;
+    MaterialItemType_NONE = 0;
+    MaterialItemType_COINS = 2;
+}
+
+// Message: proto.Item
+message Item {
+    System_UInt32 id = 1;
+    System_UInt32 cnt = 2;
+    System_UInt32 expire_time = 3;
+    System_Int32 left_use_times = 4;
+    System_UInt32 history_owned_cnt = 5;
+    System_UInt32 left_expire_time = 6;
+    proto_EInventory_ItemStatus item_status = 7;
+    proto_EInventory_ItemType item_type = 8;
+    proto_EInventory_ItemSubType item_sub_type = 9;
+    proto_EInventory_InstallmentStatus installment_status = 10;
+    System_UInt32 installment_term = 11;
+    System_UInt32 installment_create_time = 12;
+    System_UInt32 installment_next_pay_time = 13;
+}
+
+// Message: proto.ItemSlice
+message ItemSlice {
+    repeated proto_Item items = 1;
+}
+
+// Message: proto.ExchangedAward
+message ExchangedAward {
+    proto_EInventory_AwardType origin_award_type = 1;
+    System_UInt32 origin_award_id = 2;
+    System_UInt32 origin_award_num = 3;
+    proto_EInventory_AwardType dest_award_type = 4;
+    System_UInt32 dest_award_id = 5;
+    System_UInt32 dest_award_num = 6;
+    System_UInt32 origin_award_time = 7;
+}
+
+// Message: proto.ExchangeChangeData
+message ExchangeChangeData {
+    System_UInt64 trans_id = 1;
+    repeated proto_Item add_item_list = 2;
+    repeated proto_Item del_item_list = 3;
+    System_Int32 coins_delta = 4;
+    System_Int32 gems_delta = 5;
+    System_Int32 gop_gems_delta = 6;
+    proto_EInventory_TransReason reason = 7;
+    System_UInt32 sub_reason = 8;
+    System_UInt32 gop_gems = 9;
+    System_UInt64 gop_total_topup = 10;
+    System_UInt64 gop_total_free = 11;
+    repeated proto_ExchangedAward exchange_award = 12;
+    System_Boolean check_bundle = 13;
+}
+
+// Message: proto.AwardData
+message AwardData {
+    repeated proto_Item items = 1;
+    System_UInt32 coins = 2;
+    System_UInt32 gems = 3;
+    System_UInt32 exps = 4;
+    System_UInt32 activeness = 5;
+    System_UInt32 accelerators = 6;
+}
+
+// Message: proto.ItemCollect
+message ItemCollect {
+    System_UInt32 item_id = 1;
+    System_UInt32 cnt = 2;
+}
+
+// Message: proto.ItemProbability
+message ItemProbability {
+    System_UInt32 item_id = 1;
+    proto_Item item = 2;
+    System_UInt32 probability = 3;
+}
+
+// Message: proto.CSGetStoreReq
+message CSGetStoreReq {
+    System_UInt64 account_id = 1;
+    System_String lock_region = 2;
+    System_String language = 3;
+}
+
+// Message: proto.CSGetStoreRes
+message CSGetStoreRes {
+    repeated proto_StoreDesc store_items = 1;
+}
+
+// Message: proto.CSChooseLoadoutReq
+message CSChooseLoadoutReq {
+    repeated System_UInt32 loadouts = 1;
+    System_UInt64 group_id = 2;
+    System_UInt64 room_id = 3;
+}
+
+// Message: proto.CSGetSelectedItemsRes
+message CSGetSelectedItemsRes {
+    proto_SelectedItems items = 1;
+}
+
+// Message: proto.CSChooseBannerReq
+message CSChooseBannerReq {
+    System_UInt32 banner_id = 1;
+    System_UInt64 group_id = 2;
+}
+
+// Message: proto.CSChooseHeadPicReq
+message CSChooseHeadPicReq {
+    System_UInt32 head_pic = 1;
+    System_UInt64 group_id = 2;
+}
+
+// Message: proto.CSChooseSlotsReq
+message CSChooseSlotsReq {
+    repeated System_UInt32 slots = 1;
+    System_UInt64 group_id = 2;
+}
+
+// Message: proto.CSChooseEmoteReq
+message CSChooseEmoteReq {
+    System_UInt32 slot_id = 1;
+    System_UInt32 emote_id = 2;
+    System_UInt64 group_id = 3;
+}
+
+// Message: proto.CSGetBundleRes
+message CSGetBundleRes {
+    repeated proto_BundleShow bundle_show = 1;
+}
+
+// Message: proto.CSGetOptionalBundleRes
+message CSGetOptionalBundleRes {
+    repeated proto_OptionalBundleShow optional_bundle_show = 1;
+}
+
+// Message: proto.CSGetHideCollectionsRes
+message CSGetHideCollectionsRes {
+    repeated System_UInt32 item_ids = 1;
+}
+
+// Message: proto.CSChooseShowReq
+message CSChooseShowReq {
+    repeated System_UInt32 shows = 1;
+    System_UInt64 group_id = 2;
+}
+
+// Message: proto.CSChooseGameBagShowReq
+message CSChooseGameBagShowReq {
+    System_UInt32 game_bag_id = 1;
+    System_UInt64 group_id = 2;
+}
+
+// Message: proto.CSChoosePinReq
+message CSChoosePinReq {
+    System_UInt32 pin_id = 1;
+    System_UInt64 group_id = 2;
+}
+
+// Message: proto.CSPurchaseReq
+message CSPurchaseReq {
+    System_UInt32 store_item_id = 1;
+    System_UInt64 trans_id = 2;
+    System_UInt32 cnt = 3;
+    System_UInt32 currency_type = 4;
+    System_UInt32 price = 5;
+    System_UInt32 voucher_id = 6;
+    proto_EInventory_StorePromotionType promotion_type = 7;
+    System_Boolean is_offer = 8;
+    System_UInt64 room_id = 9;
+    System_Boolean is_quick_purchase = 10;
+}
+
+// Message: proto.CSPurchaseRes
+message CSPurchaseRes {
+    proto_ExchangeChangeData data = 1;
+    System_UInt32 coins = 2;
+    System_Int32 gems = 3;
+    proto_OfferGoodsDesc offer_goods = 4;
+}
+
+// Message: proto.CSOfferPurchaseReq
+message CSOfferPurchaseReq {
+    System_UInt32 offer_id = 1;
+    System_UInt32 offer_goods_id = 2;
+    System_UInt32 cnt = 3;
+    System_UInt64 trans_id = 4;
+    System_UInt32 price = 5;
+}
+
+// Message: proto.CSOfferPurchaseRes
+message CSOfferPurchaseRes {
+    proto_ExchangeChangeData data = 1;
+    System_Int32 gems = 2;
+}
+
+// Message: proto.CSOpenBundleReq
+message CSOpenBundleReq {
+    System_UInt32 item_id = 1;
+    System_UInt64 room_id = 2;
+}
+
+// Message: proto.CSOpenBundleRes
+message CSOpenBundleRes {
+    proto_ExchangeChangeData data = 1;
+    repeated proto_AwardDesc transfer_to_items = 2;
+}
+
+// Message: proto.CSOpenOptionalBundleReq
+message CSOpenOptionalBundleReq {
+    System_UInt32 item_id = 1;
+    System_UInt32 option_order = 2;
+}
+
+// Message: proto.CSGetWalletReq
+message CSGetWalletReq {
+    System_String login_token = 1;
+    System_Boolean topup_rebate = 2;
+}
+
+// Message: proto.CSGetWalletRes
+message CSGetWalletRes {
+    System_UInt64 account_id = 1;
+    proto_AccountWallet wallet = 2;
+}
+
+// Message: proto.CSGetBackpackReq
+message CSGetBackpackReq {
+    System_UInt32 item_type = 1;
+    System_Boolean is_login = 2;
+}
+
+// Message: proto.CSGetBackpackRes
+message CSGetBackpackRes {
+    proto_AccountWallet wallet = 1;
+    proto_SelectedItems selected_items = 2;
+    repeated proto_Item items = 3;
+    proto_MaxLobbyDisplayInfo max_lobby_display = 4;
+}
+
+// Message: proto.CSBuyChatItemsReq
+message CSBuyChatItemsReq {
+    System_UInt32 item_id = 1;
+}
+
+// Message: proto.CSChoosePVEPrimaryWeaponReq
+message CSChoosePVEPrimaryWeaponReq {
+    System_UInt32 primary_weapon_id = 1;
+    System_UInt64 group_id = 2;
+}
+
+// Message: proto.CSChooseRankingCardsReq
+message CSChooseRankingCardsReq {
+    System_UInt32 card_id = 1;
+}
+
+// Message: proto.SelectedItems
+message SelectedItems {
+    System_UInt32 avatar_id = 1;
+    System_UInt32 skin_color = 2;
+    repeated System_UInt32 clothes = 3;
+    repeated proto_LoadoutInfo loadouts = 4;
+    System_UInt32 banner_id = 5;
+    System_UInt32 head_pic = 6;
+    repeated System_UInt32 slots = 7;
+    proto_ChoosedEmotes emotes = 8;
+    repeated System_UInt32 shows = 9;
+    System_UInt32 pve_primary_weapon_skin = 10;
+    repeated System_UInt32 ranking_cards = 11;
+    System_UInt32 pin_id = 12;
+    System_UInt32 game_bag_show = 13;
+}
+
+// Message: proto.BundleShowData
+message BundleShowData {
+    System_UInt32 award_id = 1;
+    System_Boolean is_preview = 2;
+    System_UInt32 preview_avatar = 3;
+    System_UInt32 award_num = 4;
+    proto_EInventory_AwardType award_type = 5;
+    System_String image_url = 6;
+    proto_EInventory_AwardType return_type = 7;
+    System_UInt32 return_id = 8;
+    System_UInt32 return_num = 9;
+    System_String back_ground_url = 10;
+    System_UInt32 default_male_role = 11;
+    System_UInt32 default_female_role = 12;
+    System_UInt32 award_time = 13;
+    System_UInt32 no_forced_open = 14;
+}
+
+// Message: proto.BundleShow
+message BundleShow {
+    System_UInt32 id = 1;
+    repeated proto_BundleShowData bundles = 2;
+}
+
+// Message: proto.OptionalBundleShow
+message OptionalBundleShow {
+    System_UInt32 id = 1;
+    repeated proto_OptionalBundleShowData bundles = 2;
+}
+
+// Message: proto.OptionalBundleShowData
+message OptionalBundleShowData {
+    System_UInt32 option_order = 1;
+    proto_EInventory_AwardType award_type = 2;
+    System_UInt32 award_id = 3;
+    System_UInt32 award_num = 4;
+    System_UInt32 award_time = 5;
+    proto_EInventory_AwardType return_type = 6;
+    System_UInt32 return_id = 7;
+    System_UInt32 return_num = 8;
+    System_Boolean is_preview = 9;
+    System_UInt32 preview_avatar = 10;
+    System_UInt32 default_male_role = 11;
+    System_UInt32 default_female_role = 12;
+    System_UInt32 original_price = 13;
+}
+
+// Message: proto.AccountWallet
+message AccountWallet {
+    System_UInt32 coins = 1;
+    System_Int32 gems = 2;
+    System_UInt32 gop_gems = 3;
+    System_UInt64 total_topup = 4;
+    System_Int64 last_topup_time = 5;
+}
+
+// Message: proto.InventoryChangeMessage
+message InventoryChangeMessage {
+    repeated proto_Item items = 1;
+}
+
+// Message: proto.CSGetRoleDebrisDescRes
+message CSGetRoleDebrisDescRes {
+    repeated proto_RoleDebrisPurchaseDesc role_debris_tables = 1;
+}
+
+// Message: proto.GetInventoryAllDescRes
+message GetInventoryAllDescRes {
+    proto_CSGetBundleRes bundle = 1;
+    proto_GetRankingItemRankConfigRes ranking_item_rank_config = 2;
+    proto_CSGetFullscreenItemRes full_screen_item = 3;
+    proto_CSGetRoleDebrisDescRes role_debris = 4;
+    System_Int64 weapon_skin_system_time = 5;
+    proto_CSGetOptionalBundleRes optional_bundle = 6;
+    proto_CSSkinTimelineDescRes skin_timeline = 7;
+}
+
+// Message: proto.CSRoleDebrisPurchaseReq
+message CSRoleDebrisPurchaseReq {
+    System_UInt32 debris_id = 1;
+    System_UInt32 purchase_count = 2;
+    System_UInt32 cnt = 3;
+    proto_EInventory_CurrencyType currency_type = 4;
+    System_UInt32 price = 5;
+    System_UInt32 voucher_id = 6;
+}
+
+// Message: proto.CSRoleDebrisPurchaseRes
+message CSRoleDebrisPurchaseRes {
+    proto_ExchangeChangeData data = 1;
+}
+
+// Message: proto.CSGetLegendClothesDescReq
+message CSGetLegendClothesDescReq {
+    System_UInt32 legend_cloth_id = 1;
+}
+
+// Message: proto.CSGetLegendClothesDescRes
+message CSGetLegendClothesDescRes {
+    repeated proto_LegendClothUnlockDesc legend_clothes = 1;
+}
+
+// Message: proto.WeaponRackRes
+message WeaponRackRes {
+    repeated System_UInt32 weapon_ids = 1;
+}
+
+// Message: proto.CSGetNewVaultItemDescRes
+message CSGetNewVaultItemDescRes {
+    repeated proto_NewVaultItemDesc new_vault_items = 1;
+}
+
+// Message: proto.CSOpenTreasureBoxReq
+message CSOpenTreasureBoxReq {
+    System_UInt32 treasure_id = 1;
+    System_UInt64 trans_id = 2;
+    proto_ETreasureBox_BoxType box_type = 3;
+    System_Boolean can_get_unique = 4;
+    System_UInt32 item_cnt = 5;
+    System_Boolean is_crate_treasure = 6;
+    System_Boolean is_auto_open = 7;
+}
+
+// Message: proto.CSOpenTreasureBoxRes
+message CSOpenTreasureBoxRes {
+    proto_AwardData awards = 1;
+    System_UInt32 left_box_num = 2;
+    repeated proto_ExchangedAward exchanged_awards = 3;
+}
+
+// Message: proto.CSGetTreasureBoxRes
+message CSGetTreasureBoxRes {
+    repeated proto_TreasureBoxShow boxes = 1;
+    repeated proto_CrateDescs crates = 2;
+}
+
+// Message: proto.CSGetTreasureBoxPRReq
+message CSGetTreasureBoxPRReq {
+    System_UInt32 treasure_id = 1;
+    System_UInt32 box_type = 2;
+}
+
+// Message: proto.CSGetTreasureBoxPRRes
+message CSGetTreasureBoxPRRes {
+    repeated proto_RareProbability rare_pr = 1;
+    repeated proto_ItemProbability item_pr = 2;
+    repeated proto_AwardTypeProbability award_type_pr = 3;
+}
+
+// Message: proto.CSGetInGameBonusPRReq
+message CSGetInGameBonusPRReq {
+    System_UInt32 bonus_id = 1;
+}
+
+// Message: proto.CSGetInGameBonusPRRes
+message CSGetInGameBonusPRRes {
+    repeated proto_RareProbability rare_pr = 1;
+    repeated proto_ItemProbability item_pr = 2;
+    repeated proto_AwardTypeProbability award_type_pr = 3;
+}
+
+// Message: proto.TreasureBoxShow
+message TreasureBoxShow {
+    System_UInt32 id = 1;
+    repeated proto_TreasureBoxShowData treasure_boxes = 2;
+}
+
+// Message: proto.TreasureBoxShowData
+message TreasureBoxShowData {
+    System_UInt32 award_id = 1;
+    System_Boolean is_preview = 2;
+    System_UInt32 preview_avatar = 3;
+    System_Boolean is_big_reward = 4;
+    System_UInt32 award_num = 5;
+    proto_EInventory_AwardType award_type = 6;
+    System_String icon = 7;
+    System_UInt32 reward_level = 8;
+    System_Boolean compose_icon = 9;
+    System_UInt32 award_time = 10;
+    System_Boolean is_preview_probability = 11;
+}
+
+// Message: proto.ItemDesc
+message ItemDesc {
+    System_UInt32 id = 1;
+    proto_EInventory_ItemType type = 2;
+    System_String name = 3;
+    System_String desc = 4;
+    System_UInt32 is_unique = 5;
+    proto_EInventory_GenderType gender = 6;
+    proto_EInventory_CollectionType collection_type = 7;
+    System_UInt32 rare = 8;
+    proto_EInventory_AwardType return_type = 9;
+    System_UInt32 return_id = 10;
+    System_UInt32 return_num = 11;
+    proto_EInventory_ItemSubType sub_type = 12;
+    System_String end_time = 13;
+    System_Boolean test_data = 14;
+}
+
+// Message: proto.ItemClearProtectDesc
+message ItemClearProtectDesc {
+    System_String region = 1;
+    System_Boolean is_delete_invalid = 2;
+    System_Boolean is_item_id_delete_invalid = 3;
+}
+
+// Message: proto.ItemIntimacyOverrideDesc
+message ItemIntimacyOverrideDesc {
+    System_UInt32 item_id = 1;
+    System_String item_name = 2;
+    System_UInt32 item_intimacy_value = 3;
+}
+
+// Message: proto.ItemRareOverrideDesc
+message ItemRareOverrideDesc {
+    System_UInt32 item_id = 1;
+    System_UInt32 rare = 2;
+}
+

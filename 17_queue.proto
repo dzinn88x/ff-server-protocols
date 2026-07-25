@@ -1,0 +1,241 @@
+syntax = "proto3";
+
+// Categoria: 17_queue
+// Total: 29 segments
+
+// Message: proto.LoginQueueInfo
+message LoginQueueInfo {
+    System_Boolean allow = 1;
+    System_UInt32 queue_position = 2;
+    System_UInt32 need_wait_secs = 3;
+    System_Boolean queue_is_full = 4;
+}
+
+// Message: proto.CSGetAttendanceReq
+message CSGetAttendanceReq {
+    System_Boolean need_clan_info = 1;
+}
+
+// Message: proto.CSGetFestivalAttendanceInfoRes
+message CSGetFestivalAttendanceInfoRes {
+    repeated proto_FestivalAttendanceItem attendance = 1;
+    System_Boolean is_signed_today = 2;
+    System_String act_text1 = 3;
+    System_String act_text2 = 4;
+    System_String act_text3 = 5;
+    System_Int64 start_time = 6;
+    System_Int64 end_time = 7;
+    System_Boolean is_in_attendance_time = 8;
+    System_UInt32 festival_item_id1 = 9;
+    System_UInt32 festival_item_id2 = 10;
+}
+
+// Message: proto.CSGetFestivalItemInfoRes
+message CSGetFestivalItemInfoRes {
+    System_UInt32 festival_item_id = 1;
+    System_String act_text1 = 2;
+    System_String act_text2 = 3;
+    System_String act_text3 = 4;
+}
+
+// Message: proto.CSFestivalAttendanceSigninRes
+message CSFestivalAttendanceSigninRes {
+    System_String act_text1 = 1;
+}
+
+// Message: proto.CSFestivalGetRewardsReq
+message CSFestivalGetRewardsReq {
+    System_UInt32 id = 1;
+}
+
+// Message: proto.VeteranRewardItem
+message VeteranRewardItem {
+    proto_VeteranRewardDesc desc = 1;
+    System_UInt32 status = 2;
+}
+
+// Message: proto.NewPlayerRewardItem
+message NewPlayerRewardItem {
+    System_UInt32 id = 1;
+    System_UInt32 signed = 2;
+    repeated proto_AwardDesc awards = 3;
+}
+
+// Message: proto.AttendanceItem
+message AttendanceItem {
+    System_UInt32 id = 1;
+    System_UInt32 signed = 2;
+    repeated proto_AwardDesc awards = 3;
+    System_Boolean is_big_prize = 4;
+}
+
+// Message: proto.FestivalAttendanceItem
+message FestivalAttendanceItem {
+    System_UInt32 id = 1;
+    System_UInt32 signed = 2;
+    repeated proto_AwardDesc awards = 3;
+    System_UInt32 drop_max_num = 4;
+}
+
+// Message: proto.CSGetRecommendedStudentListRes
+message CSGetRecommendedStudentListRes {
+    proto_AccountInfoBasicBundleRes rand_student_list = 1;
+}
+
+// Message: proto.CSGetActivityDescReq
+message CSGetActivityDescReq {
+    System_String language = 1;
+    System_UInt32 platform = 2;
+}
+
+// Message: proto.CSGetActivityDescRes
+message CSGetActivityDescRes {
+    repeated proto_ClientActivityDesc activity_descs = 1;
+    repeated proto_ActivityFestivalDesc activity_festivals = 2;
+    repeated proto_ClientActivityEntranceSwitchDesc entrance_list = 3;
+    repeated proto_ClientActivityBingoInfoDesc bingo_info = 4;
+    repeated proto_ActivityBingoRewardsDesc bingo_rewards_info = 5;
+    repeated proto_EventIntegretPageDesc event_integret_pages = 6;
+    repeated proto_LobbyGameEnterStyleDesc lobby_game_enter_styles = 7;
+}
+
+// Message: proto.CSGetActivityInfoRes
+message CSGetActivityInfoRes {
+    repeated proto_ActivityInfo activitys = 1;
+}
+
+// Message: proto.CSGetActivityRewardsReq
+message CSGetActivityRewardsReq {
+    repeated System_UInt32 activity_ids = 1;
+    System_String language = 2;
+}
+
+// Message: proto.CSGetActivityRewardsRes
+message CSGetActivityRewardsRes {
+    proto_AwardData awards = 1;
+}
+
+// Message: proto.CSActivityTriggerReq
+message CSActivityTriggerReq {
+    System_UInt32 event_type = 1;
+    System_String language = 2;
+}
+
+// Message: proto.CSGetRebateRewardReq
+message CSGetRebateRewardReq {
+    System_String login_token = 1;
+    repeated System_UInt32 rebate_card_ids = 2;
+}
+
+// Message: proto.CSGetBingoRewardsInfoRes
+message CSGetBingoRewardsInfoRes {
+    repeated proto_ActivityBingoRewardsInfo rewards = 1;
+    proto_AwardData init_awards = 2;
+}
+
+// Message: proto.CSFlipBingoReq
+message CSFlipBingoReq {
+    System_UInt32 activity_id = 1;
+    System_String language = 2;
+}
+
+// Message: proto.CSFlipBingoRes
+message CSFlipBingoRes {
+    System_UInt32 activity_id = 1;
+    repeated proto_ActivityBingoRewardsInfo rewards = 2;
+}
+
+// Message: proto.CSGetBingoRewardsReq
+message CSGetBingoRewardsReq {
+    System_UInt32 id = 1;
+}
+
+// Message: proto.CSGetBingoRewardsRes
+message CSGetBingoRewardsRes {
+    System_UInt32 id = 1;
+    proto_AwardData rewards = 2;
+}
+
+// Message: proto.CSFinishBingoActivityReq
+message CSFinishBingoActivityReq {
+    System_UInt32 activity_id = 1;
+    System_UInt32 key_id = 2;
+    System_String language = 3;
+}
+
+// Message: proto.ActivityInfo
+message ActivityInfo {
+    System_UInt32 id = 1;
+    System_UInt32 data = 2;
+    proto_EActivity_State state = 3;
+}
+
+// Message: proto.ActivityBingoRewardsInfo
+message ActivityBingoRewardsInfo {
+    System_UInt32 rewards_id = 1;
+    System_Boolean awarded = 2;
+}
+
+// Message: proto.ClientActivityEntranceSwitchDesc
+message ClientActivityEntranceSwitchDesc {
+    System_UInt32 id = 1;
+    System_Int64 show_time = 2;
+    System_Int64 start_time_stamp = 3;
+    System_Int64 end_time_stamp = 4;
+    System_String go_url = 5;
+    System_UInt32 go_pos = 6;
+    System_String cdn_url = 7;
+    System_String tip_cdn_url = 8;
+    System_String start_time = 9;
+    System_String end_time = 10;
+}
+
+// Message: proto.ClientActivityBingoInfoDesc
+message ClientActivityBingoInfoDesc {
+    System_UInt32 level = 1;
+    System_UInt32 key_id = 2;
+    System_UInt32 init_key_num = 3;
+    System_UInt32 cost_key_num = 4;
+    System_UInt32 cost_diamond = 5;
+    System_Int64 start_time = 6;
+    System_Int64 end_time = 7;
+}
+
+// Message: proto.ClientActivityDesc
+message ClientActivityDesc {
+    System_UInt32 group_id = 1;
+    System_UInt32 activity_id = 2;
+    System_String act_title = 3;
+    System_String act_text = 4;
+    System_String award_context = 5;
+    System_String image_url = 6;
+    System_String image_url_for_lobby = 7;
+    System_UInt32 activity_type = 8;
+    System_UInt32 sort_id = 9;
+    System_UInt32 is_process_show = 10;
+    System_UInt32 act_tag = 11;
+    System_UInt32 gos_pos = 12;
+    System_Int64 start_time = 13;
+    System_Int64 end_time = 14;
+    System_UInt32 cdt_value = 15;
+    repeated proto_AwardDesc awards = 16;
+    repeated proto_Item exchange_items = 17;
+    System_Int64 show_time = 18;
+    System_UInt32 table_type = 19;
+    System_String original_start_time = 20;
+    System_String original_end_time = 21;
+    System_String image_url_for_top_up = 22;
+    System_UInt32 affiliate_table = 23;
+    System_UInt32 activity_class = 24;
+    repeated System_Int64 hint_reset_time = 25;
+    System_UInt32 pre_cdt_gos_pos = 26;
+    repeated System_UInt32 pre_cdt_item_ids = 27;
+    System_UInt32 min_level = 28;
+    System_UInt32 max_level = 29;
+    System_Boolean big_prize = 30;
+    proto_EActivity_SubType sub_type = 31;
+    System_Int64 stop_show_time = 32;
+    proto_EActivity_CircleType circle_type = 33;
+    System_UInt32 award_expression = 34;
+}
+

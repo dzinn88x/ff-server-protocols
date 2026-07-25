@@ -1,0 +1,366 @@
+syntax = "proto3";
+
+// Categoria: 01_login
+// Total: 22 segments
+
+// Message: COW.EventLogger.EventLoginInfo
+message EventLoginInfo {
+    System_UInt64 account_id = 1;
+    System_String game_server_id = 2;
+    System_String event_time = 3;
+    System_String game_id = 4;
+    System_Int32 plat_id = 5;
+    System_Int32 zone_area_id = 6;
+    System_String client_version = 7;
+    System_String client_version_code = 8;
+    System_String system_software = 9;
+    System_String system_hardware = 10;
+    System_String system_graphics_api = 11;
+    System_String telecom_oper = 12;
+    System_String network = 13;
+    System_Int32 screen_width = 14;
+    System_Int32 screen_hight = 15;
+    System_String dpi = 16;
+    System_String cpu_hardware = 17;
+    System_Int32 memory = 18;
+    System_String gl_render = 19;
+    System_String gl_version = 20;
+    System_String device_id = 21;
+    System_String client_ip = 22;
+    System_String language = 23;
+    System_String open_id = 24;
+    System_String open_id_type = 25;
+    System_String device_type = 26;
+    System_String device_model = 27;
+    System_String region = 28;
+    System_String others = 29;
+    System_Int32 sdcard_total_storage = 30;
+    System_Int32 sdcard_avail_storage = 31;
+    System_Int32 inner_total_storage = 32;
+    System_Int32 inner_avail_storage = 33;
+    System_String lib_token = 34;
+    System_String serial_a = 35;
+    System_String board_a = 36;
+    System_String brand_a = 37;
+    System_String fingerprint_a = 38;
+    System_String hardware_a = 39;
+    System_String manufacturer_a = 40;
+    System_String bootloader_a = 41;
+    System_String device_a = 42;
+    System_String model_a = 43;
+    System_String product_a = 44;
+    System_String network_operator_a = 45;
+    System_String network_type_a = 46;
+    System_String imei_a = 47;
+    System_String meid_a = 48;
+    System_String subscriber_a = 49;
+    System_Boolean check_emulator_files_a = 50;
+    System_Boolean check_emulator_properties_a = 51;
+    System_Boolean check_emulator_packages_a = 52;
+    System_UInt64 check_emulator_files_list_a = 53;
+    System_UInt64 check_emulator_properties_list_a = 54;
+    System_UInt64 check_emulator_packages_list_a = 55;
+    System_Boolean is_root = 56;
+    System_String signature_md5 = 57;
+    System_String sensor_info = 58;
+    System_Int32 game_installed_disk_avail_storage = 59;
+    System_Int32 game_installed_disk_total_storage = 60;
+    System_Int32 external_sdcard_avail_storage = 61;
+    System_Int32 external_sdcard_total_storage = 62;
+    System_String cpu_architecture = 63;
+    System_UInt32 channel_type = 64;
+    System_UInt32 cpu_type = 65;
+}
+
+// Message: COW.EventLogger.EventClientPushSetting
+message EventClientPushSetting {
+    System_Boolean friend_apply_push = 1;
+    System_Boolean is_support_hardware_decoding = 2;
+    System_Int32 max_login_video = 3;
+    System_Int32 max_lobby = 4;
+    System_Int32 max_lobby_motion = 5;
+    System_Int32 max_audio_style = 6;
+    System_Int32 max_animation = 7;
+    System_Int32 max_special_effects = 8;
+    System_Int32 max_hd_texture = 9;
+    System_Int32 max_vehicle_vfx = 10;
+    System_Boolean is_first_login = 11;
+    System_String device_model = 12;
+}
+
+// Message: proto.ActivationStatusReq
+message ActivationStatusReq {
+    System_UInt64 account_id = 1;
+    System_String lock_region = 2;
+    System_String client_version = 3;
+    System_UInt32 plat_id = 4;
+    System_Boolean is_trial = 5;
+}
+
+// Message: proto.PlayerLogoutReq
+message PlayerLogoutReq {
+    System_UInt64 account_id = 1;
+    System_UInt64 conn_id = 2;
+}
+
+// Message: proto.AccountIDReq
+message AccountIDReq {
+    System_UInt64 account_id = 1;
+}
+
+// Message: proto.AccountIDRes
+message AccountIDRes {
+    System_UInt64 account_id = 1;
+}
+
+// Message: proto.AccountIDSlice
+message AccountIDSlice {
+    repeated System_UInt64 account_ids = 1;
+}
+
+// Message: proto.ExternalIDSlice
+message ExternalIDSlice {
+    repeated System_String external_ids = 1;
+    proto_EAccount_PlatformType platform_type = 2;
+}
+
+// Message: proto.AccountRegionSlice
+message AccountRegionSlice {
+    System_UInt64 account_id = 1;
+    System_String noti_region = 2;
+    System_String lock_region = 3;
+}
+
+// Message: proto.OpenIDReq
+message OpenIDReq {
+    System_String open_id = 1;
+}
+
+// Message: proto.NicknameReq
+message NicknameReq {
+    System_String nickname = 1;
+}
+
+// Message: proto.MatchIDReq
+message MatchIDReq {
+    System_UInt64 match_id = 1;
+}
+
+// Message: proto.DelAccountReq
+message DelAccountReq {
+    System_UInt64 account_id = 1;
+    System_String external_id = 2;
+    System_UInt32 external_type = 3;
+    System_String lock_region = 4;
+    System_UInt32 plat_id = 5;
+    System_String noti_region = 6;
+}
+
+// Message: proto.ModifyNicknameReq
+message ModifyNicknameReq {
+    System_UInt64 account_id = 1;
+    System_String nickname = 2;
+    System_String lock_region = 3;
+    System_String noti_region = 4;
+    System_Boolean use_card = 5;
+    System_String ip_address = 6;
+    System_UInt32 client_type = 7;
+}
+
+// Message: proto.AdminSwapAccountReq
+message AdminSwapAccountReq {
+    System_UInt64 account_id_a = 1;
+    System_UInt64 account_id_b = 2;
+    System_Boolean is_transfer_gems = 3;
+}
+
+// Message: proto.AccountRegionReq
+message AccountRegionReq {
+    System_UInt64 account_id = 1;
+    System_String lock_region = 2;
+    System_String noti_region = 3;
+}
+
+// Message: proto.LoginReq
+message LoginReq {
+    System_UInt64 account_id = 1;
+    System_String game_server_id = 2;
+    System_String event_time = 3;
+    System_String game_id = 4;
+    System_UInt32 plat_id = 5;
+    System_UInt32 zone_area_id = 6;
+    System_String client_version = 7;
+    System_String system_software = 8;
+    System_String system_hardware = 9;
+    System_String telecom_oper = 10;
+    System_String network = 11;
+    System_UInt32 screen_width = 12;
+    System_UInt32 screen_hight = 13;
+    System_String dpi = 14;
+    System_String cpu_hardware = 15;
+    System_UInt32 memory = 16;
+    System_String gl_render = 17;
+    System_String gl_version = 18;
+    System_String device_id = 19;
+    System_String client_ip = 20;
+    System_String language = 21;
+    System_String open_id = 22;
+    System_String open_id_type = 23;
+    System_String device_type = 24;
+    System_String device_model = 25;
+    System_String region = 26;
+    System_String ip_region = 27;
+    System_String others = 28;
+    System_String login_token = 29;
+    System_UInt32 platform_sdk_id = 30;
+    System_UInt32 level = 31;
+    System_UInt64 clan_id = 32;
+    System_UInt64 platform_uid = 33;
+    System_String nickname = 34;
+    System_String serial_a = 35;
+    System_String board_a = 36;
+    System_String brand_a = 37;
+    System_String fingerprint_a = 38;
+    System_String hardware_a = 39;
+    System_String manufacturer_a = 40;
+    System_String network_operator_a = 41;
+    System_String network_type_a = 42;
+    System_String imei_a = 43;
+    System_String meid_a = 44;
+    System_String subscriber_a = 45;
+    System_String line_1_num_a = 46;
+    System_String device_a = 47;
+    System_String product_a = 48;
+    System_String model_a = 49;
+    System_String bootloader_a = 50;
+    System_UInt64 check_emulator_files_list_a = 51;
+    System_UInt64 check_emulator_properties_list_a = 52;
+    System_UInt64 check_emulator_package_list_a = 53;
+    System_Boolean is_emulator = 54;
+    System_String ip_address = 55;
+    System_Boolean is_root = 56;
+    System_String signature_md5 = 57;
+    System_String sensor_info = 58;
+    System_UInt32 emulator_score = 59;
+    System_Int32 sdcard_total_storage = 60;
+    System_Int32 sdcard_avail_storage = 61;
+    System_Int32 inner_total_storage = 62;
+    System_Int32 inner_avail_storage = 63;
+    System_Int32 game_installed_disk_avail_storage = 64;
+    System_Int32 game_installed_disk_total_storage = 65;
+    System_Int32 external_sdcard_avail_storage = 66;
+    System_Int32 external_sdcard_total_storage = 67;
+    System_UInt32 login_by = 68;
+    System_String noti_region = 69;
+    proto_EAccount_DownloadType source = 70;
+    System_UInt32 reg_avatar = 71;
+    System_UInt32 lock_region_time = 72;
+    System_UInt32 quality = 73;
+    System_String lib_path = 74;
+    proto_EAntiAddiction_AgeState age_state = 75;
+    proto_EAuth_ClientUsingVersion using_version = 76;
+    System_String lib_token = 77;
+    System_UInt32 channel_type = 78;
+    System_UInt32 cpu_type = 79;
+    System_String cpu_architecture = 80;
+    repeated System_Byte mtp_detail = 81;
+    System_String client_version_code = 82;
+    System_Int64 token_expires_at = 83;
+    proto_EAccount_NewbieChoice newbie_choice = 84;
+    System_String system_graphics_api = 85;
+    System_UInt32 login_open_id_type = 86;
+}
+
+// Message: proto.PingAddrDesc
+message PingAddrDesc {
+    System_String ip = 1;
+    System_Boolean is_traceroute = 2;
+}
+
+// Message: proto.LoginRes
+message LoginRes {
+    System_UInt64 account_id = 1;
+    System_UInt32 account_type = 2;
+    System_String region = 3;
+    System_String nickname = 4;
+    System_UInt64 create_at = 5;
+    System_UInt32 level = 6;
+    System_UInt32 exp = 7;
+    System_UInt32 chat_server = 8;
+    System_UInt32 coins = 9;
+    System_Int32 gems = 10;
+    System_String notification_channel = 11;
+    System_UInt32 voice_server = 12;
+    System_String event_log_url = 13;
+    repeated proto_RegionIDMapping region_id_mapping = 14;
+    System_UInt64 clan_id = 15;
+    System_UInt64 server_time = 16;
+    System_String noti_region = 17;
+    System_UInt32 role = 18;
+    System_Boolean is_emulator = 19;
+    System_UInt32 queue_position = 20;
+    System_UInt32 need_waiting_secs = 21;
+    System_Boolean has_elite_pass = 22;
+    System_UInt32 badge_id = 23;
+    System_UInt32 badge_cnt = 24;
+    System_String chat_addr = 25;
+    System_Boolean show_rank = 26;
+    proto_GetBasicEPInfoRes elite_pass_basic_info = 27;
+    proto_CSPlayerRankingInfoRes rank_info = 28;
+    System_Int64 return_at = 29;
+    System_UInt32 voice_type = 30;
+    System_String network_log_url = 31;
+    repeated proto_PingAddrDesc ping_addr_desc_list = 32;
+    System_String ip_region = 33;
+    System_Double ranking_peak_threshold = 34;
+    repeated proto_GameServerNodeManagerDesc game_server_node_manager = 35;
+    System_UInt64 last_login_at = 36;
+    System_Boolean is_anti_addiction_open = 37;
+    proto_EAntiAddiction_AgeState age_state = 38;
+    proto_AbTestChoices ab_test_choices = 39;
+    proto_BlacklistInfoRes blacklist = 40;
+    System_String mem_value = 41;
+    System_UInt32 register_variant = 42;
+    proto_WeaponRackRes weapon_rack = 43;
+    System_UInt32 vehicle_display = 44;
+    System_UInt32 gloo_display = 45;
+    System_String clan_channel_secret = 46;
+    repeated System_String check_name = 47;
+    System_UInt32 skyboard_display = 48;
+    System_Int64 mic_muted_seconds = 49;
+    System_Boolean is_optional_item_ab_test = 50;
+}
+
+// Message: proto.BlacklistInfoRes
+message BlacklistInfoRes {
+    proto_EAccount_BanReason ban_reason = 1;
+    System_UInt32 expire_duration = 2;
+    System_UInt32 ban_time = 3;
+}
+
+// Message: proto.MajorLoginRes
+message MajorLoginRes {
+    System_UInt64 account_id = 1;
+    System_String lock_region = 2;
+    System_String noti_region = 3;
+    System_String ip_region = 4;
+    System_String agora_environment = 5;
+    System_String new_active_region = 6;
+    repeated System_String recommend_regions = 7;
+    System_String token = 8;
+    System_UInt32 ttl = 9;
+    System_String server_url = 10;
+    System_UInt32 emulator_score = 11;
+    proto_BlacklistInfoRes blacklist = 12;
+    proto_LoginQueueInfo queue_info = 13;
+    System_String tp_url = 14;
+}
+
+// Message: proto.MajorRegisterRes
+message MajorRegisterRes {
+    System_UInt64 account_id = 1;
+    System_Boolean first_game_open = 2;
+    System_Boolean br_tutorial_open = 3;
+    System_Boolean cs_tutorial_open = 4;
+}
+

@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+// Categoria: 37_custom_event
+// Total: 1 segments
+
+// Message: proto.ECustomEvent
+message ECustomEvent {
+    // Sem campos definidos no dump
+}
+

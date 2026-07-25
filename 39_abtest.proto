@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+// Categoria: 39_abtest
+// Total: 4 segments
+
+// Enum: enum proto.EAbTest.Type
+enum Type {
+    Type_NEWBIECHOICE = 1;
+    Type_NONE = 0;
+}
+
+// Message: proto.EAbTest
+message EAbTest {
+    // Sem campos definidos no dump
+}
+
+// Message: proto.AbTestChoice
+message AbTestChoice {
+    System_UInt32 type = 1;
+    System_UInt32 val = 2;
+}
+
+// Message: proto.AbTestChoices
+message AbTestChoices {
+    repeated proto_AbTestChoice choices = 1;
+}
+

@@ -1,0 +1,674 @@
+syntax = "proto3";
+
+// Categoria: 04_clan
+// Total: 93 segments
+
+// Message: proto.EClan
+message EClan {
+    // Sem campos definidos no dump
+}
+
+// Message: proto.ClanIDReq
+message ClanIDReq {
+    System_UInt64 clan_id = 1;
+    System_UInt64 account_id = 2;
+    System_String lock_region = 3;
+    System_String noti_region = 4;
+}
+
+// Message: proto.ClanIDSlice
+message ClanIDSlice {
+    repeated System_UInt64 clan_ids = 1;
+}
+
+// Message: proto.ClanInfoBasic
+message ClanInfoBasic {
+    System_UInt64 clan_id = 1;
+    System_String clan_name = 2;
+    System_UInt64 captain_id = 3;
+    System_UInt32 clan_level = 4;
+    System_UInt32 capacity = 5;
+    System_UInt32 member_num = 6;
+    System_UInt32 honor_point = 7;
+}
+
+// Message: proto.ClanNewsContent
+message ClanNewsContent {
+    System_UInt64 account_id = 1;
+    System_UInt32 member_type = 2;
+    System_UInt32 level = 3;
+}
+
+// Message: proto.ClanNews
+message ClanNews {
+    proto_EClan_NewsType type = 1;
+    proto_ClanNewsContent content = 2;
+    System_UInt64 update_time = 3;
+}
+
+// Message: proto.ClanRaceOpenInfo
+message ClanRaceOpenInfo {
+    System_Int64 start_time = 1;
+    System_Int64 end_time = 2;
+}
+
+// Message: proto.ClanBadgeTriggerReq
+message ClanBadgeTriggerReq {
+    proto_EClan_ClanBadgeTriggerType type = 1;
+    System_UInt32 value = 2;
+}
+
+// Message: proto.ClanWarTeamMemberInfo
+message ClanWarTeamMemberInfo {
+    System_UInt64 member_id = 1;
+    proto_EClan_ClanWarMemberType member_type = 2;
+    System_Boolean has_prepared = 3;
+}
+
+// Message: proto.ClanWarMemberAwardStatus
+message ClanWarMemberAwardStatus {
+    System_UInt32 award_arms = 1;
+    System_Boolean has_claimed_award = 2;
+}
+
+// Message: proto.ClanWarTeamAward
+message ClanWarTeamAward {
+    System_UInt32 award_arms = 1;
+    proto_ClanWarTeamAwardedLevel awarded_level = 2;
+}
+
+// Message: proto.ClanWarTeamAwardedLevel
+message ClanWarTeamAwardedLevel {
+    repeated System_UInt32 awarded_level = 1;
+}
+
+// Message: proto.ClanWarMemberStatus
+message ClanWarMemberStatus {
+    System_UInt64 account_id = 1;
+    System_UInt32 personal_arms = 2;
+    System_UInt32 kills = 3;
+}
+
+// Message: proto.ClanWarMemberMatchInfo
+message ClanWarMemberMatchInfo {
+    System_UInt64 member_id = 1;
+    System_String signature_md5 = 2;
+    System_UInt32 using_version = 3;
+    System_UInt32 system_platform = 4;
+    proto_MatchClientInfo client_info = 5;
+}
+
+// Message: proto.ClanWarRecruitInfo
+message ClanWarRecruitInfo {
+    System_UInt64 clan_id = 1;
+    System_UInt32 entry_rank = 2;
+    System_UInt32 entry_cs_rank = 3;
+}
+
+// Message: proto.AccountClanWarMatchInfo
+message AccountClanWarMatchInfo {
+    System_UInt64 team_id = 1;
+    System_UInt64 captain_id = 2;
+    repeated System_UInt64 member_ids = 3;
+    System_UInt32 min_player = 4;
+    repeated proto_ClanWarMemberMatchInfo members_match_info = 5;
+    System_UInt32 clan_war_mmr = 6;
+}
+
+// Message: proto.ClanLuckyBagInfo
+message ClanLuckyBagInfo {
+    System_UInt64 bag_id = 1;
+    System_UInt32 level = 2;
+    System_Int64 created_at = 3;
+    System_UInt64 creater_id = 4;
+}
+
+// Message: proto.CSClanIDReq
+message CSClanIDReq {
+    System_UInt64 clan_id = 1;
+}
+
+// Message: proto.CSClanIDRes
+message CSClanIDRes {
+    System_UInt64 clan_id = 1;
+    System_String clan_channel_secret = 2;
+}
+
+// Message: proto.CSClanApplicantList
+message CSClanApplicantList {
+    repeated proto_ClanApplicantRes clan_applicant_list = 1;
+}
+
+// Message: proto.CSClanNameReq
+message CSClanNameReq {
+    System_String clan_name = 1;
+}
+
+// Message: proto.CSClanInfoBundleRes
+message CSClanInfoBundleRes {
+    repeated proto_ClanInfo infos = 1;
+}
+
+// Message: proto.CSClanInfoReq
+message CSClanInfoReq {
+    System_UInt64 clan_id = 1;
+    System_Boolean ignore_region = 2;
+}
+
+// Message: proto.CSClanMemberListRes
+message CSClanMemberListRes {
+    repeated proto_CSClanMemberRes member_list = 1;
+}
+
+// Message: proto.CSCreateClanReq
+message CSCreateClanReq {
+    System_String clan_name = 1;
+    System_UInt64 captain_id = 2;
+    System_String announcement = 3;
+    System_String slogan = 4;
+    System_UInt32 currency_type = 5;
+    System_UInt32 entry_type = 6;
+    System_UInt32 area_id = 7;
+    System_UInt32 play_style = 8;
+    System_UInt32 entry_level = 9;
+    System_UInt32 entry_rank = 10;
+    System_UInt32 clan_badge_id = 11;
+    System_UInt32 entry_cs_rank = 12;
+}
+
+// Message: proto.CSJoinClanReq
+message CSJoinClanReq {
+    System_UInt64 clan_id = 1;
+}
+
+// Message: proto.CSDismissClanReq
+message CSDismissClanReq {
+    System_UInt64 clan_id = 1;
+}
+
+// Message: proto.CSProcessJoinClanReq
+message CSProcessJoinClanReq {
+    System_UInt64 applicant_id = 1;
+    System_UInt64 clan_id = 2;
+}
+
+// Message: proto.CSInviteToClanReq
+message CSInviteToClanReq {
+    System_UInt64 invitee_id = 1;
+}
+
+// Message: proto.CSProcessInviteToClanReq
+message CSProcessInviteToClanReq {
+    System_UInt64 inviter_id = 1;
+    System_UInt64 clan_id = 2;
+    System_Boolean is_clan_war_recruit = 3;
+}
+
+// Message: proto.CSProcessInviteToClanRes
+message CSProcessInviteToClanRes {
+    System_String clan_channel_secret = 1;
+}
+
+// Message: proto.CSChangeMemberTypeReq
+message CSChangeMemberTypeReq {
+    System_UInt64 changee_id = 1;
+    System_UInt32 target_type = 2;
+}
+
+// Message: proto.CSReassignCaptainReq
+message CSReassignCaptainReq {
+    System_UInt64 reassignee_id = 1;
+}
+
+// Message: proto.CSRemoveClanMemberReq
+message CSRemoveClanMemberReq {
+    System_UInt64 clan_id = 1;
+    System_UInt64 removee_id = 2;
+}
+
+// Message: proto.CSQuitClanReq
+message CSQuitClanReq {
+    System_UInt64 clan_id = 1;
+    System_Boolean is_clan_war_recruit = 2;
+}
+
+// Message: proto.CSModifyClanInfoReq
+message CSModifyClanInfoReq {
+    System_UInt64 clan_id = 1;
+    System_String announcement = 2;
+    System_String slogan = 3;
+    System_UInt32 entry_type = 4;
+    System_UInt32 area_id = 5;
+    System_UInt32 play_style = 6;
+    System_UInt32 entry_level = 7;
+    System_UInt32 entry_rank = 8;
+    System_UInt32 clan_badge_id = 9;
+    System_UInt32 entry_cs_rank = 10;
+}
+
+// Message: proto.CSGetClanSignInRewardsByLevelReq
+message CSGetClanSignInRewardsByLevelReq {
+    System_UInt32 clan_level = 1;
+    System_String clan_region = 2;
+}
+
+// Message: proto.CSModifyClanNameReq
+message CSModifyClanNameReq {
+    System_UInt64 clan_id = 1;
+    System_String clan_name = 2;
+}
+
+// Message: proto.CSExchangeAwardWithRPReq
+message CSExchangeAwardWithRPReq {
+    System_UInt64 clan_id = 1;
+    System_UInt32 stage = 2;
+}
+
+// Message: proto.CSExtendClanScaleRes
+message CSExtendClanScaleRes {
+    System_UInt64 clan_id = 1;
+    System_UInt32 capacity = 2;
+    System_UInt32 extended_times = 3;
+}
+
+// Message: proto.CSGetClanWeekLeaderboardInfoRes
+message CSGetClanWeekLeaderboardInfoRes {
+    System_Int64 main_key = 1;
+    System_UInt32 next_refresh_time = 2;
+}
+
+// Message: proto.CSClanMemberRes
+message CSClanMemberRes {
+    System_UInt64 clan_id = 1;
+    System_UInt64 member_id = 2;
+    System_UInt32 member_type = 3;
+    System_UInt64 join_at = 4;
+    System_UInt32 honor_point = 5;
+    System_UInt32 race_point = 6;
+    System_UInt64 last_gain_rp_at = 7;
+}
+
+// Message: proto.CSClanSignInRes
+message CSClanSignInRes {
+    repeated proto_ClanSignInRewardItem rewards = 1;
+    System_Boolean is_newcomer = 2;
+}
+
+// Message: proto.CSGetClanRaceInfoRes
+message CSGetClanRaceInfoRes {
+    System_UInt32 stage = 1;
+    System_Boolean is_open = 2;
+    repeated proto_ClanRaceRewardsDesc rewards = 3;
+    System_UInt32 race_point = 4;
+    System_UInt32 latest_race_week_id = 5;
+    repeated proto_RaceAwardExchange exchange_info = 6;
+    proto_ClanRaceOpenInfo clan_race_open_info = 7;
+}
+
+// Message: proto.ClanApplicantRes
+message ClanApplicantRes {
+    System_UInt64 applicant_id = 1;
+    System_UInt64 clan_id = 2;
+    System_UInt64 create_at = 3;
+}
+
+// Message: proto.ClanSignInRewardItem
+message ClanSignInRewardItem {
+    proto_ClanSignInRewardsDesc desc = 1;
+    System_UInt32 status = 2;
+}
+
+// Message: proto.RaceAwardExchange
+message RaceAwardExchange {
+    System_UInt64 account_id = 1;
+    System_UInt32 stage = 2;
+    System_UInt64 exchange_at = 3;
+}
+
+// Message: proto.ClanInfo
+message ClanInfo {
+    System_UInt64 clan_id = 1;
+    System_String clan_name = 2;
+    System_UInt64 create_at = 3;
+    System_UInt64 captain_id = 4;
+    System_UInt32 clan_level = 5;
+    System_UInt32 capacity = 6;
+    System_UInt32 member_num = 7;
+    System_UInt32 entry_level = 8;
+    System_UInt32 entry_type = 9;
+    System_String clan_logo = 10;
+    System_String announcement = 11;
+    System_String slogan = 12;
+    System_String region = 13;
+    System_String misc = 14;
+    System_String vice_captains = 15;
+    System_UInt32 honor_point = 16;
+    System_UInt32 race_point = 17;
+    System_UInt64 last_gain_rp_at = 18;
+    System_UInt64 claim_rp_award_at = 19;
+    System_UInt32 area_id = 20;
+    System_UInt32 play_style = 21;
+    System_UInt32 entry_rank = 22;
+    System_UInt64 deputy_captain = 23;
+    System_UInt32 clan_arms = 24;
+    System_UInt32 clan_badge_id = 25;
+    repeated proto_UnlockedClanBadgeInfo unlocked_clan_badge_infos = 26;
+    System_UInt32 entry_cs_rank = 27;
+}
+
+// Message: proto.UnlockedClanBadgeInfo
+message UnlockedClanBadgeInfo {
+    System_UInt32 clan_badge_id = 1;
+    System_UInt64 expire_time = 2;
+}
+
+// Message: proto.ClanInfoAndClanWarInfoRes
+message ClanInfoAndClanWarInfoRes {
+    proto_ClanInfo clan_info = 1;
+    proto_AccountClanWarMatchInfo clan_war_match_info = 2;
+}
+
+// Message: proto.ClanMemberWithAccountInfo
+message ClanMemberWithAccountInfo {
+    proto_AccountInfoBasic basic_info = 1;
+    System_UInt64 clan_id = 2;
+    System_UInt32 member_type = 3;
+    System_UInt64 join_at = 4;
+    System_String region = 5;
+    System_UInt32 honor_point = 6;
+    System_UInt32 race_point = 7;
+    System_UInt64 last_gain_rp_at = 8;
+}
+
+// Message: proto.ClanMemberListWithAccountInfo
+message ClanMemberListWithAccountInfo {
+    repeated proto_ClanMemberWithAccountInfo member_list = 1;
+}
+
+// Message: proto.ClanLeaderboardRes
+message ClanLeaderboardRes {
+    repeated proto_ClanLeaderboardItem items = 1;
+    proto_ClanLeaderboardItem self = 2;
+    System_UInt32 leaderboard_size = 3;
+}
+
+// Message: proto.CSGetClanNewsReq
+message CSGetClanNewsReq {
+    System_UInt64 clan_id = 1;
+}
+
+// Message: proto.CSClanNewsRes
+message CSClanNewsRes {
+    repeated proto_ClanNews news = 1;
+}
+
+// Message: proto.ClanLuckyBag
+message ClanLuckyBag {
+    System_UInt64 clan_id = 1;
+    System_UInt64 bag_id = 2;
+    System_UInt64 creater_id = 3;
+    System_UInt64 created_at = 4;
+    System_UInt32 total_num = 5;
+    System_UInt32 taken_num = 6;
+    System_UInt32 reason = 7;
+    System_UInt32 level = 8;
+}
+
+// Message: proto.LuckyBagDraw
+message LuckyBagDraw {
+    System_UInt64 account_id = 1;
+    System_UInt64 bag_id = 2;
+    System_UInt64 opened_at = 3;
+    System_UInt32 level = 4;
+}
+
+// Message: proto.CSGetClanLuckyBagInfoRes
+message CSGetClanLuckyBagInfoRes {
+    repeated proto_ClanLuckyBag lucky_bags = 1;
+    repeated proto_LuckyBagDraw draws = 2;
+    repeated proto_ClanLuckyBag big_lucky_bags = 3;
+    repeated proto_LuckyBagDraw drew_big_lucky_bags = 4;
+    System_UInt32 total_points = 5;
+    System_Int64 countdown_to_this_cycle = 6;
+    System_Boolean is_reach_max_draw_num = 7;
+    System_UInt32 batch_draw_lucky_bag_max_counts = 8;
+}
+
+// Message: proto.CSDrawClanLuckyBagReq
+message CSDrawClanLuckyBagReq {
+    System_UInt64 clan_id = 1;
+    System_UInt64 bag_id = 2;
+    System_UInt32 level = 3;
+    proto_EClan_LuckyBagType luck_bag_type = 4;
+    System_Int64 created_at = 5;
+    System_UInt64 creater_id = 6;
+}
+
+// Message: proto.CSDrawClanLuckyBagRes
+message CSDrawClanLuckyBagRes {
+    System_UInt64 account_id = 1;
+    System_UInt64 bag_id = 2;
+    proto_AwardData award_data = 3;
+    System_UInt32 awarded_points = 4;
+    System_UInt32 total_points = 5;
+    proto_EClan_LuckyBagType lucky_bag_type = 6;
+    System_Boolean is_double = 7;
+}
+
+// Message: proto.DrawClanLuckyBagResultInfo
+message DrawClanLuckyBagResultInfo {
+    proto_EDrawClanLuckyBagResultType_ResultType result_type = 1;
+    repeated System_UInt64 bag_ids = 2;
+}
+
+// Message: proto.CSBatchDrawClanLuckyBagReq
+message CSBatchDrawClanLuckyBagReq {
+    System_UInt64 clan_id = 1;
+    repeated proto_ClanLuckyBagInfo bag_infos = 2;
+}
+
+// Message: proto.CSBatchDrawClanLuckyBagRes
+message CSBatchDrawClanLuckyBagRes {
+    repeated proto_DrawClanLuckyBagResultInfo result_infos = 1;
+    System_UInt32 awarded_points = 2;
+    System_UInt32 total_points = 3;
+    proto_AwardData award_datas = 4;
+    System_Boolean is_double = 5;
+    System_Boolean is_reach_max_draw_num = 6;
+    System_UInt32 batch_draw_lucky_bag_max_counts = 7;
+    System_Boolean is_reach_batch_draw_lucky_bag_max_counts = 8;
+}
+
+// Message: proto.CSClanLuckyBagInfoDescRes
+message CSClanLuckyBagInfoDescRes {
+    repeated proto_ClanLuckyBagInfoDesc big_lucky_bag_info = 1;
+}
+
+// Message: proto.CSRandomClanListReq
+message CSRandomClanListReq {
+    proto_EClan_ClanMainType clan_list_type = 1;
+    System_UInt32 area_id = 2;
+    System_UInt32 play_style = 3;
+}
+
+// Message: proto.CSExchangeClanBadgeReq
+message CSExchangeClanBadgeReq {
+    System_UInt64 clan_id = 1;
+    System_UInt32 exchange_item_id = 2;
+}
+
+// Message: proto.CSExchangeClanBadgeRes
+message CSExchangeClanBadgeRes {
+    System_UInt32 exchange_badge_id = 1;
+    System_UInt64 expire_time = 2;
+}
+
+// Message: proto.CSClanWarBasicInfoRes
+message CSClanWarBasicInfoRes {
+    proto_ClanWarInfoDesc clan_war_info = 1;
+    repeated proto_ClanWarOpeningInfoDesc clan_war_opening_info = 2;
+    repeated proto_ClanWarAwardDesc clan_war_award = 3;
+    proto_ClanWarPersonalAwardDesc personal_awards = 4;
+}
+
+// Message: proto.CSClanWarTeamInfoRes
+message CSClanWarTeamInfoRes {
+    repeated proto_ClanWarTeamMemberInfo members_info = 1;
+    proto_ClanWarMemberAwardStatus member_award_status = 2;
+    proto_ClanWarTeamAward team_award = 3;
+    System_UInt64 team_id = 4;
+}
+
+// Message: proto.CSCreateClanWarTeamRes
+message CSCreateClanWarTeamRes {
+    System_UInt64 captain_id = 1;
+}
+
+// Message: proto.CSInviteToClanWarTeamReq
+message CSInviteToClanWarTeamReq {
+    System_UInt64 invitee_id = 1;
+    System_UInt64 clan_id = 2;
+}
+
+// Message: proto.CSApproveJoinClanWarTeamReq
+message CSApproveJoinClanWarTeamReq {
+    System_UInt64 inviter_id = 1;
+    System_UInt64 clan_id = 2;
+}
+
+// Message: proto.CSRemoveClanWarTeamMemberReq
+message CSRemoveClanWarTeamMemberReq {
+    System_UInt64 removee_id = 1;
+    System_UInt64 clan_id = 2;
+}
+
+// Message: proto.CSAppointClanWarTeamCaptainReq
+message CSAppointClanWarTeamCaptainReq {
+    System_UInt64 appointee_id = 1;
+    System_UInt64 clan_id = 2;
+}
+
+// Message: proto.CSPrepareForClanWarReq
+message CSPrepareForClanWarReq {
+    System_UInt64 clan_id = 1;
+    System_Boolean has_prepared = 2;
+    System_UInt32 system_platform = 3;
+    proto_MatchClientInfo client_info = 4;
+}
+
+// Message: proto.CSClanWarMembersPrepareStatusRes
+message CSClanWarMembersPrepareStatusRes {
+    repeated proto_ClanWarTeamMemberInfo members_info = 1;
+}
+
+// Message: proto.CSCheckClanWarTeamMemberReq
+message CSCheckClanWarTeamMemberReq {
+    System_UInt64 clan_id = 1;
+    System_UInt32 system_platform = 2;
+    proto_MatchClientInfo client_info = 3;
+}
+
+// Message: proto.CSCheckClanWarTeamMemberRes
+message CSCheckClanWarTeamMemberRes {
+    System_Boolean is_member_of_clan_war_team = 1;
+}
+
+// Message: proto.CSClaimClanWarTeamAwardReq
+message CSClaimClanWarTeamAwardReq {
+    System_UInt32 award_level = 1;
+    System_UInt64 clan_id = 2;
+}
+
+// Message: proto.CSClaimClanWarPersonalAwardRes
+message CSClaimClanWarPersonalAwardRes {
+    proto_AwardData award_data = 1;
+}
+
+// Message: proto.ClanWarAccountMatchStats
+message ClanWarAccountMatchStats {
+    System_UInt32 award_arms = 1;
+    System_UInt32 personal_arms = 2;
+}
+
+// Message: proto.ClanWarTeamMatchStats
+message ClanWarTeamMatchStats {
+    System_UInt64 team_id = 1;
+    System_UInt32 team_arms = 2;
+    System_Boolean win = 3;
+    System_UInt32 team_kills = 4;
+}
+
+// Message: proto.SubmitClanWarTeamMatchStatsReq
+message SubmitClanWarTeamMatchStatsReq {
+    System_UInt64 match_id = 1;
+    System_String lock_region = 2;
+    System_String noti_region = 3;
+    proto_ClanWarTeamMatchStats clan_war_match_stats = 4;
+}
+
+// Message: proto.CSGetClanWarTeamMemberStatusRes
+message CSGetClanWarTeamMemberStatusRes {
+    repeated proto_ClanWarMemberStatus clan_war_member_status = 1;
+}
+
+// Message: proto.CSJoinClanWarTeamRes
+message CSJoinClanWarTeamRes {
+    repeated proto_ClanWarTeamMemberInfo members_info = 1;
+}
+
+// Message: proto.CSApproveJoinClanWarTeamInvitationRes
+message CSApproveJoinClanWarTeamInvitationRes {
+    repeated proto_ClanWarTeamMemberInfo members_info = 1;
+}
+
+// Message: proto.CSGetClanWarRecruitInfoReq
+message CSGetClanWarRecruitInfoReq {
+    System_UInt64 clan_id = 1;
+}
+
+// Message: proto.CSModifyClanWarRecruitInfoReq
+message CSModifyClanWarRecruitInfoReq {
+    System_UInt64 clan_id = 1;
+    System_UInt32 entry_rank = 2;
+    System_UInt32 entry_cs_rank = 3;
+}
+
+// Message: proto.CSGetClanWarRecruitInfoRes
+message CSGetClanWarRecruitInfoRes {
+    System_UInt32 entry_rank = 1;
+    System_UInt32 entry_cs_rank = 2;
+}
+
+// Message: proto.ClanLuckyBagConfigDesc
+message ClanLuckyBagConfigDesc {
+    System_UInt32 effective_hours = 1;
+    System_UInt32 max_draw_num_per_day = 2;
+    System_UInt32 max_bags_per_clan = 3;
+    System_UInt32 freeze_time = 4;
+    System_UInt32 batch_draw_lucky_bag_max_counts = 5;
+}
+
+// Message: proto.ClanLuckyBagDrawDesc
+message ClanLuckyBagDrawDesc {
+    System_UInt32 guild_token_num = 1;
+    System_UInt32 weight = 2;
+}
+
+// Message: proto.ClanLuckyBagTriggerDesc
+message ClanLuckyBagTriggerDesc {
+    System_UInt32 event_type = 1;
+    System_UInt32 lucky_bag_capacity = 2;
+    System_UInt32 cdt_value = 3;
+    System_UInt32 level = 4;
+    System_UInt32 cdt_type = 5;
+}
+
+// Message: proto.ClanLuckyBagInfoDesc
+message ClanLuckyBagInfoDesc {
+    System_UInt32 level = 1;
+    System_UInt32 double_prob = 2;
+    System_UInt32 big_contribute = 3;
+    System_UInt32 big_finish = 4;
+    repeated proto_AwardDesc award = 5;
+}
+

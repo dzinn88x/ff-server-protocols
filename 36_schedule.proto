@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+// Categoria: 36_schedule
+// Total: 1 segments
+
+// Message: proto.ESchedule
+message ESchedule {
+    // Sem campos definidos no dump
+}
+

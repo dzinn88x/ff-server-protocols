@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+// Categoria: 42_subscription
+// Total: 7 segments
+
+// Message: proto.ESubscription
+message ESubscription {
+    // Sem campos definidos no dump
+}
+
+// Message: proto.CSGetSubcribeStoreReq
+message CSGetSubcribeStoreReq {
+    System_String language = 1;
+}
+
+// Message: proto.CSGetSubcribeStoreRes
+message CSGetSubcribeStoreRes {
+    repeated proto_SubscribeStoreDesc items = 1;
+}
+
+// Message: proto.CSGetAccountSubscriptionsRes
+message CSGetAccountSubscriptionsRes {
+    repeated proto_AccountSubscription subscriptions = 1;
+}
+
+// Message: proto.AccountSubscription
+message AccountSubscription {
+    System_UInt64 account_id = 1;
+    System_UInt32 store_id = 2;
+    System_Boolean can_claim_reward = 3;
+}
+
+// Message: proto.CSClaimSubscriptionReq
+message CSClaimSubscriptionReq {
+    System_UInt32 store_id = 1;
+}
+
+// Message: proto.CSClaimSubscriptionRes
+message CSClaimSubscriptionRes {
+    proto_ExchangeChangeData data = 1;
+}
+

@@ -1,0 +1,69 @@
+syntax = "proto3";
+
+// Categoria: 31_manual
+// Total: 12 segments
+
+// Message: proto.EManual
+message EManual {
+    // Sem campos definidos no dump
+}
+
+// Message: proto.CSGetManualCollectInfoRes
+message CSGetManualCollectInfoRes {
+    repeated System_UInt32 manual_event_ids = 1;
+}
+
+// Message: proto.CSGetManualAllWeaponRewardStatesRes
+message CSGetManualAllWeaponRewardStatesRes {
+    repeated proto_ManualWeaponReward weapon_rewards = 1;
+}
+
+// Message: proto.CSGetManualAllMapRewardStatesRes
+message CSGetManualAllMapRewardStatesRes {
+    repeated proto_ManualMapReward map_rewards = 1;
+}
+
+// Message: proto.CSGetManualWeaponRewardReq
+message CSGetManualWeaponRewardReq {
+    System_UInt32 quantity_period = 1;
+}
+
+// Message: proto.CSGetManualWeaponRewardRes
+message CSGetManualWeaponRewardRes {
+    proto_AwardData awards = 1;
+}
+
+// Message: proto.CSGetManualMapRewardReq
+message CSGetManualMapRewardReq {
+    System_UInt32 map_id = 1;
+}
+
+// Message: proto.CSGetManualMapRewardRes
+message CSGetManualMapRewardRes {
+    proto_AwardData awards = 1;
+}
+
+// Message: proto.ManualWeaponReward
+message ManualWeaponReward {
+    System_UInt32 quantity_period = 1;
+    proto_EManual_State state = 2;
+}
+
+// Message: proto.ManualMapReward
+message ManualMapReward {
+    System_UInt32 map_id = 1;
+    proto_EManual_State state = 2;
+}
+
+// Message: proto.ManualWeaponRewardDesc
+message ManualWeaponRewardDesc {
+    System_UInt32 quantity_period = 1;
+    repeated proto_AwardDesc awards = 2;
+}
+
+// Message: proto.ManualMapRewardDesc
+message ManualMapRewardDesc {
+    System_UInt32 map_id = 1;
+    repeated proto_AwardDesc awards = 2;
+}
+

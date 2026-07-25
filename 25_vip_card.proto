@@ -1,0 +1,137 @@
+syntax = "proto3";
+
+// Categoria: 25_vip_card
+// Total: 19 segments
+
+// Enum: enum proto.EVipCard.VipCardType
+enum VipCardType {
+    VipCardType_NONE = 0;
+    VipCardType_SVIP = 3;
+    VipCardType_WEEKLY = 1;
+    VipCardType_MONTHLY = 2;
+}
+
+// Enum: enum proto.EVipCard.AwardStatus
+enum AwardStatus {
+    AwardStatus_CLAIMED = 1;
+    AwardStatus_INIT = 0;
+    AwardStatus_LOGIN_NOT_CLAIMED = 2;
+}
+
+// Enum: enum proto.EVipCard.GoodsType
+enum GoodsType {
+    GoodsType_VIPONLY = 1;
+    GoodsType_FREE = 2;
+    GoodsType_NONE = 0;
+}
+
+// Enum: enum proto.EVipCard.GoodsPriceType
+enum GoodsPriceType {
+    GoodsPriceType_COINS = 2;
+    GoodsPriceType_NONE = 0;
+    GoodsPriceType_GEMS = 1;
+}
+
+// Enum: enum proto.EVipCard.RebateType
+enum RebateType {
+    RebateType_MONTHLY = 2;
+    RebateType_WEEKLY = 1;
+    RebateType_NONE = 0;
+    RebateType_MONTHLY_DISCOUNT = 4;
+    RebateType_WEEKLY_DISCOUNT = 3;
+}
+
+// Message: proto.EVipCard
+message EVipCard {
+    // Sem campos definidos no dump
+}
+
+// Message: proto.CSGetVipCardDescRes
+message CSGetVipCardDescRes {
+    repeated proto_VipCardDailyAwardDesc daily_awards = 1;
+    repeated proto_VipCardInitAwardDesc init_awards = 2;
+    repeated proto_VipCardDesc descs = 3;
+    repeated proto_VipCardShowAwardDesc show_awards = 4;
+    repeated proto_VipCardRebateDesc rebates = 5;
+}
+
+// Message: proto.VipCardAwardStatus
+message VipCardAwardStatus {
+    System_UInt32 day = 1;
+    proto_EVipCard_AwardStatus status = 2;
+}
+
+// Message: proto.VipCardPurchaseInfo
+message VipCardPurchaseInfo {
+    System_UInt32 rebate_id = 1;
+    System_UInt32 purchase_time = 2;
+}
+
+// Message: proto.VipCardInfo
+message VipCardInfo {
+    proto_EVipCard_VipCardType card_type = 1;
+    System_UInt32 start_time = 2;
+    System_UInt32 end_time = 3;
+    repeated proto_VipCardAwardStatus award_infos = 4;
+    System_UInt32 last_period_start_time = 5;
+    System_UInt32 last_period_end_time = 6;
+    repeated proto_VipCardAwardStatus last_period_award_infos = 7;
+}
+
+// Message: proto.CSGetAccountVipCardInfosRes
+message CSGetAccountVipCardInfosRes {
+    repeated proto_VipCardInfo infos = 1;
+    repeated proto_VipCardPurchaseInfo purchase_infos = 2;
+}
+
+// Message: proto.CSClaimVipCardAwardReq
+message CSClaimVipCardAwardReq {
+    proto_EVipCard_VipCardType card_type = 1;
+    System_Boolean claim_all = 2;
+}
+
+// Message: proto.CSClaimVipCardAwardRes
+message CSClaimVipCardAwardRes {
+    proto_ExchangeChangeData data = 1;
+}
+
+// Message: proto.CSClaimExpiredVipCardAwardReq
+message CSClaimExpiredVipCardAwardReq {
+    System_UInt32 claim_time = 1;
+}
+
+// Message: proto.CSClaimExpiredVipCardAwardRes
+message CSClaimExpiredVipCardAwardRes {
+    proto_ExchangeChangeData data = 1;
+}
+
+// Message: proto.VipCardStoreInfo
+message VipCardStoreInfo {
+    System_UInt32 id = 1;
+    System_UInt32 pos = 2;
+    proto_EVipCard_GoodsType type = 3;
+    proto_EVipCard_GoodsPriceType price_type = 4;
+    System_UInt32 price = 5;
+    System_UInt32 discount_price = 6;
+    System_UInt32 discount = 7;
+    System_UInt32 purchase_limit = 8;
+    repeated proto_AwardDesc awards = 9;
+    System_UInt32 purchase_time = 10;
+}
+
+// Message: proto.CSGetVipCardStoreInfoRes
+message CSGetVipCardStoreInfoRes {
+    repeated proto_VipCardStoreInfo infos = 1;
+}
+
+// Message: proto.CSVipCardStorePurchaseReq
+message CSVipCardStorePurchaseReq {
+    System_UInt32 id = 1;
+    System_UInt32 discount_price = 2;
+}
+
+// Message: proto.CSVipCardStorePurchaseRes
+message CSVipCardStorePurchaseRes {
+    proto_ExchangeChangeData data = 1;
+}
+

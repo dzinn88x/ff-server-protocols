@@ -1,0 +1,130 @@
+syntax = "proto3";
+
+// Categoria: 19_pet
+// Total: 17 segments
+
+// Enum: enum proto.EPet.SkillSourceType
+enum SkillSourceType {
+    SkillSourceType_ITEM = 2;
+    SkillSourceType_ALONG_WITH_PET = 1;
+    SkillSourceType_NONE = 0;
+}
+
+// Message: proto.EPet
+message EPet {
+    // Sem campos definidos no dump
+}
+
+// Message: proto.PetInfo
+message PetInfo {
+    System_UInt32 id = 1;
+    System_String name = 2;
+    System_UInt32 level = 3;
+    System_UInt32 exp = 4;
+    System_Boolean is_selected = 5;
+    System_UInt32 skin_id = 6;
+    repeated System_UInt32 actions = 7;
+    repeated proto_PetSkillInfo skills = 8;
+    System_UInt32 selected_skill_id = 9;
+}
+
+// Message: proto.PetSkinInfo
+message PetSkinInfo {
+    System_UInt32 pet_id = 1;
+    System_UInt32 skin_id = 2;
+    System_Boolean is_selected = 3;
+}
+
+// Message: proto.PetActionInfo
+message PetActionInfo {
+    System_UInt32 pet_id = 1;
+    System_UInt32 action_id = 2;
+}
+
+// Message: proto.PetSkillInfo
+message PetSkillInfo {
+    System_UInt32 pet_id = 1;
+    System_UInt32 skill_id = 2;
+    System_UInt32 skill_level = 3;
+}
+
+// Message: proto.CSGetPetListRes
+message CSGetPetListRes {
+    repeated proto_PetInfo pets = 1;
+    repeated proto_PetSkinInfo skins = 2;
+    repeated proto_PetActionInfo actions = 3;
+    repeated proto_PetSkillInfo skills = 4;
+}
+
+// Message: proto.CSFeedPetReq
+message CSFeedPetReq {
+    System_UInt32 pet_id = 1;
+    System_UInt32 food_id = 2;
+    System_UInt32 food_num = 3;
+    System_UInt64 group_id = 4;
+}
+
+// Message: proto.CSFeedPetRes
+message CSFeedPetRes {
+    System_UInt32 old_level = 1;
+    System_UInt32 new_level = 2;
+    System_UInt32 old_exp = 3;
+    System_UInt32 new_exp = 4;
+    System_UInt32 add_exp = 5;
+}
+
+// Message: proto.CSSelectPetReq
+message CSSelectPetReq {
+    System_UInt32 pet_id = 1;
+    System_Boolean is_selected = 2;
+    System_UInt64 group_id = 3;
+}
+
+// Message: proto.CSRenamePetReq
+message CSRenamePetReq {
+    System_UInt32 pet_id = 1;
+    System_String name = 2;
+    System_UInt64 group_id = 3;
+}
+
+// Message: proto.CSRenameRes
+message CSRenameRes {
+    System_UInt32 pet_id = 1;
+    System_String name = 2;
+}
+
+// Message: proto.CSSelectPetSkinReq
+message CSSelectPetSkinReq {
+    System_UInt32 pet_id = 1;
+    System_UInt32 skin_id = 2;
+    System_Boolean is_selected = 3;
+    System_UInt64 group_id = 4;
+}
+
+// Message: proto.CSSelectPetSkillReq
+message CSSelectPetSkillReq {
+    System_UInt32 pet_id = 1;
+    System_UInt32 skill_id = 2;
+    System_UInt64 group_id = 3;
+}
+
+// Message: proto.CSWordfilterReq
+message CSWordfilterReq {
+    System_String text = 1;
+}
+
+// Message: proto.CSFilterMessageRes
+message CSFilterMessageRes {
+    System_Boolean is_dirty = 1;
+    repeated System_String dirty_words = 2;
+    System_String filtered_text = 3;
+}
+
+// Message: proto.PetSkillInfoDesc
+message PetSkillInfoDesc {
+    System_UInt32 skill_id = 1;
+    System_UInt32 source_type = 2;
+    System_UInt32 source_pet_id = 3;
+    System_UInt32 pet_id = 4;
+}
+

@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+// Categoria: 27_presence
+// Total: 2 segments
+
+// Enum: enum proto.EPresence.AccountPresence
+enum AccountPresence {
+    AccountPresence_INROOM = 4;
+    AccountPresence_INTRAINING = 5;
+    AccountPresence_ONLINE = 1;
+    AccountPresence_INGAME = 3;
+    AccountPresence_NONE = 0;
+    AccountPresence_INGROUP = 2;
+}
+
+// Message: proto.EPresence
+message EPresence {
+    // Sem campos definidos no dump
+}
+

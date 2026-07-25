@@ -1,0 +1,179 @@
+syntax = "proto3";
+
+// Categoria: 26_chummy
+// Total: 25 segments
+
+// Enum: enum proto.EChummy.RequestType
+enum RequestType {
+    RequestType_Create_MENTORING_APPRENTICE = 1024;
+    RequestType_NONE = 0;
+    RequestType_DISMISS_MENTORING_AUTO_BREAK = 3;
+    RequestType_Create_MENTORING_ENROLL_STUDENT = 1025;
+    RequestType_DISMISS_MENTORING_UNDERGRADUATE = 2;
+    RequestType_DISMISS_MENTORING_GRADUATE = 1;
+}
+
+// Enum: enum proto.EChummy.MultiRelationType
+enum MultiRelationType {
+    MultiRelationType_MENTORING = 1;
+    MultiRelationType_NONE = 0;
+}
+
+// Enum: enum proto.EChummy.Role
+enum Role {
+    Role_MENTORING_STUDENT = 2;
+    Role_MENTORING_MENTOR = 1;
+    Role_NONE = 0;
+}
+
+// Enum: enum proto.EChummy.RelationState
+enum RelationState {
+    RelationState_DISMISS_DECLINED = 2;
+    RelationState_NONE = 0;
+    RelationState_DISMISS_WAIT = 1;
+    RelationState_DISMISS_GRADUATE = 3;
+}
+
+// Enum: enum proto.EChummy.AddIntimacyEventType
+enum AddIntimacyEventType {
+    AddIntimacyEventType_CS_SEASONEND = 4;
+    AddIntimacyEventType_BR_SEASONEND = 3;
+    AddIntimacyEventType_SENDGIFT = 2;
+    AddIntimacyEventType_ENDMATCH = 1;
+    AddIntimacyEventType_NONE = 0;
+}
+
+// Message: proto.EChummy
+message EChummy {
+    // Sem campos definidos no dump
+}
+
+// Message: proto.ChummyRequest
+message ChummyRequest {
+    proto_AccountInfoBasic applicant_info = 1;
+    System_Int64 request_time = 2;
+    System_UInt32 multi_relation_type = 3;
+    System_UInt32 request_type = 4;
+}
+
+// Message: proto.ChummyState
+message ChummyState {
+    System_UInt64 chummy_id = 1;
+    proto_EChummy_MultiRelationType multi_relation_type = 2;
+    System_UInt32 intimacy = 3;
+    System_Int64 create_at = 4;
+    proto_EChummy_RelationState state = 5;
+    proto_EChummy_Role role = 6;
+    System_Int64 state_update_at = 7;
+}
+
+// Message: proto.AccountInfoWithChummyState
+message AccountInfoWithChummyState {
+    proto_ChummyState chummy_state = 1;
+    proto_AccountInfoBasic chummy_info = 2;
+}
+
+// Message: proto.ChummyIntimacyAwardInfo
+message ChummyIntimacyAwardInfo {
+    System_UInt64 chummy_id = 1;
+    proto_EChummy_MultiRelationType multi_relation_type = 2;
+    System_UInt32 rank = 3;
+    proto_EChummy_Role role = 4;
+}
+
+// Message: proto.CSGetRecommendedMentorListRes
+message CSGetRecommendedMentorListRes {
+    proto_AccountInfoBasicBundleRes rand_mentor_list = 1;
+}
+
+// Message: proto.CSGetChummyRequestsRes
+message CSGetChummyRequestsRes {
+    repeated proto_ChummyRequest chummy_requests = 1;
+}
+
+// Message: proto.CSGetChummyStateRes
+message CSGetChummyStateRes {
+    repeated proto_AccountInfoWithChummyState chummy_state = 1;
+    proto_MentoringRelationInfo mentoring_info = 2;
+}
+
+// Message: proto.MentoringRelationInfo
+message MentoringRelationInfo {
+    System_Boolean is_mentor = 1;
+    System_UInt32 graduates_num = 2;
+    proto_AccountInfoBasicBundleRes classmate = 3;
+}
+
+// Message: proto.CSGetChummyIntimacyAwardInfoRes
+message CSGetChummyIntimacyAwardInfoRes {
+    repeated proto_ChummyIntimacyAwardInfo award_info = 1;
+}
+
+// Message: proto.CSClaimChummyIntimacyAwardReq
+message CSClaimChummyIntimacyAwardReq {
+    System_UInt64 chummy_id = 1;
+    proto_EChummy_MultiRelationType multi_relation_type = 2;
+    proto_EChummy_Role role = 3;
+    System_UInt32 rank = 4;
+}
+
+// Message: proto.CSClaimChummyIntimacyAwardRes
+message CSClaimChummyIntimacyAwardRes {
+    proto_AwardData award_data = 1;
+}
+
+// Message: proto.CSGetAllChummyDescRes
+message CSGetAllChummyDescRes {
+    repeated proto_MultiRelationTypeInfoDesc multi_relation_type_info = 1;
+    repeated proto_MultiIntimacyRankAwardDesc multi_intimacy_rank_award = 2;
+    proto_MentorSettingDesc mentor_setting_desc = 3;
+}
+
+// Message: proto.CSRequestAddingChummyReq
+message CSRequestAddingChummyReq {
+    System_UInt64 target_id = 1;
+    proto_EChummy_MultiRelationType multi_relation_type = 2;
+    proto_EChummy_RequestType request_type = 3;
+}
+
+// Message: proto.CSConfirmAddingChummyReq
+message CSConfirmAddingChummyReq {
+    System_UInt64 applicant_id = 1;
+    proto_EChummy_MultiRelationType multi_relation_type = 2;
+    proto_EChummy_RequestType request_type = 3;
+}
+
+// Message: proto.CSDeclineAddingChummyReq
+message CSDeclineAddingChummyReq {
+    System_UInt64 applicant_id = 1;
+    proto_EChummy_MultiRelationType multi_relation_type = 2;
+    proto_EChummy_RequestType request_type = 3;
+}
+
+// Message: proto.CSRequestDismissChummyReq
+message CSRequestDismissChummyReq {
+    System_UInt64 target_id = 1;
+    proto_EChummy_MultiRelationType multi_relation_type = 2;
+    proto_EChummy_RequestType request_type = 3;
+}
+
+// Message: proto.CSConfirmDismissChummyReq
+message CSConfirmDismissChummyReq {
+    System_UInt64 applicant_id = 1;
+    proto_EChummy_MultiRelationType multi_relation_type = 2;
+    proto_EChummy_RequestType request_type = 3;
+}
+
+// Message: proto.CSDeclineDismissChummyReq
+message CSDeclineDismissChummyReq {
+    System_UInt64 applicant_id = 1;
+    proto_EChummy_MultiRelationType multi_relation_type = 2;
+    proto_EChummy_RequestType request_type = 3;
+}
+
+// Message: proto.CSRevokeDismissChummyRequestReq
+message CSRevokeDismissChummyRequestReq {
+    System_UInt64 target_id = 1;
+    proto_EChummy_MultiRelationType multi_relation_type = 2;
+}
+

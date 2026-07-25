@@ -1,0 +1,208 @@
+syntax = "proto3";
+
+// Categoria: 29_ranking
+// Total: 28 segments
+
+// Enum: enum proto.ERanking.ActivityType
+enum ActivityType {
+    ActivityType_NONE = 0;
+    ActivityType_DOUBLE_RANKING_POINT = 2;
+    ActivityType_DOUBLE_TOKEN = 3;
+    ActivityType_NO_DEDUCT = 1;
+}
+
+// Enum: enum proto.ERanking.RankingType
+enum RankingType {
+    RankingType_NONE = 0;
+    RankingType_NORMAL = 1;
+    RankingType_PERIODIC = 3;
+    RankingType_CS = 2;
+}
+
+// Message: proto.ERanking
+message ERanking {
+    // Sem campos definidos no dump
+}
+
+// Message: proto.CSPlayerRankingInfoReq
+message CSPlayerRankingInfoReq {
+    System_UInt32 season_id = 1;
+}
+
+// Message: proto.CSPlayerRankingInfoRes
+message CSPlayerRankingInfoRes {
+    System_UInt64 account_id = 1;
+    System_UInt32 season_id = 2;
+    System_UInt32 rank = 3;
+    System_UInt32 max_rank = 4;
+    System_UInt32 ranking_points = 5;
+    System_Boolean show_rank = 6;
+    proto_RankingInfo last_season_info = 7;
+    System_UInt32 match_token_num = 8;
+    System_UInt32 ranking_bot_points = 9;
+    System_UInt32 peak_rank_pos = 10;
+}
+
+// Message: proto.CSPlayerRankingSeasonStatsReq
+message CSPlayerRankingSeasonStatsReq {
+    System_UInt32 season_id = 1;
+}
+
+// Message: proto.CSPlayerRankingSeasonStatsRes
+message CSPlayerRankingSeasonStatsRes {
+    System_UInt64 account_id = 1;
+    System_UInt32 season_id = 2;
+    System_UInt32 games_played = 3;
+    System_UInt32 max_rank = 4;
+    System_UInt32 max_ranking_points = 5;
+    System_UInt32 wins = 6;
+    System_UInt32 top_10_percent_times = 7;
+    System_UInt32 top_50_percent_times = 8;
+    System_UInt32 survival_time = 9;
+    System_UInt32 moving_distance = 10;
+    System_UInt32 kills = 11;
+    System_UInt32 damage = 12;
+    System_UInt32 one_game_most_kills = 13;
+    System_UInt32 one_game_most_damage = 14;
+    System_UInt32 head_shot_kills = 15;
+    System_UInt32 revivals = 16;
+}
+
+// Message: proto.CSGetRankingSeasonInfoReq
+message CSGetRankingSeasonInfoReq {
+    System_UInt32 season_id = 1;
+}
+
+// Message: proto.CSSetShowRankReq
+message CSSetShowRankReq {
+    System_UInt32 season_id = 1;
+    System_Boolean show_rank = 2;
+}
+
+// Message: proto.CSSetShowRankRes
+message CSSetShowRankRes {
+    System_Boolean show_rank = 1;
+}
+
+// Message: proto.CSResetNeedLastSeasonInfoReq
+message CSResetNeedLastSeasonInfoReq {
+    System_UInt32 season_id = 1;
+}
+
+// Message: proto.CSGetCurrentOrRecentRankingSeasonConfigRes
+message CSGetCurrentOrRecentRankingSeasonConfigRes {
+    proto_RankingSeasonInfo season_info = 1;
+    repeated proto_RankAwardsDesc awards = 2;
+    repeated proto_RankAwardsDesc top_awards_with_level = 3;
+}
+
+// Message: proto.CSGetDailyRankingRewardRes
+message CSGetDailyRankingRewardRes {
+    System_Boolean has_first_win = 1;
+}
+
+// Message: proto.CSGetRankingActivityConfigRes
+message CSGetRankingActivityConfigRes {
+    repeated proto_RankingActivityConfig ranking_activity_configs = 1;
+}
+
+// Message: proto.RankingInfo
+message RankingInfo {
+    System_UInt32 season_id = 1;
+    System_UInt32 rank = 2;
+    System_UInt32 max_rank = 3;
+    System_UInt32 ranking_points = 4;
+    System_UInt32 peak_rank_pos = 5;
+}
+
+// Message: proto.CSGetHeroicInfoRes
+message CSGetHeroicInfoRes {
+    repeated System_UInt32 br_reached_season = 1;
+    repeated System_UInt32 cs_reached_season = 2;
+}
+
+// Message: proto.CSGetRankMasterLevelRes
+message CSGetRankMasterLevelRes {
+    repeated proto_RankMasterLevel levels = 1;
+}
+
+// Message: proto.CSSeasonIDReq
+message CSSeasonIDReq {
+    System_UInt32 season_id = 1;
+}
+
+// Message: proto.CSPlayerCSRankingInfoReq
+message CSPlayerCSRankingInfoReq {
+    System_UInt32 season_id = 1;
+}
+
+// Message: proto.CSPlayerCSRankingInfoRes
+message CSPlayerCSRankingInfoRes {
+    System_UInt64 account_id = 1;
+    System_UInt32 season_id = 2;
+    System_UInt32 rank = 3;
+    System_UInt32 max_rank = 4;
+    System_UInt32 ranking_points = 5;
+    System_Boolean show_rank = 6;
+    System_UInt32 star = 7;
+    System_UInt32 hang_ups = 8;
+    System_Boolean is_hang_up_ban = 9;
+    System_UInt32 star_protect_points = 10;
+    System_UInt32 games_played = 11;
+    proto_CSRankingInfo last_season_info = 12;
+    System_UInt32 peak_rank_pos = 13;
+    System_UInt32 cs_ranking_bot_points = 14;
+}
+
+// Message: proto.CSPlayerCSRankingSeasonStatsReq
+message CSPlayerCSRankingSeasonStatsReq {
+    System_UInt32 season_id = 1;
+    System_UInt64 account_id = 2;
+}
+
+// Message: proto.CSPlayerCSRankingSeasonStatsRes
+message CSPlayerCSRankingSeasonStatsRes {
+    System_UInt32 season_id = 1;
+    proto_AccountInfoWithTCStats ranking_stats = 2;
+}
+
+// Message: proto.CSGetCurrentOrRecentCSRankingSeasonConfigRes
+message CSGetCurrentOrRecentCSRankingSeasonConfigRes {
+    proto_CSRankingSeasonInfoDesc season_info = 1;
+    repeated proto_CSRankAwardsDesc awards = 2;
+    repeated proto_CSRankAwardsDesc top_awards_with_level = 3;
+}
+
+// Message: proto.CSRankingInfo
+message CSRankingInfo {
+    System_UInt32 season_id = 1;
+    System_UInt32 rank = 2;
+    System_UInt32 max_rank = 3;
+    System_UInt32 ranking_points = 4;
+    System_UInt32 game_played = 5;
+    System_UInt32 peak_rank_pos = 6;
+}
+
+// Message: proto.CSGetRankingSeasonInfoRes
+message CSGetRankingSeasonInfoRes {
+    proto_RankingSeasonInfo season_info = 1;
+}
+
+// Message: proto.GetPlayerListCSRankingStatsReq
+message GetPlayerListCSRankingStatsReq {
+    repeated System_UInt64 account_ids = 1;
+    System_UInt32 season_id = 2;
+    System_UInt32 game_mode = 3;
+    System_String lock_region = 4;
+}
+
+// Message: proto.CSGetPlayerCSRankingInfoByAccountIDReq
+message CSGetPlayerCSRankingInfoByAccountIDReq {
+    System_UInt64 account_id = 1;
+}
+
+// Message: proto.CSGetCSRankMasterLevelRes
+message CSGetCSRankMasterLevelRes {
+    repeated proto_RankMasterLevel levels = 1;
+}
+

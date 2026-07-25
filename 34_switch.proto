@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+// Categoria: 34_switch
+// Total: 2 segments
+
+// Message: proto.ESwitch
+message ESwitch {
+    // Sem campos definidos no dump
+}
+
+// Message: proto.CSGetAllSwitchsRes
+message CSGetAllSwitchsRes {
+    repeated proto_SwitchDesc switchs = 1;
+}
+

@@ -1,0 +1,72 @@
+syntax = "proto3";
+
+// Categoria: 15_custom_room
+// Total: 11 segments
+
+// Message: proto.WerewolvesInfo
+message WerewolvesInfo {
+    System_UInt32 role = 1;
+    System_UInt32 wolf_kill = 2;
+    System_UInt32 wolf_task_count = 3;
+    System_UInt32 wolf_bunker_count = 4;
+    System_UInt32 civilian_task_count = 5;
+    System_UInt32 vote_success_count = 6;
+    System_UInt32 complete_emergency_task_count = 7;
+    System_UInt32 vote_cnt = 8;
+}
+
+// Message: proto.CustomEventProcessClaimedIds
+message CustomEventProcessClaimedIds {
+    repeated System_UInt32 ids = 1;
+}
+
+// Message: proto.CSGetCustomEventOpenInfoRes
+message CSGetCustomEventOpenInfoRes {
+    proto_CustomEventOpenInfoDesc open_info = 1;
+    repeated proto_CustomEventEntranceDesc entrances = 2;
+    repeated proto_CustomEventTemplateDesc templates = 3;
+    repeated proto_CustomEventLocDesc locs = 4;
+    repeated proto_CustomEventCDNDesc cdns = 5;
+}
+
+// Message: proto.CSGetCustomEventProcessSettingReq
+message CSGetCustomEventProcessSettingReq {
+    System_UInt32 custom_event_id = 1;
+}
+
+// Message: proto.CSGetCustomEventProcessSettingRes
+message CSGetCustomEventProcessSettingRes {
+    repeated proto_CustomEventProcessSettingDesc process_setting = 1;
+}
+
+// Message: proto.CSGetCustomEventCurrentProcessReq
+message CSGetCustomEventCurrentProcessReq {
+    System_UInt32 custom_event_id = 1;
+}
+
+// Message: proto.CSGetCustomEventCurrentProcessRes
+message CSGetCustomEventCurrentProcessRes {
+    System_UInt64 cur_process = 1;
+}
+
+// Message: proto.CSGetCustomEventProcessInfoReq
+message CSGetCustomEventProcessInfoReq {
+    System_UInt32 custom_event_id = 1;
+}
+
+// Message: proto.CSGetCustomEventProcessInfoRes
+message CSGetCustomEventProcessInfoRes {
+    repeated System_UInt32 process = 1;
+}
+
+// Message: proto.CSClaimCustomEventProcessRewardsReq
+message CSClaimCustomEventProcessRewardsReq {
+    System_UInt32 custom_event_id = 1;
+    repeated System_UInt32 process_ids = 2;
+}
+
+// Message: proto.CSClaimCustomEventProcessRewardsRes
+message CSClaimCustomEventProcessRewardsRes {
+    proto_ExchangeChangeData data = 1;
+}
+

@@ -1,0 +1,147 @@
+syntax = "proto3";
+
+// Categoria: 23_mini_game
+// Total: 19 segments
+
+// Message: proto.EMiniGame
+message EMiniGame {
+    // Sem campos definidos no dump
+}
+
+// Message: proto.CSPlayerBooyahChessInfo
+message CSPlayerBooyahChessInfo {
+    System_UInt64 account_id = 1;
+    proto_EMiniGame_GameStatus game_status = 2;
+    System_UInt32 player_index = 3;
+    System_UInt32 current_step = 4;
+    System_UInt32 current_weapon = 5;
+    System_UInt32 booyah_times = 6;
+    proto_Chessboard chessboard = 7;
+    proto_Circle current_circle = 8;
+    System_UInt32 current_reward_cnt = 9;
+    System_UInt32 total_reward_cnt = 10;
+    System_Boolean is_booyah = 11;
+    System_Boolean is_finish = 12;
+    System_Int32 booyah_index = 13;
+    System_UInt32 play_times = 14;
+}
+
+// Message: proto.Point
+message Point {
+    System_Double x = 1;
+    System_Double y = 2;
+}
+
+// Message: proto.Chessboard
+message Chessboard {
+    repeated proto_Hexagon hexagons = 1;
+}
+
+// Message: proto.CSBooyahChessMoveReq
+message CSBooyahChessMoveReq {
+    System_UInt32 target_index = 1;
+}
+
+// Message: proto.CSGetBooyahChessConfigRes
+message CSGetBooyahChessConfigRes {
+    repeated proto_BooyahChessZoneDesc zones = 1;
+    proto_BooyahChessSettingDesc setting = 2;
+    repeated proto_BooyahChessWeaponDesc weapons = 3;
+}
+
+// Message: proto.CSGetPlayerBooyahGameInfoRes
+message CSGetPlayerBooyahGameInfoRes {
+    System_UInt64 account_id = 1;
+    System_UInt32 booyah_wins = 2;
+    System_UInt32 booyah_chess_wins = 3;
+}
+
+// Message: proto.CSPlayerMonopolyInfo
+message CSPlayerMonopolyInfo {
+    System_UInt64 account_id = 1;
+    System_UInt32 dice_number = 2;
+    proto_EMiniGame_MonopolyPlayerStatus player_status = 3;
+    System_UInt32 current_index = 4;
+    System_UInt32 total_cycles = 5;
+    proto_MonopolyBoard monopoly_board = 6;
+    repeated proto_TriggeredEvent events = 7;
+    System_UInt32 current_event = 8;
+    System_UInt32 current_activity = 9;
+    System_UInt32 buff_remain_time = 10;
+}
+
+// Message: proto.MonopolyBoard
+message MonopolyBoard {
+    repeated proto_MonopolyNodeDesc nodes = 1;
+}
+
+// Message: proto.TriggeredEvent
+message TriggeredEvent {
+    proto_EMiniGame_MonopolyNodeType type = 1;
+    System_UInt32 triggered_index = 2;
+}
+
+// Message: proto.CSGetMonopolyConfigRes
+message CSGetMonopolyConfigRes {
+    repeated proto_MonopolyNodeDesc nodes = 1;
+    proto_MonopolySettingDesc setting = 2;
+    repeated proto_MonopolyEventDesc events = 3;
+}
+
+// Message: proto.CSMonopolyRollReq
+message CSMonopolyRollReq {
+    System_String language = 1;
+}
+
+// Message: proto.CSMonopolyEventChooseReq
+message CSMonopolyEventChooseReq {
+    System_UInt32 choice = 1;
+    System_String language = 2;
+}
+
+// Message: proto.CSMonopolyEventChooseRes
+message CSMonopolyEventChooseRes {
+    proto_EMiniGame_MonopolyEventResultType type = 1;
+    System_UInt32 value = 2;
+}
+
+// Message: proto.CSBooyahgoRollReq
+message CSBooyahgoRollReq {
+    System_String language = 1;
+}
+
+// Message: proto.CSPlayerBooyahgoInfo
+message CSPlayerBooyahgoInfo {
+    System_UInt64 account_id = 1;
+    System_UInt32 dice_number = 2;
+    System_UInt32 current_index = 3;
+    System_UInt32 total_cycles = 4;
+    proto_BooyahgoBoard booyahgo_board = 5;
+    repeated proto_BooyahgoTriggeredEvent events = 6;
+    System_UInt32 current_activity = 7;
+    System_UInt32 buff_remain_time = 8;
+    System_Boolean under_trap = 9;
+    System_UInt32 points = 10;
+    System_UInt32 dice_count = 11;
+}
+
+// Message: proto.CSGetBooyahgoConfigRes
+message CSGetBooyahgoConfigRes {
+    repeated proto_BooyahgoNodeDesc nodes = 1;
+    proto_BooyahgoMiniGameSettingDesc setting = 2;
+    repeated proto_BooyahgoEventDesc events = 3;
+    repeated proto_BooyahgoSkullKingActivityDesc skull_kings = 4;
+}
+
+// Message: proto.BooyahgoBoard
+message BooyahgoBoard {
+    repeated proto_BooyahgoNodeDesc nodes = 1;
+    System_Int32 skull_king_index = 2;
+}
+
+// Message: proto.BooyahgoTriggeredEvent
+message BooyahgoTriggeredEvent {
+    proto_EMiniGame_BooyahgoNodeType type = 1;
+    System_UInt32 triggered_index = 2;
+}
+

@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+// Categoria: 28_lobby_display
+// Total: 2 segments
+
+// Enum: enum proto.ELobbyDisplay.SlotType
+enum SlotType {
+    SlotType_NONE = 0;
+    SlotType_SKYBOARD_DISPLAY = 2;
+    SlotType_GLOO_DISPLAY = 1;
+}
+
+// Message: proto.ELobbyDisplay
+message ELobbyDisplay {
+    // Sem campos definidos no dump
+}
+

@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+// Categoria: 46_crypto
+// Total: 5 segments
+
+// Message: GCommon.AES.AESOption
+message AESOption {
+    System_String password = 1;
+    System_String salt = 2;
+}
+
+// Message: GCommon.TeaDecTempBuffer
+message TeaDecTempBuffer {
+    repeated System_Byte dec_dest_buff = 1;
+    repeated System_Byte dec_zero_buff = 2;
+    repeated System_Byte dec_iv_pre = 3;
+    repeated System_Byte dec_iv_cur = 4;
+    repeated System_UInt32 dec_k = 5;
+}
+
+// Message: GCommon.TeaEncTempBuffer
+message TeaEncTempBuffer {
+    repeated System_Byte enc_src_buf = 1;
+    repeated System_Byte enc_iv_plain = 2;
+    repeated System_Byte enc_iv_crypt = 3;
+    repeated System_UInt32 enc_k = 4;
+}
+

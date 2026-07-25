@@ -1,0 +1,82 @@
+syntax = "proto3";
+
+// Categoria: 10_room
+// Total: 8 segments
+
+// Message: proto.ERoom
+message ERoom {
+    // Sem campos definidos no dump
+}
+
+// Message: proto.RoomBasicInfo
+message RoomBasicInfo {
+    System_UInt64 id = 1;
+    System_String name = 2;
+    System_UInt32 map_id = 3;
+    System_UInt32 game_mode = 4;
+    System_UInt32 group_mode = 5;
+    System_UInt32 cur_member_num = 6;
+    System_UInt32 max_member_num = 7;
+    System_UInt32 cur_spectator_num = 8;
+    System_UInt32 max_spectator_num = 9;
+    System_UInt32 state = 10;
+    System_Boolean need_code = 11;
+    System_UInt32 banner = 12;
+    System_UInt32 color = 13;
+    System_UInt32 icon = 14;
+    System_UInt32 room_type = 15;
+    System_UInt32 level_visual_style = 16;
+    System_String code = 17;
+    System_Boolean enable_emulator_check = 18;
+    System_UInt32 room_setting = 19;
+    System_Boolean enough_room_card = 20;
+    System_Boolean owner_online = 21;
+}
+
+// Message: proto.GetAllRoomsRes
+message GetAllRoomsRes {
+    repeated proto_RoomBasicInfo rooms = 1;
+}
+
+// Message: proto.VersionInfo
+message VersionInfo {
+    System_String node = 1;
+    System_Int64 version = 2;
+}
+
+// Message: proto.AdminGetRoomcenterStatusRes
+message AdminGetRoomcenterStatusRes {
+    System_UInt32 room_node_cnt = 1;
+    repeated proto_VersionInfo versions = 2;
+    System_Boolean is_roomcenter_ready = 3;
+}
+
+// Message: proto.AdminDelRoomInRCReq
+message AdminDelRoomInRCReq {
+    System_String region = 1;
+    System_UInt64 room_id = 2;
+    System_UInt32 room_type = 3;
+}
+
+// Message: proto.CustomRoomPlayerStats
+message CustomRoomPlayerStats {
+    System_UInt64 account_id = 1;
+    System_UInt32 kills = 2;
+    System_UInt32 headshot = 3;
+    System_UInt32 damage = 4;
+    System_UInt32 grenade_use_count = 5;
+    System_UInt32 ice_wall_use_count = 6;
+    System_UInt32 survival_time = 7;
+    System_UInt32 help_teammates_count = 8;
+    System_UInt32 match_count = 9;
+}
+
+// Message: proto.CustomRoomGroupStats
+message CustomRoomGroupStats {
+    System_UInt64 group_id = 1;
+    System_UInt32 rank = 2;
+    System_UInt32 score = 3;
+    repeated proto_CustomRoomPlayerStats members = 4;
+    System_String name = 5;
+}
+

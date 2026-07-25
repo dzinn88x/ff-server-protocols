@@ -1,0 +1,1716 @@
+syntax = "proto3";
+
+// Categoria: 99_enums
+// Total: 162 segments
+
+// Enum: enum COW.EventLogger.EDisconnectionType
+enum EDisconnectionType {
+    UDP_ENTER = 1;
+    TCP = 0;
+    UDP_INGAME = 2;
+}
+
+// Enum: enum COW.EventLogger.BuildVariantType
+enum BuildVariantType {
+    Max = 1;
+    Normal = 0;
+}
+
+// Enum: enum COW.EventLogger.SharePlatform
+enum SharePlatform {
+    VKontakte = 3;
+    CopyLink = 6;
+    System = 99;
+    Line = 4;
+    Facebook = 2;
+    None = 0;
+    Garena = 1;
+    FacebookMessenger = 5;
+}
+
+// Enum: enum proto.EAccount.PlatformType
+enum PlatformType {
+    PlatformType_FACEBOOK = 6;
+    PlatformType_GAGUEST = 4;
+    PlatformType_VK = 5;
+    PlatformType_APPLE = 10;
+    PlatformType_CHANGE_ACCOUNT = 101;
+    PlatformType_GAFACEBOOK = 3;
+    PlatformType_GAS = 1;
+    PlatformType_DELETE = 100;
+    PlatformType_GOOGLE = 8;
+    PlatformType_VISITOR = 0;
+    PlatformType_TWITTER = 11;
+    PlatformType_WECHAT = 9;
+    PlatformType_HUAWEI = 7;
+    PlatformType_BEETALK = 2;
+}
+
+// Enum: enum proto.EAccount.Role
+enum Role {
+    Role_PERSONAGE = 64;
+    Role_UGC = 512;
+    Role_ROOMPARTNER = 32;
+    Role_GM = 1;
+    Role_ROOMMASTER = 16;
+    Role_NONE = 0;
+    Role_COMPANY = 128;
+    Role_REPLAY = 8;
+    Role_PREPARATION = 256;
+    Role_STREAMER = 4;
+    Role_CONTESTANT = 2;
+}
+
+// Enum: enum proto.EAccount.BanReason
+enum BanReason {
+    BanReason_SKINMOD = 4;
+    BanReason_OTHERS = 3;
+    BanReason_UNKNOWN = 0;
+    BanReason_IN_GAME_AUTO = 1;
+    BanReason_REFUND = 2;
+}
+
+// Enum: enum proto.EAccount.NewsType
+enum NewsType {
+    NewsType_BUNDLE = 7;
+    NewsType_NONE = 0;
+    NewsType_TREASUREBOX = 4;
+    NewsType_PURCHASE = 3;
+    NewsType_RANK = 1;
+    NewsType_LOTTERY = 2;
+    NewsType_OTHERS = 9;
+    NewsType_EXCHANGESTORE = 6;
+    NewsType_ELITEPASS = 5;
+    NewsType_LOTTERYSPECIALEXCHANGE = 8;
+}
+
+// Enum: enum proto.EAccount.WarmGameType
+enum WarmGameType {
+    WarmGameType_FIRSTRECHARGE = 1;
+    WarmGameType_NONE = 0;
+    WarmGameType_BOTPOINT = 2;
+}
+
+// Enum: enum proto.EAccount.DownloadType
+enum DownloadType {
+    DownloadType_NONE = 0;
+    DownloadType_IOS = 2;
+    DownloadType_INSTANTGAME = 1;
+    DownloadType_XIAOMI = 4;
+    DownloadType_SAMSUNG = 5;
+    DownloadType_HUAWEI = 3;
+}
+
+// Enum: enum proto.EAccount.LoginType
+enum LoginType {
+    LoginType_NORMAL = 0;
+    LoginType_DEBUG_NICKNAME = 2;
+    LoginType_DEBUG_ACCOUNT_ID = 1;
+}
+
+// Enum: enum proto.EAccount.CBSwitchStatus
+enum CBSwitchStatus {
+    CBSwitchStatus_CHECK_KEY = 1;
+    CBSwitchStatus_DONT_CHECK_KEY = 2;
+    CBSwitchStatus_DISABLE_MAX_LOGIN = 3;
+    CBSwitchStatus_NONE = 0;
+}
+
+// Enum: enum proto.EAccount.TrialSwitchStatus
+enum TrialSwitchStatus {
+    TrialSwitchStatus_NONE = 0;
+    TrialSwitchStatus_CHECK_KEY = 1;
+    TrialSwitchStatus_DONT_CHECK_KEY = 2;
+}
+
+// Enum: enum proto.EAccount.NewbieChoice
+enum NewbieChoice {
+    NewbieChoice_NEW_PLAYER = 1;
+    NewbieChoice_NEEDMOREINFO = 99;
+    NewbieChoice_VETERAN = 3;
+    NewbieChoice_NONE = 0;
+    NewbieChoice_FPS_PLAYER = 2;
+}
+
+// Enum: enum proto.EAccount.Prefers
+enum Prefers {
+    Prefers_HIDE_MY_LOBBY = 4;
+    Prefers_SHOW_KD = 2;
+    Prefers_DISPLAY_PREGAME_INFO = 1;
+    Prefers_NONE = 0;
+}
+
+// Enum: enum proto.EAccount.ChoicesType
+enum ChoicesType {
+    ChoicesType_NONE = 0;
+    ChoicesType_PREGAMESHOW_SHOW_CS_STATS = 1;
+}
+
+// Enum: enum proto.EAccount.Choices
+enum Choices {
+    Choices_CS_SHOW_STATS_WINS = 1;
+    Choices_CS_SHOW_STATS_TRI_KILLS = 6;
+    Choices_CS_SHOW_STATS_MVP_COUNT = 2;
+    Choices_CS_SHOW_STATS_KDA = 5;
+    Choices_NONE = 0;
+    Choices_CS_SHOW_STATS_AVG_DAMAGE = 4;
+    Choices_CS_SHOW_STATS_FOUR_KILLS = 7;
+    Choices_CS_SHOW_STATS_KILLS = 3;
+    Choices_CS_SHOW_STATS_HEAD_SHOT = 8;
+}
+
+// Enum: enum proto.EAccount.MatchMakingSwitchType
+enum MatchMakingSwitchType {
+    MatchMakingSwitchType_NONE = 0;
+    MatchMakingSwitchType_LOADING = 1;
+    MatchMakingSwitchType_MAX_LOBBY = 2;
+}
+
+// Enum: enum proto.EActivity.Event
+enum Event {
+    Event_LIMITED_EVENT_RETURN_INVITER = 32;
+    Event_REBATE_CARD = 14;
+    Event_SEND_GIFT = 10;
+    Event_LOGIN = 2;
+    Event_ATTENDANCE_SIGNIN = 29;
+    Event_WATCH_AD_AFTER_MATCH = 20;
+    Event_OPTIONAL_MAP_BERMUDA = 30;
+    Event_EP = 7;
+    Event_WATCH_AD = 15;
+    Event_EQUIP_COLLECTION = 25;
+    Event_NONE = 0;
+    Event_PRELOGIN = 17;
+    Event_GAIN_BADGE = 18;
+    Event_UNLOCKED_SKILL_SLOT = 23;
+    Event_RECHARGE = 3;
+    Event_CHECK_CLAN = 16;
+    Event_LEVEL_UP = 8;
+    Event_RETURN_INVITER = 12;
+    Event_EQUIP_CLOTHES = 24;
+    Event_LIMITED_EVENT_STORE_PURCHASE = 28;
+    Event_ENDMATCH = 1;
+    Event_LIMITED_EVENT_RETURNER = 31;
+    Event_RETURNER = 11;
+    Event_OPTIONAL_HOTFIX = 13;
+    Event_LOTTERY = 21;
+    Event_EXCHANGE = 4;
+    Event_OPTIONAL_MAP = 27;
+    Event_SHARE = 5;
+    Event_GEM_CONSUMPTION = 9;
+    Event_AVATAR_LEVEL_UP = 22;
+    Event_OPTIONAL_CUT_SCENE = 33;
+    Event_GOOGLE_ENGAGEMENT_REWARDS = 19;
+    Event_OPTIONAL_HOTFIX_VOICE = 26;
+    Event_BIND = 6;
+}
+
+// Enum: enum proto.EActivity.PreConditionType
+enum PreConditionType {
+    PreConditionType_LIMITED_EVENT_RAMPAGE = 15;
+    PreConditionType_BRING_PET = 19;
+    PreConditionType_GROUP_WITH_CONFIDANT = 22;
+    PreConditionType_GROUP_WITH_MENTOR = 23;
+    PreConditionType_Client_Version = 9;
+    PreConditionType_MAPID = 5;
+    PreConditionType_LOCATION_KILL = 13;
+    PreConditionType_WP_TYPE_PICK_UP = 12;
+    PreConditionType_NONE = 0;
+    PreConditionType_GAMEMODE = 4;
+    PreConditionType_LOADOUT = 10;
+    PreConditionType_CLOTHESID = 7;
+    PreConditionType_AVATAR = 6;
+    PreConditionType_KILLS = 17;
+    PreConditionType_MATCHMODE = 3;
+    PreConditionType_RANK = 2;
+    PreConditionType_LOTTERY_TYPE = 11;
+    PreConditionType_SINGLE_GAME_SURVIVAL = 18;
+    PreConditionType_SINGLE_GAME_BE_RESTORED = 21;
+    PreConditionType_MATCHSTATS_ITEM_ID = 16;
+    PreConditionType_GROUPMODE = 1;
+    PreConditionType_CERTAIN_WP_KILL = 14;
+    PreConditionType_SINGLE_GAME_RESTORE = 20;
+    PreConditionType_GROUP_WITH_STUDENT = 24;
+    PreConditionType_REBATECARDID = 8;
+}
+
+// Enum: enum proto.EActivity.ConditionType
+enum ConditionType {
+    ConditionType_NONE = 0;
+    ConditionType_CHECK_CLAN = 21;
+    ConditionType_GROUP_WITH_FRIEND = 14;
+    ConditionType_GEMSCONSUMECUMU = 15;
+    ConditionType_SIT_ON_THRONE = 25;
+    ConditionType_LIMITED_EVENT_RETURN_INVITER = 62;
+    ConditionType_PLAY = 1;
+    ConditionType_EQUIP_CLOTHES = 36;
+    ConditionType_LOTTERY_CNT = 29;
+    ConditionType_OPTIONAL_MAP_BERMUDA = 55;
+    ConditionType_SEND_GIFT = 12;
+    ConditionType_PAINT_USE = 46;
+    ConditionType_ICE_WALL_USE = 64;
+    ConditionType_NPC_PHOTO = 60;
+    ConditionType_VEHICLE_DESTROY = 43;
+    ConditionType_OPTIONAL_HOTFIX = 18;
+    ConditionType_RESTORE = 57;
+    ConditionType_LIMITED_EVENT_RETURNER = 61;
+    ConditionType_EP = 10;
+    ConditionType_LOADOUT_USE = 41;
+    ConditionType_MATCHSTATS_ITEM_NUM = 52;
+    ConditionType_GROUP_WITH_MENTOR = 63;
+    ConditionType_MOVING_DISTANCE = 45;
+    ConditionType_CS_SHOP_COST = 65;
+    ConditionType_CERTAIN_WP_KILLS = 54;
+    ConditionType_NPC_INTERACTION = 59;
+    ConditionType_RETURNER = 16;
+    ConditionType_TEAMMATE_SAVE = 42;
+    ConditionType_PRELOGIN = 23;
+    ConditionType_SHARECUMU = 8;
+    ConditionType_EQUIP_COLLECTION = 37;
+    ConditionType_HEADSHOT = 53;
+    ConditionType_RETURN_INVITER = 17;
+    ConditionType_GOOGLE_ENGAGEMENT_REWARDS = 26;
+    ConditionType_REVIVAL = 31;
+    ConditionType_BIND = 9;
+    ConditionType_ANYDAYLOGIN = 5;
+    ConditionType_WATCH_AD = 22;
+    ConditionType_GROUP_WITH_CLAN_MEMBER = 27;
+    ConditionType_GAMEMINITES = 4;
+    ConditionType_MEET_CERTAIN_RANK = 48;
+    ConditionType_EP_CHALLENGE = 38;
+    ConditionType_REBATE_CARD = 19;
+    ConditionType_RECHARGECUMU = 6;
+    ConditionType_LEVEL_UP = 11;
+    ConditionType_LOADOUT = 33;
+    ConditionType_EXCHANGE = 7;
+    ConditionType_UNLOCKED_SKILL_SLOT = 35;
+    ConditionType_RANKING_LEVEL_UP = 32;
+    ConditionType_OPTIONAL_CUT_SCENE = 66;
+    ConditionType_DIFF_WP_USE = 47;
+    ConditionType_OPTIONAL_MAP = 49;
+    ConditionType_AVATAR_LEVEL_UP = 34;
+    ConditionType_OPTIONAL_HOTFIX_VOICE = 39;
+    ConditionType_KILL = 2;
+    ConditionType_EMOTE_USE = 40;
+    ConditionType_WATCH_AD_AFTER_MATCH = 28;
+    ConditionType_WIN = 30;
+    ConditionType_ONLINEMINITES = 3;
+    ConditionType_GAIN_BADGE = 24;
+    ConditionType_LIMITED_EVENT_STORE_PURCHASE = 50;
+    ConditionType_DAMAGE_IN_MATCH = 44;
+    ConditionType_ATTENDANCE_SIGNIN = 51;
+    ConditionType_BE_RESTORED = 58;
+}
+
+// Enum: enum proto.EActivity.CircleType
+enum CircleType {
+    CircleType_WEEKLY = 2;
+    CircleType_REPEAT = 4;
+    CircleType_NONE = 0;
+    CircleType_MONTHLY = 3;
+    CircleType_DAILY = 1;
+}
+
+// Enum: enum proto.EActivity.State
+enum State {
+    State_UNRECEIVED = 3;
+    State_RECEIVED = 0;
+    State_AWARDED = 2;
+    State_FINISHED = 1;
+}
+
+// Enum: enum proto.EActivity.ActivityType
+enum ActivityType {
+    ActivityType_NORMAL = 0;
+    ActivityType_EASTER = 25;
+    ActivityType_CDN_SHOW = 10;
+    ActivityType_NAVIGATION = 21;
+    ActivityType_LIMITED_EVENT1 = 26;
+    ActivityType_LIMITED_EVENT5 = 30;
+    ActivityType_LIMITED_EVENT3 = 28;
+    ActivityType_EXCHANGE = 2;
+    ActivityType_OPTIONAL_MAP = 24;
+    ActivityType_LIMITED_EVENT_BERMUDA = 1000;
+    ActivityType_SHARE = 3;
+    ActivityType_OPTIONAL_CUT_SCENE = 37;
+    ActivityType_LIMITED_EVENT_SILENT = 1005;
+    ActivityType_OVERVIEW = 20;
+    ActivityType_PASSIVE = 2000;
+    ActivityType_OPTIONAL_HOTFIX_VOICE = 23;
+    ActivityType_WATCH_AD = 8;
+    ActivityType_FIRSTRECHARGE = 1;
+    ActivityType_CDN_SCROLLVIEW_SHOW = 35;
+    ActivityType_ACTIVENESS = 22;
+    ActivityType_LIMITED_TIME_RECHARGE = 13;
+    ActivityType_RETURNER = 6;
+    ActivityType_RETURN_INVITER = 7;
+    ActivityType_LIMITED_EVENT_SIGNIN = 1003;
+    ActivityType_LIMITED_EVENT2 = 27;
+    ActivityType_LIMITED_EVENT_BOUNTY = 33;
+    ActivityType_LIMITED_EVENT_DAILY = 1004;
+    ActivityType_OPTIONAL_HOTFIX = 9;
+    ActivityType_GOOGLE_ENGAGEMENT_REWARDS = 17;
+    ActivityType_OPTIONAL_MAP_BERMUDA = 31;
+    ActivityType_LIMITED_EVENT_PEAKDAY = 1002;
+    ActivityType_SECOND_RECHARGE = 19;
+    ActivityType_LIMITED_EVENT_BOOYAH = 32;
+    ActivityType_LIMITED_EVENT_MEGAPUNCH = 34;
+    ActivityType_PICKONEFROMN = 1001;
+    ActivityType_WATCH_AD_AFTER_MATCH = 18;
+    ActivityType_MONTHLY_REBATE = 15;
+    ActivityType_ANNOUNCE_SHOW = 11;
+    ActivityType_MONTHLY_RECHARGE = 14;
+    ActivityType_WEEKLY_REBATE = 16;
+    ActivityType_LIMITED_EVENT4 = 29;
+    ActivityType_FESTIVAL = 5;
+    ActivityType_PRELOGIN = 12;
+    ActivityType_TOPUP_EVENT_NEW = 36;
+    ActivityType_BIND = 4;
+}
+
+// Enum: enum proto.EActivity.SubType
+enum SubType {
+    SubType_LIMITED_EVENT_MOCOMONTH = 1013;
+    SubType_LIMITED_EVENT_BIS = 1015;
+    Subtype_LIMITED_EVENT_HURRICANEB = 1023;
+    SubType_MINIGAME_MONOPOLY = 1001;
+    SubType_LIMITED_EVENT_FOURSYMBOLS_AZURE_DRAGON = 1008;
+    SubType_NONE = 0;
+    SubType_LIMITED_EVENT_FOURSYMBOLS = 1007;
+    Subtype_CUSTOM_EVENT = 1017;
+    Subtype_LIMITED_RETURN_INVITER = 1019;
+    Subtype_LIMITED_EVENT_HOODEDKILLERB = 1022;
+    SubType_LIMITED_EVENT_FOURSYMBOLS_BLACK_TORTOISE = 1010;
+    SubType_LIMITED_EVENT_GOLIATH = 1000;
+    Subtype_LIMITED_EVENT_FFWS03 = 1016;
+    SubType_LIMITED_EVENT_WINTERFEST21B = 1020;
+    SubType_LIMITED_EVENT_SUPERCAR = 1005;
+    SubType_LIMITED_EVENT_MVP = 1002;
+    SubType_LIMITED_EVENT_SUPERFIGHTER = 1004;
+    SubType_LIMITED_EVENT_SUTORITO = 1006;
+    SubType_LIMITED_EVENT_FOURSYMBOLS_VERMILLION_BIRD = 1011;
+    SubType_LIMITED_EVENT_FOURSYMBOLS_WHITE_TIGER = 1009;
+    Subtype_LIMITED_RETURNER = 1018;
+    SubType_LIMITED_EVENT_MUSICFEST = 1012;
+    SubType_LIMITED_EVENT_BOOYAHDAY21 = 1014;
+    SubType_LIMITED_EVENT_FFWS = 1003;
+    Subtype_LIMITED_EVENT_JUMPSUIT = 1021;
+}
+
+// Enum: enum proto.EActivity.TabType
+enum TabType {
+    TabType_FESTIVAL2 = 3;
+    TabType_ACTIVENESS = 7;
+    TabType_GW2 = 5;
+    TabType_NONE = 0;
+    TabType_LARGE_FESTIVAL = 6;
+    TabType_GW1 = 4;
+    TabType_NORMAL = 1;
+    TabType_FESTIVAL1 = 2;
+}
+
+// Enum: enum proto.EActivity.Operation
+enum Operation {
+    Operation_NONE = 0;
+    Operation_RECEIVE = 1;
+    Operation_CANCEL = 2;
+}
+
+// Enum: enum proto.EActivity.BingoActivityRewardsState
+enum BingoActivityRewardsState {
+    BingoActivityRewardsState_INIT = 0;
+    BingoActivityRewardsState_AWARDED = 1;
+}
+
+// Enum: enum proto.EActivity.BingoActivityLevel
+enum BingoActivityLevel {
+    BingoActivityLevel_NONE = 0;
+    BingoActivityState_MEDIUM = 2;
+    BingoActivityState_HIGH = 3;
+    BingoActivityLevel_LOW = 1;
+}
+
+// Enum: enum proto.EActivity.EventMissionType
+enum EventMissionType {
+    EventMissionType_ACT_LOTTERY = 1;
+    EventMissionType_GAME_MODE = 2;
+    EventMissionType_NONE = 0;
+}
+
+// Enum: enum proto.EActivity.Platform
+enum Platform {
+    Platform_HUAWEI = 3;
+    Platform_MAX = 5;
+    Platform_IOS = 2;
+    Platform_GP = 1;
+    Platform_NONE = 0;
+    Platform_XIAOMI = 4;
+}
+
+// Enum: enum proto.EGroup.StatusChangeReason
+enum StatusChangeReason {
+    StatusChangeReason_NONE = 0;
+    StatusChangeReason_JOINROOM = 5;
+    StatusChangeReason_DROPMATCH = 3;
+    StatusChangeReason_STARTMATCH = 1;
+    StatusChangeReason_ENDMATCH = 2;
+    StatusChangeReason_MATCHMAKINGTIMEOUT = 4;
+    StatusChangeReason_EMULATOR = 6;
+    StatusChangeReason_UPDATEINGAMEITEMS = 7;
+}
+
+// Enum: enum proto.EGroup.ChangeMatchInfoEvent
+enum ChangeMatchInfoEvent {
+    ChangeMatchInfoEvent_CHOOSEBANNER = 17;
+    ChangeMatchInfoEvent_CHOOSESLOTS = 15;
+    ChangeMatchInfoEvent_NONE = 0;
+    ChangeMatchInfoEvent_RENAMEPET = 11;
+    ChangeMatchInfoEvent_SELECTPETSKIN = 12;
+    ChangeMatchInfoEvent_CHOOSEPVEWEAPON = 3;
+    ChangeMatchInfoEvent_CHOOSEEMOTE = 4;
+    ChangeMatchInfoEvent_EQUIPSKILLS = 8;
+    ChangeMatchInfoEvent_SELECTPET = 9;
+    ChangeMatchInfoEvent_ENDMATCH = 1;
+    ChangeMatchInfoEvent_CHOOSEPIN = 18;
+    ChangeMatchInfoEvent_SELECTPETSKILL = 13;
+    ChangeMatchInfoEvent_ACCOUNTHACKERTAG = 7;
+    ChangeMatchInfoEvent_CHOOSECLOTHES = 6;
+    ChangeMatchInfoEvent_UPGRADEPET = 10;
+    ChangeMatchInfoEvent_SELECTPROFILE = 14;
+    ChangeMatchInfoEvent_CHOOSELOADOUTS = 2;
+    ChangeMatchInfoEvent_ANTIADDICTIONBAN = 5;
+    ChangeMatchInfoEvent_CHOOSESHOWS = 16;
+    ChangeMatchInfoEvent_CHOOSEHEADPIC = 19;
+    ChangeMatchInfoEvent_CHOOSEGAMEBAGSHOW = 20;
+}
+
+// Enum: enum proto.EStats.MissionType
+enum MissionType {
+    MissionType_NONE = 0;
+    MissionType_UPGRADE_LEVEL = 1;
+}
+
+// Enum: enum proto.EStats.DailyMatchRewardConfigID
+enum DailyMatchRewardConfigID {
+    DailyMatchRewardConfigID_DUO_TOPN = 2;
+    DailyMatchRewardConfigID_SOLO_TOPN = 1;
+    DailyMatchRewardConfigID_QUAD_TOPN = 3;
+    DailyMatchRewardConfigID_NONE = 0;
+    DailyMatchRewardConfigID_FIRST_MATCH = 4;
+}
+
+// Enum: enum proto.EStats.DailyMatchRewardType
+enum DailyMatchRewardType {
+    DailyMatchRewardType_FIRST_MATCH = 2;
+    DailyMatchRewardType_NONE = 0;
+    DailyMatchRewardType_OUTSTANDING = 1;
+}
+
+// Enum: enum proto.EStats.WinnerTakesAllCurrencyType
+enum WinnerTakesAllCurrencyType {
+    WinnerTakesAllCurrencyType_DIAMOND = 2;
+    WinnerTakesAllCurrencyType_FREE = 3;
+    WinnerTakesAllCurrencyType_NONE = 0;
+    WinnerTakesAllCurrencyType_CHIP = 1;
+}
+
+// Enum: enum proto.EStats.RelationMaskPos
+enum RelationMaskPos {
+    RelationMaskPos_FRIEND = 0;
+    RelationMaskPos_MAX = 32;
+    RelationMaskPos_CONDFIDANT = 1;
+    RelationMaskPos_MENTOR = 2;
+    RelationMaskPos_STUDENT = 3;
+}
+
+// Enum: enum proto.EConfig.ConfigFile
+enum ConfigFile {
+    ConfigFile_STATS_RANKINGSEAONINFO = 0;
+}
+
+// Enum: enum proto.ESwitch.SwitchFunc
+enum SwitchFunc {
+    SwitchFunc_PERIODIC_SEASON_CONFIG_HTTP_RETRY = 88;
+    SwitchFunc_CATAPULT_USING = 13;
+    SwitchFunc_SPLASH_BANNER_INTEGRET_PAGE_ORDER = 52;
+    SwitchFunc_ENABLE_UGC_MAP_DESC_EDIT = 68;
+    SwitchFunc_XM_ENABLE_PAYMENT_SHOP = 28;
+    SwitchFunc_GOOGLE_PLAY_POINT = 83;
+    SwitchFunc_PRELOAD_REWARDED_VIDEO_UNDER_WIFI = 8;
+    SwitchFunc_LESS_IS_MORE_USE_GMSDK = 60;
+    SwitchFunc_FINISHED_TOPUP_ICON_SHOW = 10;
+    SwitchFunc_ACTIVENESS_LEVEL = 23;
+    SwitchFunc_HW_ENABLE_PAYMENT_HW = 33;
+    SwitchFunc_WORKSHOP = 56;
+    SwitchFunc_CHAT_WORLD_CHANNEL = 26;
+    SwitchFunc_LIVE_SHOW = 14;
+    SwitchFunc_HW_ENABLE_PAYMENT_SHOP = 30;
+    SwitchFunc_MYSTERY_BONUS = 18;
+    SwitchFunc_SS_PAYMENT_SHOP_FIRST = 36;
+    SwitchFunc_MYSTERYBONUS_PR = 61;
+    SwitchFunc_WORLD_CHANNEL_REJOIN = 70;
+    SwitchFunc_TP_TICK = 11;
+    SwitchFunc_CHECK_ADDRESS = 34;
+    SwitchFunc_ENABLE_GGP = 65;
+    SwitchFunc_ANDRIOD_MAX_MSHOP_OPEN = 72;
+    SwitchFunc_ANDRIOD_MAX_PAYMENT_SHOP_FIRST = 74;
+    SwitchFunc_WORKSHOP_TARGETED_MATCHMAKING = 79;
+    SwitchFunc_XM_ENABLE_PAYMENT_GP = 32;
+    SwitchFunc_OPTIONALDOWNLOAD_AUTO_DOWNLOAD = 51;
+    SwitchFunc_FRESH_ENTRANCE = 86;
+    SwitchFunc_TREASURE_BOX_PR = 2;
+    SwitchFunc_EXCHANGE_STORE_IOS = 5;
+    SwitchFunc_LIVE_WEB_SYSTEM = 43;
+    SwitchFunc_ANDRIOD_MSHOP_OPEN = 71;
+    SwitchFunc_BATCH_DRAW_CLAN_LUCKY_BAG = 87;
+    SwitchFunc_IOS_PAYMENT_SHOP_FIRST = 77;
+    SwitchFunc_XM_PAYMENT_SHOP_FIRST = 29;
+    SwitchFunc_AD_REWARDED_VIDEO_ENTRANCE = 7;
+    SwtichFunc_NATIONAL_FLAG = 22;
+    SwitchFunc_SS_ENABLE_PAYMENT_SHOP = 35;
+    SwitchFunc_LESS_IS_MORE_GOPOS = 64;
+    SwitchFunc_CUP_PROTOCOL = 53;
+    SwitchFunc_GIFT_STORE_IOS = 4;
+    SwitchFunc_SS_ENABLE_SS_IAP = 37;
+    SwitchFunc_INGAMEBONUS_PR = 62;
+    SwitchFunc_TP_INFO = 15;
+    SwitchFunc_ENABLE_GENERIC_3RD_PARTY_IAP_BUNDLE = 41;
+    SwitchFunc_TP_DATA = 39;
+    SwitchFunc_INTIMACY = 50;
+    SwitchFunc_IOS_MAX_PAYMENT_SHOP_FIRST = 78;
+    SwitchFunc_ESTIMATED_TIME = 48;
+    SwitchFunc_SP_UNITY = 16;
+    SwitchFunc_COMPETITION_ENTRANCE = 54;
+    SwitchFunc_PVE_WEAPON_INFO_SHOW = 12;
+    SwitchFunc_CHAT_CAN_REPORT = 55;
+    SwitchFunc_CHUMMY_MENTORING = 80;
+    SwitchFunc_INGAME_CHAT = 81;
+    SwitchFunc_NONE = 0;
+    SwitchFunc_FITTING_ROOM = 82;
+    SwitchFunc_SPLASH_BANNER_MAX_NUM = 25;
+    SwitchFunc_OPTIONALDOWNLOAD_AUTORESUME = 38;
+    SwitchFunc_GARENA_CONNECT_FACEBOOK = 59;
+    SwitchFunc_HW_PAYMENT_SHOP_FIRST = 31;
+    SwtichFunc_AFTER_MATCH_REWARD_AD = 20;
+    SwitchFunc_CHECK_PLATFORM_MEM_VALUE = 42;
+    SwitchFunc_LOTTERY_PR = 1;
+    SwitchFunc_IOS_MSHOP_OPEN = 75;
+    SwitchFunc_SHARE_BUTTON_HIDE = 45;
+    SwtichFunc_CHAMPIONSHIP_ENTRANCE = 21;
+    SwitchFunc_GROUP_SHOW_LEFT = 27;
+    SwitchFunc_IOS_MAX_MSHOP_OPEN = 76;
+    SwitchFunc_ENABLE_UGC_MAP_NAME_EDIT = 67;
+    SwitchFunc_SPECIAL_STORE_ICON = 3;
+    SwitchFunc_REPORT_MAIL_FEEDBACK = 85;
+    SwitchFunc_SOCIAL_SIGNATURE_HIDE = 46;
+    SwitchFunc_MYSTERYSHOP_PR = 63;
+    SwitchFunc_ENABLE_GENERIC_3RD_PARTY_IAP_EVENT = 40;
+    SwitchFunc_CLAN_LUCKY_BAG = 66;
+    SwitchFunc_NEW_TEAM_UI = 47;
+    SwitchFunc_ANDRIOD_PAYMENT_SHOP_FIRST = 73;
+    SwitchFunc_LEVEL_LIMITED_FOR_SPLASH_BANNER = 6;
+    SwitchFunc_LOTTERY_ENTRANCE_HIDE = 44;
+    SwitchFunc_LOTTERY_AND_EP_BROADCAST = 49;
+    SwitchFunc_LOADING_SHOW = 84;
+    SwitchFunc_NEWBIE_AVATAR_GUIDE = 69;
+}
+
+// Enum: enum proto.ENotification.ChangeMatchInfoEvent
+enum ChangeMatchInfoEvent {
+    ChangeMatchInfoEvent_GROUPCREATE = 9;
+    ChangeMatchInfoEvent_GROUPJOIN = 6;
+    ChangeMatchInfoEvent_GROUPINVITE = 8;
+    ChangeMatchInfoEvent_NONE = 0;
+    ChangeMatchInfoEvent_CREATEBATCHROOM = 10;
+    ChangeMatchInfoEvent_GROUPLEAVE = 7;
+    ChangeMatchInfoEvent_CREATEROOM = 2;
+    ChangeMatchInfoEvent_JOINROOM = 3;
+    ChangeMatchInfoEvent_JOINGROUPBYCODE = 5;
+    ChangeMatchInfoEvent_GROUPSTART = 1;
+    ChangeMatchInfoEvent_SPECTATEROOM = 4;
+}
+
+// Enum: enum proto.ENotification.ErrCode
+enum ErrCode {
+    ErrCode_GROUPSTATUS = 1;
+    ErrCode_SUSS = 0;
+}
+
+// Enum: enum proto.EClan.MemberType
+enum MemberType {
+    MemberType_DEPUTY_CAPTAIN = 4;
+    MemberType_NONE = 0;
+    MemberType_CAPTAIN = 3;
+    MemberType_VICE_CAPTAIN = 2;
+    MemberType_NORMAL_MEMBER = 1;
+}
+
+// Enum: enum proto.EClan.EntryType
+enum EntryType {
+    EntryType_MANUALLY = 1;
+    EntryType_NONE = 0;
+    EntryType_AUTO = 2;
+}
+
+// Enum: enum proto.EClan.ClanUserChangeType
+enum ClanUserChangeType {
+    ClanUserChangeType_APPROVE_INVITATION = 4;
+    ClanUserChangeType_REQUEST_AUTO = 9;
+    ClanUserChangeType_APPROVE_APPLICATION = 2;
+    ClanUserChangeType_NONE = 0;
+    ClanUserChangeType_JOIN_BY_CLAN_WAR_RECRUIT = 16;
+    ClanUserChangeType_ASSIGN_AGENT = 11;
+    ClanUserChangeType_APPLY_AGENT = 13;
+    ClanUserChangeType_QUIT = 8;
+    ClanUserChangeType_REASSIGN_CAPTAIN = 6;
+    ClanUserChangeType_CHANGE_MEMBER_TYPE = 5;
+    ClanUserChangeType_CANCEL_OVERTIME_AGENT = 15;
+    ClanUserChangeType_ADMIN_CHANGE_MEMBER_TYPE = 10;
+    ClanUserChangeType_INVITE = 3;
+    ClanUserChangeType_REQUEST = 1;
+    ClanUserChangeType_APPLY_AGENT_SUCCESS = 14;
+    ClanUserChangeType_DISMISS_AGENT = 12;
+    ClanUserChangeType_REMOVE = 7;
+    ClanUserChangeType_QUIT_BY_CLAN_WAR_RECRUIT = 17;
+}
+
+// Enum: enum proto.EClan.ClanMainType
+enum ClanMainType {
+    ClanMainType_NONE = 0;
+    ClanMainType_AREA = 2;
+    ClanMainType_PLAY_STYLE = 3;
+    ClanMainType_REGION = 1;
+}
+
+// Enum: enum proto.EClan.ClanHonorType
+enum ClanHonorType {
+    ClanHonorType_NONE = 0;
+    ClanHonorType_SAME_TEAM = 2;
+    ClanHonorType_MATCH = 1;
+    ClanHonorType_TOP_UP = 3;
+}
+
+// Enum: enum proto.EClan.ClanSignInRewardStatus
+enum ClanSignInRewardStatus {
+    ClanSignInRewardStatus_SIGNED = 1;
+    ClanSignInRewardStatus_CLAIMED = 2;
+    ClanSignInRewardStatus_NOT_SIGNED = 0;
+}
+
+// Enum: enum proto.EClan.RacePointsGainType
+enum RacePointsGainType {
+    RacePointsGainType_NONE = 0;
+    RacePointsGainType_SAME_TEAM = 2;
+    RacePointsGainType_MATCH = 1;
+}
+
+// Enum: enum proto.EClan.PlayerRacePointChangeType
+enum PlayerRacePointChangeType {
+    PlayerRacePointChangeType_NONE = 0;
+    PlayerRacePointChangeType_PLAYER_LEAVES = 2;
+    PlayerRacePointChangeType_EXCHANGE = 3;
+    PlayerRacePointChangeType_MATCH = 1;
+}
+
+// Enum: enum proto.EClan.NewsType
+enum NewsType {
+    NewsType_RANKING_DIAMOND = 10;
+    NewsType_SPECIAL_OFFER = 15;
+    NewsType_CHANGE_TYPE = 2;
+    NewsType_CSRANKING_GRANDMASTER = 9;
+    NewsType_RANKING_GRANDMASTER = 11;
+    NewsType_BIG_LUCKY_BAG = 7;
+    NewsType_EP_BUNDLE = 3;
+    NewsType_GROWUP_BUNDLE = 16;
+    NewsType_TOPUP = 14;
+    NewsType_IAP = 4;
+    NewsType_WEEKLY_MEMBERSHIP = 12;
+    NewsType_CSRANKING_DIAMOND = 8;
+    NewsType_LEVEL_UP = 5;
+    NewsType_MONTHLY_MEMBERSHIP = 13;
+    NewsType_OTHERS = 6;
+    NewsType_JOIN = 1;
+    NewsType_NONE = 0;
+}
+
+// Enum: enum proto.EClan.CreateLuckyBagEventType
+enum CreateLuckyBagEventType {
+    CreateLuckyBagEventType_EPBUNDLE = 1;
+    CreateLuckyBagEventType_SUBSCRIPTE_MEMBERSHIP = 5;
+    CreateLuckyBagEventType_RANKING_END_MATCH = 4;
+    CreateLuckyBagEventType_SPECIAL_OFFER = 7;
+    CreateLuckyBagEventType_CSRANKING_END_MATCH = 3;
+    CreateLuckyBagEventType_NONE = 0;
+    CreateLuckyBagEventType_IAP = 2;
+    CreateLuckyBagEventType_GROWUP_BUNDLE = 8;
+    CreateLuckyBagEventType_TOPUP = 6;
+}
+
+// Enum: enum proto.EClan.CreateLuckyBagCdtType
+enum CreateLuckyBagCdtType {
+    CreateLuckyBagCdtType_SPECIAL_OFFER = 10;
+    CreateLuckyBagCdtType_EPBUNDLE = 1;
+    CreateLuckyBagCdtType_CREATE_BIG_LUCKY_BAG = 999;
+    CreateLuckyBagCdtType_GROWUP_BUNDLE = 11;
+    CreateLuckyBagCdtType_NONE = 0;
+    CreateLuckyBagCdtType_CSRANKING_DIAMOND = 3;
+    CreateLuckyBagCdtType_RANKING_GRANDMASTER = 6;
+    CreateLuckyBagCdtType_CSRANKING_GRANDMASTER = 4;
+    CreateLuckyBagCdtType_WEEKLY_MEMBERSHIP = 7;
+    CreateLuckyBagCdtType_TOPUP = 9;
+    CreateLuckyBagCdtType_IAP = 2;
+    CreateLuckyBagCdtType_RANKING_DIAMOND = 5;
+    CreateLuckyBagCdtType_MONTHLY_MEMBERSHIP = 8;
+}
+
+// Enum: enum proto.EClan.LuckyBagType
+enum LuckyBagType {
+    LuckyBagType_SMALL = 1;
+    LuckyBagType_BIG = 2;
+    LuckyBagType_NONE = 0;
+}
+
+// Enum: enum proto.EClan.ClanWarPhaseType
+enum ClanWarPhaseType {
+    ClanWarPhaseType_END = 4;
+    ClanWarPhaseType_PREPARE = 2;
+    ClanWarPhaseType_PREVIEW = 1;
+    ClanWarPhaseType_MATCHMAKING = 3;
+    ClanWarPhaseType_NONE = 0;
+}
+
+// Enum: enum proto.EClan.ClanWarMemberType
+enum ClanWarMemberType {
+    ClanWarMemberType_NORMAL_MEMBER = 1;
+    ClanWarMemberType_NONE = 0;
+    ClanWarMemberType_CAPTAIN = 2;
+}
+
+// Enum: enum proto.EClan.ClanWarMemberChangeType
+enum ClanWarMemberChangeType {
+    ClanWarMemberChangeType_NONE = 0;
+    ClanWarMemberChangeType_APPOINT_CAPTAIN = 6;
+    ClanWarMemberChangeType_QUIT = 5;
+    ClanWarMemberChangeType_INVITE = 2;
+    ClanWarMemberChangeType_APPROVE_INVITATION = 3;
+    ClanWarMemberChangeType_REMOVE = 4;
+    ClanWarMemberChangeType_JOIN = 1;
+}
+
+// Enum: enum proto.EClan.ClanBadgeTriggerType
+enum ClanBadgeTriggerType {
+    ClanBadgeTriggerType_NONE = 0;
+    ClanBadgeTriggerType_LEVEL_UP = 1;
+    ClanBadgeTriggerType_ITEM_EXCHANGE = 2;
+}
+
+// Enum: enum proto.EFriend.FriendMainType
+enum FriendMainType {
+    FriendMainType_REGION = 1;
+    FriendMainType_NONE = 0;
+}
+
+// Enum: enum proto.EFriend.IntimacyType
+enum IntimacyType {
+    IntimacyType_NONE = 0;
+    IntimacyType_SENDGIFT = 2;
+    IntimacyType_CHAT = 3;
+    IntimacyType_ENDMATCH = 1;
+}
+
+// Enum: enum proto.EFriend.RelationType
+enum RelationType {
+    RelationType_NONE = 0;
+    RelationType_CONFIDANT = 1;
+}
+
+// Enum: enum proto.EFriend.IntimacyRankAwardStatus
+enum IntimacyRankAwardStatus {
+    IntimacyRankAwardStatus_INIT = 0;
+    IntimacyRankAwardStatus_AWARDED = 1;
+}
+
+// Enum: enum proto.EFriend.SpecialFriendState
+enum SpecialFriendState {
+    SpecialFriendState_NONE = 0;
+    SpecialFriendState_WAIT_CREATE = 1;
+    SpecialFriendState_ALREADY_BE = 2;
+    SpecialFriendState_DECLINED = 4;
+    SpecialFriendState_WAIT_DISMISS = 3;
+}
+
+// Enum: enum proto.EFriend.SpecialFriendSendApplyResult
+enum SpecialFriendSendApplyResult {
+    SpecialFriendSendApplyResult_NONE = 0;
+    SpecialFriendSendApplyResult_TARGET_SPECIAL_FRIEND_MAX = 3;
+    SpecialFriendSendApplyResult_TARGET_APPLY_MAX = 2;
+    SpecialFriendSendApplyResult_SUCCESS = 1;
+}
+
+// Enum: enum proto.EFriend.SpecialFriendReplyResult
+enum SpecialFriendReplyResult {
+    SpecialFriendReplyResult_REJECT = 0;
+    SpecialFriendReplyResult_AGREE = 1;
+}
+
+// Enum: enum proto.EFriend.FriendAliasAction
+enum FriendAliasAction {
+    FriendAliasAction_NONE = 0;
+    FriendAliasAction_SET = 1;
+    FriendAliasAction_UPDATE = 2;
+    FriendAliasAction_REMOVE = 3;
+}
+
+// Enum: enum proto.ELottery.LotteryType
+enum LotteryType {
+    LotteryType_SOME = 2;
+    LotteryType_DROPUP_BUFF = 3;
+    LotteryType_NONE = 0;
+    LotteryType_RERANDOM = 4;
+    LotteryType_ONE = 1;
+}
+
+// Enum: enum proto.ELottery.PoolType
+enum PoolType {
+    PoolType_SR = 3;
+    PoolType_NO_SR = 5;
+    PoolType_R = 2;
+    PoolType_NO_FR = 7;
+    PoolType_ALL = 0;
+    PoolType_NO_FR_SR = 9;
+    PoolType_NO_FR_R_SR = 10;
+    PoolType_FR = 1;
+    PoolType_NO_R = 4;
+    PoolType_NO_FR_R = 8;
+    PoolType_MUST_DROP = 11;
+    PoolType_NO_R_SR = 6;
+    PoolType_VETERAN = 12;
+}
+
+// Enum: enum proto.ELottery.CoinType
+enum CoinType {
+    CoinType_NONE = 0;
+    CoinType_COINS = 1;
+    CoinType_GEMS = 2;
+}
+
+// Enum: enum proto.ELottery.WeightType
+enum WeightType {
+    WeightType_NONE = 0;
+    WeightType_THIRD_LEVEL = 4;
+    WeightType_FIRST_REWARD = 1;
+    WeightType_FOURTH_LEVEL = 6;
+    WeightType_SECOND_LEVEL = 3;
+    WeightType_BASE = 2;
+    WeightType_VETERAN = 5;
+    WeightType_FIFTH_LEVEL = 7;
+}
+
+// Enum: enum proto.ELottery.ConsumeType
+enum ConsumeType {
+    ConsumeType_EXCHANGE_ITEM = 2;
+    ConsumeType_FREE = 1;
+    ConsumeType_MONEY = 3;
+    ConsumeType_NONE = 0;
+}
+
+// Enum: enum proto.ELottery.ExtraRewardState
+enum ExtraRewardState {
+    ExtraRewardState_NONE = 0;
+    ExtraRewardState_RECEIVED = 1;
+}
+
+// Enum: enum proto.ELottery.Type
+enum Type {
+    Type_ENERGY_GACHA = 6;
+    Type_NORMAL = 0;
+    Type_COMPLETION = 7;
+    Type_ACT_LIMIT_POOL = 101;
+    Type_TURNTABLE = 1;
+    Type_LEGENDARY = 3;
+    Type_LIMIT_POOL = 4;
+    Type_ACT_MEGAPUNCH = 106;
+    Type_ACT_ANN_POOL = 103;
+    Type_TOKEN_GACHA = 5;
+    Type_ULTRAMATE = 2;
+    Type_ACT_ANN_LIMIT_POOL = 104;
+    Type_HACKERSTORE = 8;
+    Type_ACT_REAPER = 102;
+    Type_ACT_COMPETITION = 105;
+}
+
+// Enum: enum proto.ELottery.RareType
+enum RareType {
+    RareType_RARE = 1;
+    RareType_NORMAL = 0;
+    RareType_SUPER_RARE = 2;
+}
+
+// Enum: enum proto.ELottery.LimitPurchaseType
+enum LimitPurchaseType {
+    LimitPurchaseType_SUBID = 2;
+    LimitPurchaseType_NONE = 0;
+    LimitPurchaseType_DAILY = 1;
+}
+
+// Enum: enum proto.ELottery.ExtraRewardCdtType
+enum ExtraRewardCdtType {
+    ExtraRewardCdtType_PROGRESS = 2;
+    ExtraRewardCdtType_NONE = 0;
+    ExtraRewardCdtType_LOTTERY_COUNT = 1;
+}
+
+// Enum: enum proto.ELottery.BuffUpDisplayLevel
+enum BuffUpDisplayLevel {
+    BuffUpDisplayLevel_MEDIUM = 1;
+    BuffUpDisplayLevel_HIGH = 2;
+    BuffUpDisplayLevel_LOW = 0;
+}
+
+// Enum: enum proto.EStore.GiftRankType
+enum GiftRankType {
+    GiftRankType_RECEIVER = 1;
+    GiftRankType_GIVER = 2;
+    GiftRankType_NONE = 0;
+}
+
+// Enum: enum proto.EStore.IapType
+enum IapType {
+    IapType_NORMAL = 0;
+    IapType_VETERAN = 1;
+}
+
+// Enum: enum proto.EStore.IapConsumeType
+enum IapConsumeType {
+    IapConsumeType_CASH = 0;
+    IapConsumeType_DIAMOND = 1;
+}
+
+// Enum: enum proto.EStore.IapSpecialDropType
+enum IapSpecialDropType {
+    IapSpecialDropType_HP_PKG_USED_CNT = 3;
+    IapSpecialDropType_KILLS = 2;
+    IapSpecialDropType_DAMAGE = 4;
+    IapSpecialDropType_HEAD_SHOT_KILLS = 1;
+    IapSpecialDropType_NONE = 0;
+}
+
+// Enum: enum proto.EStore.IapStoreType
+enum IapStoreType {
+    IapStoreType_WEB_ACTIVITY = 2;
+    IapStoreType_NONE = 0;
+    IapStoreType_OPTIONAL_BUNDLE = 3;
+    IapStoreType_VIPCARD = 4;
+    IapStoreType_AFTER_FIGHT = 1;
+}
+
+// Enum: enum proto.EStore.IapDropSituation
+enum IapDropSituation {
+    IapDropSituation_AFTER_FIGHT = 1;
+    IapDropSituation_RECHARGE = 2;
+    IapDropSituation_NONE = 0;
+    IapDropSituation_EXCHANGE_ITEM = 3;
+}
+
+// Enum: enum proto.EStore.RebateCardBillStatus
+enum RebateCardBillStatus {
+    RebateCardBillStatus_HITTING = 1;
+    RebateCardBillStatus_PENDING = 4;
+    RebateCardBillStatus_DONE = 2;
+    RebateCardBillStatus_TIMEOUT = 3;
+    RebateCardBillStatus_NONE = 0;
+}
+
+// Enum: enum proto.EStore.BundleRefreshType
+enum BundleRefreshType {
+    BundleRefreshType_DAILY = 1;
+    BundleRefreshType_MONTHLY = 3;
+    BundleRefreshType_NEVER = 0;
+    BundleRefreshType_WEEKLY = 2;
+}
+
+// Enum: enum proto.EStore.PbwConsumeType
+enum PbwConsumeType {
+    PbwConsumeType_CASH = 0;
+    PbwConsumeType_DIAMOND = 1;
+    PbwConsumeType_FREE = 2;
+}
+
+// Enum: enum proto.EStore.PbwActivityType
+enum PbwActivityType {
+    PbwActivityType_GROWUP_BUNDLE = 3;
+    PbwActivityType_NEWBIE_BUNDLE = 2;
+    PbwActivityType_NONE = 0;
+    PbwActivityType_DISCOUNT_BUNDLE = 1;
+}
+
+// Enum: enum proto.EStore.PayLevelRewardHintType
+enum PayLevelRewardHintType {
+    PayLevelRewardHintType_NOPAY = 1;
+    PayLevelRewardHintType_ALL = 3;
+    PayLevelRewardHintType_PAY = 2;
+    PayLevelRewardHintType_NONE = 0;
+}
+
+// Enum: enum proto.EStore.PayLevelInfoState
+enum PayLevelInfoState {
+    PayLevelInfoState_RECEIVED = 0;
+    PayLevelInfoState_FINISHED = 1;
+    PayLevelInfoState_AWARDED = 2;
+}
+
+// Enum: enum proto.EStore.PurchaseItemChannel
+enum PurchaseItemChannel {
+    PurchaseItemChannel_OTHER = 0;
+    PurchaseItemChannel_GOOGLE_PLAY_POINT = 1;
+}
+
+// Enum: enum proto.ELive.FollowerType
+enum FollowerType {
+    FollowerType_NONE = 0;
+    FollowerType_YES = 1;
+    FollowerType_NO = 2;
+}
+
+// Enum: enum proto.ELive.VideoType
+enum VideoType {
+    VideoType_NONE = 0;
+    VideoType_LIVE_NOW = 2;
+    VideoType_NEWEST = 101;
+    VideoType_ALL = 100;
+    VideoType_HOTEST = 1;
+    VideoType_TUTORIAL = 4;
+    VideoType_POPULAR = 102;
+    VideoType_OTHER = 103;
+    VideoType_EXPLORE = 3;
+}
+
+// Enum: enum proto.EManual.State
+enum State {
+    State_COLLECTING = 0;
+    State_FINISHED = 1;
+    State_AWARDED = 2;
+}
+
+// Enum: enum proto.EManual.EventType
+enum EventType {
+    EventType_MOV = 4;
+    EventType_EVE = 5;
+    EventType_WEAPON = 1;
+    EventType_NONE = 0;
+    EventType_SUP = 3;
+    EventType_MAP = 2;
+}
+
+// Enum: enum proto.EChampionship.MemberType
+enum MemberType {
+    MemberType_NONE = 0;
+    MemberType_NORMAL_MEMBER = 1;
+    MemberType_CAPTAIN = 2;
+}
+
+// Enum: enum proto.EChampionship.TeamUserChangeType
+enum TeamUserChangeType {
+    TeamUserChangeType_REMOVE = 5;
+    TeamUserChangeType_NONE = 0;
+    TeamUserChangeType_REQUEST = 1;
+    TeamUserChangeType_INVITE = 3;
+    TeamUserChangeType_APPROVE_APPLICATION = 2;
+    TeamUserChangeType_APPROVE_INVITATION = 4;
+    TeamUserChangeType_AUTO_QUIT = 7;
+    TeamUserChangeType_QUIT = 6;
+}
+
+// Enum: enum proto.EChampionship.ChampionshipPhase
+enum ChampionshipPhase {
+    ChampionshipPhase_NONE = 0;
+    ChampionshipPhase_TRIAL = 1;
+    ChampionshipPhase_FINAL = 2;
+}
+
+// Enum: enum proto.EChampionship.TeamScaleType
+enum TeamScaleType {
+    TeamScaleType_QUINTET = 3;
+    TeamScaleType_TRIO = 2;
+    TeamScaleType_NONE = 0;
+    TeamScaleType_SOLO = 1;
+}
+
+// Enum: enum proto.ECup.MemberType
+enum MemberType {
+    MemberType_NORMAL_MEMBER = 1;
+    MemberType_CAPTAIN = 2;
+    MemberType_NONE = 0;
+}
+
+// Enum: enum proto.ECup.TeamUserChangeType
+enum TeamUserChangeType {
+    TeamUserChangeType_APPROVE_APPLICATION = 2;
+    TeamUserChangeType_APPROVE_INVITATION = 4;
+    TeamUserChangeType_REQUEST = 1;
+    TeamUserChangeType_NONE = 0;
+    TeamUserChangeType_QUIT = 6;
+    TeamUserChangeType_WORLD_INVITATION = 7;
+    TeamUserChangeType_REMOVE = 5;
+    TeamUserChangeType_INVITE = 3;
+}
+
+// Enum: enum proto.ERoom.Cmd
+enum Cmd {
+    Cmd_SEND_ALL_ROOMS = 1;
+    Cmd_NONE = 0;
+    Cmd_OK = 2;
+}
+
+// Enum: enum proto.ERoom.ChangeMatchInfoEvent
+enum ChangeMatchInfoEvent {
+    ChangeMatchInfoEvent_ROOMCARD = 4;
+    ChangeMatchInfoEvent_NONE = 0;
+    ChangeMatchInfoEvent_CHOOSECLOTHES = 2;
+    ChangeMatchInfoEvent_CHOOSELOADOUTS = 1;
+    ChangeMatchInfoEvent_EQUIPSKILLS = 3;
+}
+
+// Enum: enum proto.ERoom.DropPresetState
+enum DropPresetState {
+    DropPresetState_DEFAULT_ON_FUNC_CLOSE = 3;
+    DropPresetState_DEFAULT_OFF_FUNC_OPEN = 0;
+    DropPresetState_DEFAULT_OFF_FUNC_CLOSE = 2;
+    DropPresetState_DEFAULT_ON_FUNC_OPEN = 1;
+}
+
+// Enum: enum proto.ERoom.WeatherType
+enum WeatherType {
+    WeatherType_NIGHT = 2;
+    WeatherType_NONE = 0;
+    WeatherType_DAY = 1;
+}
+
+// Enum: enum proto.ERoom.CustomRoomSetting
+enum CustomRoomSetting {
+    CustomRoomSetting_PLAYERHP_START = 8;
+    CustomRoomSetting_NOFALLINGDAMAGE = 2;
+    CustomRoomSetting_NOLOADOUT = 3;
+    CustomRoomSetting_PLAYEREP_END = 13;
+    CustomRoomSetting_PLAYERJUMPHEIGHT_START = 21;
+    CustomRoomSetting_HIDEKILLINFO = 0;
+    CustomRoomSetting_DROPLIST_END = 20;
+    CustomRoomSetting_UNLIMITEDAMMO = 1;
+    CustomRoomSetting_ROUNDNUM_START = 25;
+    CustomRoomSetting_DROPLIST_START = 17;
+    CustomRoomSetting_INITCOIN_START = 27;
+    CustomRoomSetting_INITCOIN_END = 28;
+    CustomRoomSetting_ROUNDNUM_END = 26;
+    CustomRoomSetting_NOVEHICLE = 6;
+    CustomRoomSetting_NOPOWERGUN = 29;
+    CustomRoomSetting_PLAYERJUMPHEIGHT_END = 23;
+    CustomRoomSetting_PLAYEREP_START = 11;
+    CustomRoomSetting_PLAYERSPEED_END = 16;
+    CustomRoomSetting_NOSKILL = 5;
+    CustomRoomSetting_NOAIRDROP = 4;
+    CustomRoomSetting_ACCTOTALSTATS = 24;
+    CustomRoomSetting_PLAYERSPEED_START = 14;
+    CustomRoomSetting_PLAYERHP_END = 10;
+}
+
+// Enum: enum proto.ERoom.CustomRoomSetting2
+enum CustomRoomSetting2 {
+    CustomRoomSetting2_NOUAV = 0;
+    CustomRoomSetting2_NOBOMB = 1;
+}
+
+// Enum: enum proto.ERoom.Type
+enum Type {
+    Type_NONE = 0;
+    Type_CASUAL = 1;
+    Type_WEREWOLVES = 7;
+    Type_RUSHING_PETS = 9;
+    Type_WORKSHOP = 8;
+    Type_LEAGUE_BATCH = 6;
+    Type_LEAGUE_NORMAL = 2;
+}
+
+// Enum: enum proto.ERoom.CardType
+enum CardType {
+    CardType_RUSHING_PETS = 5;
+    CardType_ADVANCED = 2;
+    CardType_NORMAL = 1;
+    CardType_NONE = 0;
+    CardType_WEREWOLVES = 3;
+    CardType_WORKSHOP = 4;
+}
+
+// Enum: enum proto.ERoom.CardConsumeType
+enum CardConsumeType {
+    CardConsuemType_NONE = 0;
+    CardConsumeType_COUNT = 2;
+    CardConsumeType_TIMELIMITED = 1;
+}
+
+// Enum: enum proto.EAntiAddiction.TotalTimeBanMode
+enum TotalTimeBanMode {
+    TotalTimeBanMode_ALL = 2;
+    TotalTimeBanMode_NONE = 0;
+    TotalTimeBanMode_WARN = 3;
+    TotalTimeBanMode_RANKING = 1;
+}
+
+// Enum: enum proto.EAntiAddiction.HintType
+enum HintType {
+    HintType_ALL = 3;
+    HintType_CONTINUOUS_TIME = 1;
+    HintType_TOTAL_TIME = 2;
+    HintType_NONE = 0;
+}
+
+// Enum: enum proto.EAntiAddiction.AgeState
+enum AgeState {
+    AgeState_TEENAGER = 2;
+    AgeState_ADULT = 3;
+    AgeState_NONE = 0;
+    AgeState_CHILD = 1;
+}
+
+// Enum: enum proto.ELinkage.ActivityType
+enum ActivityType {
+    Type_BOMBMATCH = 5;
+    Type_FOXTORII = 6;
+    Type_SAMURAI = 3;
+    Type_NONE = 0;
+    Type_ARMSRACE = 4;
+    Type_PIRATE_MAP = 1;
+    Type_TDM = 2;
+}
+
+// Enum: enum proto.ESubscription.SubscribeType
+enum SubscribeType {
+    SubscribeType_EP = 2;
+    SubscribeType_BUNDLE = 3;
+    SubscribeType_NONE = 0;
+    SubscribeType_REBATE = 1;
+}
+
+// Enum: enum proto.ESubscription.PriceType
+enum PriceType {
+    PriceType_MONTH = 2;
+    PriceType_WEEK = 1;
+    PriceType_NONE = 0;
+}
+
+// Enum: enum proto.ESubscription.TagType
+enum TagType {
+    TagType_NONE = 0;
+    TagType_NEW = 2;
+    TagType_LIMITEDTIME = 1;
+}
+
+// Enum: enum proto.EAuth.ClientUsingVersion
+enum ClientUsingVersion {
+    ClientUsingVersion_NONE = 0;
+    ClientUsingVersion_NORMAL = 1;
+    ClientUsingVersion_MAX = 2;
+}
+
+// Enum: enum proto.ESchedule.TaskType
+enum TaskType {
+    TaskType_MAX = 7;
+    TaskType_RANKING_SeasonTopAward = 1;
+    TaskType_CHAMPIONSHIP_CleanLeaderboard = 2;
+    TaskType_RANKING_CleanLeaderboard = 4;
+    TaskType_CSRANKING_CleanLeaderboard = 5;
+    TaskType_CSRANKING_SeasonTopAward = 6;
+    TaskType_LIMITEDEVENT_BooyahLeaderboardAward = 3;
+    TaskType_NONE = 0;
+}
+
+// Enum: enum proto.ESchedule.TaskStatus
+enum TaskStatus {
+    TaskStatus_FAIL = 4;
+    TaskStatus_SUCC = 3;
+    TaskStatus_WAIT = 1;
+    TaskStatus_NONE = 0;
+    TaskStatus_EXEC = 2;
+}
+
+// Enum: enum proto.ECustomEvent.EventState
+enum EventState {
+    EventState_PROCESS = 2;
+    EventState_NONE = 0;
+    EventState_WARMUP = 1;
+}
+
+// Enum: enum proto.ELimitedEvent.StoreType
+enum StoreType {
+    StoreType_ANNIVERSARY = 3;
+    StoreType_MVP = 5;
+    StoreType_BOOYAHDAY21 = 10;
+    StoreType_GOLIATH = 6;
+    StoreType_FFWS = 7;
+    StoreType_BRINGER = 1;
+    StoreType_FOURSYMBOLS = 8;
+    StoreType_NONE = 0;
+    StoreType_LIBERI = 2;
+    StoreType_BOOYAHDAY = 4;
+    StoreType_MOCOMONTH = 9;
+    StoreType_FFWS03 = 11;
+    StoreType_WinterFest21B = 12;
+}
+
+// Enum: enum proto.ELimitedEvent.EventID
+enum EventID {
+    EventID_SUPERCAR = 12;
+    EventID_BERMUDA = 6;
+    EventID_BOOYAHDAY21 = 18;
+    EventID_FOURSYMBOLS = 14;
+    EventID_HURRICANEB = 22;
+    EventID_ANNIVERSARY = 2;
+    EventID_MEGAPUNCH = 7;
+    EventID_FFWS03 = 17;
+    EventID_WinterFest21B = 19;
+    EventID_BOOYAHDAY = 4;
+    EventID_SUTORITO = 13;
+    EventID_RAMPAGE = 1;
+    EventID_HOODEDKILLERB = 21;
+    EventID_BOUNTY = 5;
+    EventID_MONEYHEIST = 3;
+    EventID_FFWS = 10;
+    EventID_MOCOMONTH = 16;
+    EventID_JUMPSUIT = 20;
+    EventID_MVP = 8;
+    EventID_NONE = 0;
+    EventID_GOLIATH = 9;
+    EventID_SUPERFIGHTER = 11;
+    EventID_MUSICFEST = 15;
+}
+
+// Enum: enum proto.ELimitedEvent.EventState
+enum EventState {
+    EventState_SPAN = 4;
+    EventState_WARMUP = 1;
+    EventState_PROCESS = 2;
+    EventState_SETTLE = 3;
+    EventState_NONE = 0;
+}
+
+// Enum: enum proto.ELimitedEvent.ProcessType
+enum ProcessType {
+    ProcessType_BRINGER = 1;
+    ProcessType_BOUNTY_MAIN_PERCENT = 6;
+    ProcessType_NONE = 0;
+    ProcessType_JUMPSUIT_STAGE = 7;
+    ProcessType_LIBERI = 2;
+    ProcessType_JUMPSUIT_CIRCLE = 8;
+    ProcessType_NODE = 3;
+    ProcessType_BOUNTY_WARMUP = 4;
+    ProcessType_BOUNTY_POPULARITY = 5;
+}
+
+// Enum: enum proto.ELimitedEvent.RampageFaction
+enum RampageFaction {
+    RampageFaction_NONE = 0;
+    RampageFaction_BRINGER = 1;
+    RampageFaction_LIBERI = 2;
+}
+
+// Enum: enum proto.ELimitedEvent.NodeStatus
+enum NodeStatus {
+    NodeStatus_LOCKED = 1;
+    NodeStatus_NONE = 0;
+    NodeStatus_UNLOCKED = 2;
+    NodeStatus_CLAIMED = 3;
+}
+
+// Enum: enum proto.ELimitedEvent.NodeType
+enum NodeType {
+    NodeTYPE_NONE = 0;
+    NodeType_ANNIVERSARY = 2;
+    NodeType_NORMAL = 1;
+}
+
+// Enum: enum proto.ELimitedEvent.MoenyHeistHelp
+enum MoenyHeistHelp {
+    MoenyHeistHelp_NONE = 0;
+    MoenyHeistHelp_FOR_SELF = 2;
+    MoenyHeistHelp_FOR_OTHER = 1;
+}
+
+// Enum: enum proto.ELimitedEvent.MoneyHeistAwardType
+enum MoneyHeistAwardType {
+    MoneyHeistAwardType_NONE = 0;
+    MoneyHeistAwardType_NORMAL = 1;
+    MoneyHeistAwardType_BIG = 2;
+}
+
+// Enum: enum proto.ELimitedEvent.MoneyHesitSpeedChangeType
+enum MoneyHesitSpeedChangeType {
+    MoneyHeistSpeedChangeType_TOKEN = 2;
+    MoneyHeistSpeedChangeType_TASK = 1;
+    MoneyHeistSpeedChangeType_FRIEND = 3;
+    MoneyHeistSpeedChangeType_NONE = 0;
+}
+
+// Enum: enum proto.ELimitedEvent.LeaderboardType
+enum LeaderboardType {
+    LeaderboardType_BOOYAH_CHESS = 2;
+    LeaderboardType_BOOYAH_GAME = 1;
+    LeaderboardType_NONE = 0;
+}
+
+// Enum: enum proto.ELimitedEvent.BooyahAwardStatus
+enum BooyahAwardStatus {
+    BooyahAwardStats_INIT = 0;
+    BooyahAwardStats_AWARDED = 1;
+}
+
+// Enum: enum proto.ELimitedEvent.GoliathGroupJoinSource
+enum GoliathGroupJoinSource {
+    GoliathGroupJoinSource_NONE = 0;
+    GoliathGroupJoinSource_WORLD = 3;
+    GoliathGroupJoinSource_SHARE = 4;
+    GoliathGroupJoinSource_ClAN = 5;
+    GoliathGroupJoinSource_FRIEND = 1;
+    GoliathGroupJoinSource_SEARCH = 2;
+}
+
+// Enum: enum proto.ELimitedEvent.SuperFighterManner
+enum SuperFighterManner {
+    SuperFighterManner_NONE = 0;
+    SuperFighterManner_UNIQUE = 3;
+    SuperFighterManner_LIGHT = 1;
+    SuperFighterManner_HEAVY = 2;
+}
+
+// Enum: enum proto.ELimitedEvent.SuperFighterResult
+enum SuperFighterResult {
+    SuperFighterResult_WIN = 1;
+    SuperFighterResult_LOSE = 2;
+    SuperFighterResult_NONE = 0;
+}
+
+// Enum: enum proto.ELimitedEvent.FFWSGuessingAwardStatus
+enum FFWSGuessingAwardStatus {
+    FFWSGuessingAwardStats_INIT = 0;
+    FFWSGuessingAwardStats_AWARDED = 1;
+}
+
+// Enum: enum proto.ELimitedEvent.FFWSGuessingAwardType
+enum FFWSGuessingAwardType {
+    FFWSGuessingAwardType_WIN = 1;
+    FFWSGuessingAwardType_LOSE = 2;
+    FFWSGuessingAwardType_NONE = 0;
+}
+
+// Enum: enum proto.ELimitedEvent.FFWS03ManagerStageType
+enum FFWS03ManagerStageType {
+    FFWS03ManagerStageType_HIGHEST_LEVEL_COUNT = 1;
+    FFWS03ManagerStageType_NONE = 0;
+    FFWS03ManagerStageType_MATCH_SCORE = 2;
+    FFWS03ManagerStageType_TEAM_KILL_COUNT = 3;
+    FFWS03ManagerStageType_BOOYAH_COUNT = 4;
+}
+
+// Enum: enum proto.ELimitedEvent.FFWS03ManagerMatchID
+enum FFWS03ManagerMatchID {
+    FFWS03ManagerMatchID_FINAL = 4;
+    FFWS03ManagerMatchID_QUALIFIER = 2;
+    FFWS03ManagerMatchID_AUDITION = 1;
+    FFWS03ManagerMatchID_NONE = 0;
+    FFWS03ManagerMatchID_UNLIMITED = 3;
+    FFWS03ManagerMatchID_TEAM_TRAINING = 5;
+}
+
+// Enum: enum proto.ELimitedEvent.SutoritoManner
+enum SutoritoManner {
+    SutoritoManner_LIGHT = 1;
+    SutoritoManner_UNIQUE = 3;
+    SutoritoManner_HEAVY = 2;
+    SutoritoManner_NONE = 0;
+}
+
+// Enum: enum proto.ELimitedEvent.SutoritoResult
+enum SutoritoResult {
+    SutoritoResult_NONE = 0;
+    SutoritoResult_LOSE = 2;
+    SutoritoResult_WIN = 1;
+}
+
+// Enum: enum proto.ELimitedEvent.SutoritoCharacter
+enum SutoritoCharacter {
+    SutoritoCharacter_NONE = 0;
+    SutoritoCharacter_CHUNLI = 4;
+    SutoritoCharacter_RYU = 3;
+    SutoritoCharacter_SHIROU = 2;
+    SutoritoCharacter_KELLY = 1;
+}
+
+// Enum: enum proto.ELimitedEvent.FourSymbolsID
+enum FourSymbolsID {
+    FourSymbolsID_VERMILLION_BIRD = 4;
+    FourSymbolsID_BLACK_TORTOISE = 3;
+    FourSymbolsID_WHITE_TIGER = 2;
+    FourSymbolsID_NONE = 0;
+    FourSymbolsID_AZURE_DRAGON = 1;
+}
+
+// Enum: enum proto.ELimitedEvent.FourSymbolsRoadNodeType
+enum FourSymbolsRoadNodeType {
+    FourSymbolsRoadNodeType_NONE = 0;
+    FourSymbolsRoadNodeType_NORMAL = 1;
+    FourSymbolsRoadNodeType_AWARD = 2;
+}
+
+// Enum: enum proto.ELimitedEvent.JumpsuitJoinType
+enum JumpsuitJoinType {
+    JumpsuitJoinType_INVITED = 2;
+    JumpsuitJoinType_NONE = 0;
+    JumpsuitJoinType_ACTIVE = 1;
+}
+
+// Enum: enum proto.ELimitedEvent.HoodedkillerBWeaponType
+enum HoodedkillerBWeaponType {
+    HoodedkillerBWeaponType_SWORD = 2;
+    HoodedkillerBWeaponType_NONE = 0;
+    HoodedkillerBWeaponType_SLEEVEARROW = 1;
+}
+
+// Enum: enum proto.EHacker.HackerPoolCdt
+enum HackerPoolCdt {
+    HackerPoolCdt_MD5_SCAN_COUNT = 5;
+    HackerPoolCdt_MD5_COUNT = 6;
+    HackerPoolCdt_MTP = 2;
+    HackerPoolCdt_NONE = 0;
+    HackerPoolCdt_PMS_HOOK = 7;
+    HackerPoolCdt_CLIENT_INFO_EMPTY = 8;
+    HackerPoolCdt_MD5_FILE_EXCEPTION = 4;
+    HackerPoolCdt_NATIVE_RESULT = 9;
+    HackerPoolCdt_START_TIME = 3;
+    HackerPoolCdt_SIGNATURE_LOGIN = 1;
+}
+
+// Enum: enum proto.EHacker.HackerCdtManner
+enum HackerCdtManner {
+    HackerCdtManner_JSON_EQU = 4;
+    HackerCdtManner_CVR = 1;
+    HackerCdtManner_LSS = 3;
+    HackerCdtManner_EQU = 0;
+    HackerCdtManner_JSON_NOT_EQU = 5;
+    HackerCdtManner_GTR = 2;
+}
+
+// Enum: enum proto.EHacker.HackerCdtID
+enum HackerCdtID {
+    HackerCdtID_NONE = 0;
+    HackerCdtID_FALSIFY_MEM_VALUE = 100;
+}
+
+// Enum: enum proto.EMiniGame.MiniGame
+enum MiniGame {
+    MiniGame_BOOYAH_CHESS = 1;
+    MiniGame_MONOPOLY = 2;
+    MiniGame_BOOYAHGO = 3;
+    MiniGame_NONE = 0;
+    MiniGame_WinterFestStrategy = 4;
+}
+
+// Enum: enum proto.EMiniGame.HexagonStatus
+enum HexagonStatus {
+    HexagonStatus_NONE = 0;
+    HexagonStatus_PLAYER = 1;
+    HexagonStatus_BOOYAH = 4;
+    HexagonStatus_CHEST = 3;
+    HexagonStatus_ENEMY = 2;
+}
+
+// Enum: enum proto.EMiniGame.GameStatus
+enum GameStatus {
+    GameStatus_NONE = 0;
+    GameStatus_INGAME = 1;
+}
+
+// Enum: enum proto.EMiniGame.MonopolyNodeType
+enum MonopolyNodeType {
+    MonopolyNodeType_NONE = 0;
+    MonopolyNodeType_EVENT = 7;
+    MonopolyNodeType_BOX = 1;
+    MonopolyNodeType_BACKWARD = 4;
+    MonopolyNodeType_FORWWARD = 3;
+    MonopolyNodeType_START = 8;
+    MonopolyNodeType_TOKEN = 6;
+    MonopolyNodeType_BUFF = 5;
+    MonopolyNodeType_DICE = 2;
+}
+
+// Enum: enum proto.EMiniGame.MonopolyEventResultType
+enum MonopolyEventResultType {
+    MonopolyEventResultType_NONE = 0;
+    MonopolyEventResultType_ACTIVITY = 2;
+    MonopolyEventResultType_TOKEN = 1;
+}
+
+// Enum: enum proto.EMiniGame.MonopolyPlayerStatus
+enum MonopolyPlayerStatus {
+    MonopolyPlayerStatus_WAITINGEVENT = 1;
+    MonopolyPlayerStatus_NONE = 0;
+}
+
+// Enum: enum proto.EMiniGame.BooyahgoNodeType
+enum BooyahgoNodeType {
+    BooyahgoNodeType_DICE = 2;
+    BooyahgoNodeType_FORWARD = 3;
+    BooyahgoNodeType_BOX = 1;
+    BooyahgoNodeType_TRAP = 4;
+    BooyahgoNodeType_TOKEN = 6;
+    BooyahgoNodeType_START = 7;
+    BooyahgoNodeType_END = 9;
+    BooyahgoNodeType_NONE = 0;
+    BooyahgoNodeType_SKULLKING = 8;
+    BooyahgoNodeType_BUFF = 5;
+}
+
+// Enum: enum proto.EMiniGame.BuildingType
+enum BuildingType {
+    BuildingType_ALLOY = 1;
+    BuildingType_PLASTIC = 4;
+    BuildingType_BATTERY = 2;
+    BuildingType_NONE = 0;
+    BuildingType_CRYSTAL = 3;
+    BuildingType_MAIN = 5;
+}
+
+// Enum: enum proto.ERecommend.Type
+enum Type {
+    Type_NONE = 0;
+    Type_PRUCHASE_OFFER = 1;
+}
+
+// Enum: enum proto.ERecommend.Algorithm
+enum Algorithm {
+    Algorithm_NONE = 0;
+}
+
+// Enum: enum proto.ERecommend.Origin
+enum Origin {
+    Origin_REDIS = 1;
+    Origin_CSV = 0;
+}
+
+// Enum: enum proto.EMemCheck.MemCheckType
+enum MemCheckType {
+    MemCheckType_NONE = 0;
+    MemCheckType_GROUP = 1;
+    MemCheckType_MATCHMAKING = 2;
+}
+
+// Enum: enum proto.EEmulator.MatchMakingMethodType
+enum MatchMakingMethodType {
+    MatchMakingMethodType_USE_EMULATOR_POOL = 1;
+    MatchMakingMethodType_USE_NORMAL_POOL = 0;
+    MatchMakingMethodType_MATCHMAKING_FORBIDDEN = 2;
+}
+
+// Enum: enum proto.EPoolLeaderboard.PoolLeaderboardID
+enum PoolLeaderboardID {
+    PoolLeaderboardID_BOOYAH_DAY = 1;
+    PoolLeaderboardID_NONE = 0;
+    PoolLeaderboardID_WINTER_LAND = 2;
+}
+

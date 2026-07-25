@@ -1,0 +1,96 @@
+syntax = "proto3";
+
+// Categoria: 11_platform
+// Total: 10 segments
+
+// Message: proto.PlatformRegisterReq
+message PlatformRegisterReq {
+    System_String nickname = 1;
+    System_String access_token = 2;
+    System_String open_id = 3;
+    System_String region = 4;
+    System_UInt32 avatar_id = 5;
+    System_UInt32 platform_type = 6;
+    System_UInt32 platform_sdk_id = 7;
+    proto_EAccount_DownloadType source = 8;
+    System_String editor_register_key = 9;
+    proto_EAccount_NewbieChoice newbie_choice = 10;
+    repeated System_Byte platform_register_info = 11;
+    System_String language = 12;
+}
+
+// Message: proto.PlatformRegisterRes
+message PlatformRegisterRes {
+    System_Boolean success = 1;
+    System_String reason = 2;
+    System_UInt64 account_id = 3;
+    System_Boolean first_game_open = 4;
+    System_Boolean br_tutorial_open = 5;
+    System_Boolean cs_tutorial_open = 6;
+}
+
+// Message: proto.PlatformProfileReq
+message PlatformProfileReq {
+    System_String token = 1;
+    System_String external_id = 2;
+    System_UInt32 platform_sdk_id = 3;
+}
+
+// Message: proto.PlatformProfileRes
+message PlatformProfileRes {
+    System_String external_id = 1;
+    System_UInt32 external_type = 2;
+    System_String external_name = 3;
+    System_String external_icon = 4;
+}
+
+// Message: proto.PlatformGuestBindReq
+message PlatformGuestBindReq {
+    System_UInt64 account_id = 1;
+    System_String region = 2;
+    System_String guest_open_id = 3;
+    System_UInt32 guest_platform_type = 4;
+    System_String guest_access_token = 5;
+    System_String access_token = 6;
+    System_String open_id = 7;
+    System_UInt32 platform_type = 8;
+    System_UInt32 platform_sdk_id = 9;
+    System_UInt64 uid = 10;
+    System_String lock_region = 11;
+    System_UInt32 client_type = 12;
+    System_String nickname = 13;
+    System_String ip_address = 14;
+}
+
+// Message: proto.PlatformSecondaryAccountBindReq
+message PlatformSecondaryAccountBindReq {
+    System_String secondary_open_id = 1;
+    System_UInt32 secondary_platform_type = 2;
+    System_String secondary_access_token = 3;
+    System_String access_token = 4;
+    System_UInt32 platform_type = 5;
+}
+
+// Message: proto.PlatformGuestBindRes
+message PlatformGuestBindRes {
+    System_UInt32 result = 1;
+}
+
+// Message: proto.SecondaryAccountBindRes
+message SecondaryAccountBindRes {
+    System_Boolean success = 1;
+}
+
+// Message: proto.PlatformBalanceReq
+message PlatformBalanceReq {
+    System_String token = 1;
+    System_String external_id = 2;
+    System_UInt32 client_type = 3;
+    System_UInt32 platform_sdk_id = 4;
+}
+
+// Message: proto.PlatformBalanceRes
+message PlatformBalanceRes {
+    System_UInt32 point = 1;
+}
+

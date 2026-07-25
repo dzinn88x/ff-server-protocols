@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+// Categoria: 43_emulator
+// Total: 1 segments
+
+// Message: proto.EEmulator
+message EEmulator {
+    // Sem campos definidos no dump
+}
+

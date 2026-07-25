@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+// Categoria: 32_recommend
+// Total: 1 segments
+
+// Message: proto.ERecommend
+message ERecommend {
+    // Sem campos definidos no dump
+}
+

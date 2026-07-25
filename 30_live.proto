@@ -1,0 +1,131 @@
+syntax = "proto3";
+
+// Categoria: 30_live
+// Total: 19 segments
+
+// Message: proto.ELive
+message ELive {
+    // Sem campos definidos no dump
+}
+
+// Message: proto.CSGetLiveInfoRes
+message CSGetLiveInfoRes {
+    System_Boolean is_streamer = 1;
+    System_String nickname = 2;
+    proto_EInventory_GenderType sex = 3;
+    System_UInt32 head_pic = 4;
+    System_UInt32 banner_id = 5;
+    System_UInt32 fan_count = 6;
+}
+
+// Message: proto.CSGetOtherLiveInfoReq
+message CSGetOtherLiveInfoReq {
+    System_UInt64 other_account_id = 1;
+}
+
+// Message: proto.CSGetPersonalVideoZoneReq
+message CSGetPersonalVideoZoneReq {
+    System_UInt64 other_account_id = 1;
+    proto_ELive_VideoType video_type = 2;
+    System_UInt32 page_id = 3;
+}
+
+// Message: proto.CSGetPersonalVideoZoneRes
+message CSGetPersonalVideoZoneRes {
+    System_String nickname = 1;
+    proto_EInventory_GenderType sex = 2;
+    System_UInt32 fan_count = 3;
+    System_UInt32 head_pic = 4;
+    proto_ELive_FollowerType follower_type = 5;
+    repeated proto_VideoDetail video_list = 6;
+}
+
+// Message: proto.CSGetRecommendedVideoListReq
+message CSGetRecommendedVideoListReq {
+    System_UInt32 page_id = 1;
+}
+
+// Message: proto.CSGetRecommendedVideoListRes
+message CSGetRecommendedVideoListRes {
+    repeated proto_VideoDetail video_list = 1;
+}
+
+// Message: proto.CSGetAllVideoListByVideoTypeReq
+message CSGetAllVideoListByVideoTypeReq {
+    proto_ELive_VideoType video_type = 1;
+    System_UInt32 page_id = 2;
+}
+
+// Message: proto.CSGetAllVideoListByVideoTypeRes
+message CSGetAllVideoListByVideoTypeRes {
+    repeated proto_VideoDetail video_list = 1;
+}
+
+// Message: proto.CSUpdateVideoHitCountReq
+message CSUpdateVideoHitCountReq {
+    System_UInt64 streamer_id = 1;
+    System_UInt32 video_id = 2;
+}
+
+// Message: proto.CSUpdateAccountFollowStatReq
+message CSUpdateAccountFollowStatReq {
+    System_UInt64 streamer_id = 1;
+    proto_ELive_FollowerType follower_type = 2;
+}
+
+// Message: proto.VideoDetail
+message VideoDetail {
+    System_UInt32 video_id = 1;
+    System_String video_url = 2;
+    System_UInt32 video_type = 3;
+    System_String video_name = 4;
+    System_UInt32 video_sort_id = 5;
+    System_String thumbnail_url = 6;
+    System_UInt32 create_at = 7;
+    System_UInt64 hit_count = 8;
+    System_UInt64 streamer_account_id = 9;
+    System_String streamer_nickname = 10;
+    proto_EInventory_GenderType streamer_sex = 11;
+    System_String create_date = 12;
+}
+
+// Message: proto.CSGetLiveTableNamesReq
+message CSGetLiveTableNamesReq {
+    System_String language = 1;
+}
+
+// Message: proto.CSGetLiveTableNamesRes
+message CSGetLiveTableNamesRes {
+    repeated proto_LiveTableNameDesc live_table_name_list = 1;
+}
+
+// Message: proto.StreamerBaseInfo
+message StreamerBaseInfo {
+    System_UInt64 account_id = 1;
+    System_String nickname = 2;
+    System_UInt32 head_pic = 3;
+    System_UInt32 banner_id = 4;
+}
+
+// Message: proto.CSGetFollowStreamerListReq
+message CSGetFollowStreamerListReq {
+    System_UInt64 account_id = 1;
+}
+
+// Message: proto.CSGetFollowStreamerListRes
+message CSGetFollowStreamerListRes {
+    repeated proto_StreamerBaseInfo streamer_list = 1;
+    repeated proto_StreamerBaseInfo recommended_streamer_list = 2;
+}
+
+// Message: proto.CSGetSingleFollowTypeReq
+message CSGetSingleFollowTypeReq {
+    System_UInt64 streamer_id = 1;
+}
+
+// Message: proto.CSGetSingleFollowTypeRes
+message CSGetSingleFollowTypeRes {
+    System_Boolean is_streamer = 1;
+    proto_ELive_FollowerType follower_type = 2;
+}
+

@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+// Categoria: 41_mem_check
+// Total: 1 segments
+
+// Message: proto.EMemCheck
+message EMemCheck {
+    // Sem campos definidos no dump
+}
+

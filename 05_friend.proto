@@ -1,0 +1,261 @@
+syntax = "proto3";
+
+// Categoria: 05_friend
+// Total: 39 segments
+
+// Message: proto.EFriend
+message EFriend {
+    // Sem campos definidos no dump
+}
+
+// Message: proto.FriendAliasInfo
+message FriendAliasInfo {
+    System_UInt64 account_id = 1;
+    System_String alias = 2;
+}
+
+// Message: proto.IntimacyState
+message IntimacyState {
+    System_UInt64 friend_id = 1;
+    proto_EFriend_RelationType relation_type = 2;
+    System_UInt32 intimacy = 3;
+    System_Int64 create_at = 4;
+    System_UInt32 maintain_days = 5;
+    proto_EFriend_SpecialFriendState state = 6;
+    System_Int64 request_at = 7;
+    System_Boolean is_visible = 8;
+}
+
+// Message: proto.GetSpecialFriendListRes
+message GetSpecialFriendListRes {
+    repeated proto_IntimacyState intimacy_state = 1;
+}
+
+// Message: proto.EPArchiveInfo
+message EPArchiveInfo {
+    System_UInt32 e = 1;
+    System_Boolean o = 2;
+    System_UInt32 b = 3;
+}
+
+// Message: proto.CSFriendReq
+message CSFriendReq {
+    System_UInt64 adder = 1;
+    System_UInt64 addee = 2;
+    System_UInt32 add_from = 3;
+    System_UInt32 friend_tag = 4;
+}
+
+// Message: proto.CSBatchDeclineFriendReq
+message CSBatchDeclineFriendReq {
+    repeated System_UInt64 adder_list = 1;
+}
+
+// Message: proto.CSRemoveFriendReq
+message CSRemoveFriendReq {
+    System_UInt64 remover = 1;
+    System_UInt64 removee = 2;
+}
+
+// Message: proto.CSRemoveFriendRes
+message CSRemoveFriendRes {
+    System_UInt64 remover = 1;
+    System_UInt64 removee = 2;
+    System_String lock_region = 3;
+    System_String noti_region = 4;
+}
+
+// Message: proto.CSGetFriendListReq
+message CSGetFriendListReq {
+    System_Boolean need_presence = 1;
+    System_Boolean need_stats = 2;
+    System_Boolean need_ranking_stats = 3;
+    System_Boolean need_casual_stats = 4;
+    System_Boolean need_cs_ranking_stats = 5;
+    System_UInt32 need_periodic_ranking_game_mode = 6;
+}
+
+// Message: proto.CSGetFacebookFriendListReq
+message CSGetFacebookFriendListReq {
+    System_String token = 1;
+    System_Boolean need_presence = 2;
+    System_Boolean need_stats = 3;
+    System_Boolean need_ranking_stats = 4;
+    System_Boolean need_casual_stats = 5;
+    System_Boolean need_cs_ranking_stats = 6;
+}
+
+// Message: proto.CSGetPlatformFriendListReq
+message CSGetPlatformFriendListReq {
+    System_String token = 1;
+    System_UInt32 platform_sdk_id = 2;
+    System_UInt32 platform_type = 3;
+    System_Boolean need_presence = 4;
+    System_Boolean need_stats = 5;
+    System_Boolean need_ranking_stats = 6;
+    System_Boolean need_casual_stats = 7;
+    System_Boolean need_cs_ranking_stats = 8;
+}
+
+// Message: proto.CSGetFriendIDsReq
+message CSGetFriendIDsReq {
+    // Sem campos definidos no dump
+}
+
+// Message: proto.CSFriendInviteReq
+message CSFriendInviteReq {
+    System_UInt64 inviter_id = 1;
+    System_UInt32 activity_id = 2;
+    System_Boolean is_friend = 3;
+    System_UInt32 sub_type = 4;
+}
+
+// Message: proto.CSBlockPlayerReq
+message CSBlockPlayerReq {
+    System_UInt64 blocked_id = 1;
+}
+
+// Message: proto.CSDeleteBlockPlayerReq
+message CSDeleteBlockPlayerReq {
+    System_UInt64 blocked_id = 1;
+}
+
+// Message: proto.CSGetRecommendedFriendRes
+message CSGetRecommendedFriendRes {
+    repeated proto_AccountInfoWithPresence rand_friend_list = 1;
+    repeated proto_AccountInfoWithPresence common_friend_list = 2;
+}
+
+// Message: proto.CSGetBlockedPlayerRes
+message CSGetBlockedPlayerRes {
+    repeated System_UInt64 blocked_list = 1;
+}
+
+// Message: proto.CSRemoveStarFriendReq
+message CSRemoveStarFriendReq {
+    System_UInt64 removee = 1;
+}
+
+// Message: proto.CSAddStarFriendReq
+message CSAddStarFriendReq {
+    System_UInt64 addee = 1;
+}
+
+// Message: proto.CSGetRecommandedFriendsByCdtReq
+message CSGetRecommandedFriendsByCdtReq {
+    proto_ESocial_Language language = 1;
+    proto_ESocial_Gender gender = 2;
+    proto_ESocial_TimeActive time_active = 3;
+    proto_ESocial_ModePrefer mode_prefer = 4;
+    System_UInt32 rank = 5;
+}
+
+// Message: proto.CSGetRecommendedFriendsByCdtRes
+message CSGetRecommendedFriendsByCdtRes {
+    repeated proto_AccountInfoWithPresenceAndSocialInfo recommend_player_list = 1;
+    System_Boolean is_search_result = 2;
+}
+
+// Message: proto.CSCreateOrDismissSpecialRelationReq
+message CSCreateOrDismissSpecialRelationReq {
+    System_UInt64 friend_id = 1;
+    proto_EFriend_RelationType relation_type = 2;
+    System_Boolean is_create = 3;
+}
+
+// Message: proto.CSConfirmSpecialRelationReq
+message CSConfirmSpecialRelationReq {
+    System_UInt64 friend_id = 1;
+    proto_EFriend_RelationType relation_type = 2;
+    System_Boolean is_create = 3;
+}
+
+// Message: proto.CSDeclineSpecialFriendReq
+message CSDeclineSpecialFriendReq {
+    System_UInt64 friend_id = 1;
+    proto_EFriend_RelationType relation_type = 2;
+    System_Boolean is_create = 3;
+}
+
+// Message: proto.CSCallbackDismissReq
+message CSCallbackDismissReq {
+    System_UInt64 friend_id = 1;
+    proto_EFriend_RelationType relation_type = 2;
+}
+
+// Message: proto.CSUpdateAuthOfInspectReq
+message CSUpdateAuthOfInspectReq {
+    System_Boolean is_visible = 1;
+    proto_EFriend_RelationType relation_type = 2;
+}
+
+// Message: proto.CSGetSpecialFriendsStateReq
+message CSGetSpecialFriendsStateReq {
+    System_Boolean is_first_login = 1;
+}
+
+// Message: proto.CSGetSpecialFriendListReq
+message CSGetSpecialFriendListReq {
+    System_UInt64 owner_id = 1;
+}
+
+// Message: proto.CSGetAccountSpecialFriendAppsRes
+message CSGetAccountSpecialFriendAppsRes {
+    repeated proto_SepcialFriendsAppsRes special_friend_request = 1;
+}
+
+// Message: proto.CSSetFriendAliasReq
+message CSSetFriendAliasReq {
+    System_UInt64 friend_id = 1;
+    System_String alias = 2;
+}
+
+// Message: proto.CSRemoveFriendAliasReq
+message CSRemoveFriendAliasReq {
+    System_UInt64 friend_id = 1;
+}
+
+// Message: proto.SepcialFriendsAppsRes
+message SepcialFriendsAppsRes {
+    System_UInt64 applicant_id = 1;
+    System_Int64 request_time = 2;
+    System_UInt32 relation_type = 3;
+    System_Boolean is_create = 4;
+}
+
+// Message: proto.CSGetSpecialFriendsStateRes
+message CSGetSpecialFriendsStateRes {
+    repeated proto_IntimacyState intimacy_state = 1;
+}
+
+// Message: proto.IntimacyRankAwardInfo
+message IntimacyRankAwardInfo {
+    System_UInt32 rank = 1;
+    proto_EFriend_IntimacyRankAwardStatus status = 2;
+}
+
+// Message: proto.SpecificIntimacyRankAwardInfo
+message SpecificIntimacyRankAwardInfo {
+    System_UInt64 related_friend_id = 1;
+    proto_EFriend_RelationType relation_type = 2;
+    repeated proto_IntimacyRankAwardInfo award_infos = 3;
+}
+
+// Message: proto.CSGetIntimacyRankAwardInfoRes
+message CSGetIntimacyRankAwardInfoRes {
+    repeated proto_SpecificIntimacyRankAwardInfo award_info_lists = 1;
+    repeated proto_IntimacyAwardDesc intimacy_awards = 2;
+}
+
+// Message: proto.CSClaimIntimacyAwardReq
+message CSClaimIntimacyAwardReq {
+    System_UInt64 related_friend_id = 1;
+    proto_EFriend_RelationType relation_type = 2;
+    System_UInt32 intimacy_level = 3;
+}
+
+// Message: proto.CSClaimIntimacyAwardRes
+message CSClaimIntimacyAwardRes {
+    repeated proto_ExchangedAward exchange_awards = 1;
+}
+

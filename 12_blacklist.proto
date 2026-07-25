@@ -1,0 +1,62 @@
+syntax = "proto3";
+
+// Categoria: 12_blacklist
+// Total: 6 segments
+
+// Enum: enum proto.EAccount.BlacklistOpType
+enum BlacklistOpType {
+    BlacklistOpType_NONE = 0;
+    BlacklistOpType_BAN_ACCOUNT = 1;
+    BlacklistOpType_BAN_DEVICE = 2;
+    BlacklistOpType_UNBAN_ACCOUNT = 3;
+    BlacklistOpType_UNBAN_DEVICE = 4;
+}
+
+// Message: proto.BlacklistOpReq
+message BlacklistOpReq {
+    proto_EAccount_BlacklistOpType ban_type = 1;
+    System_UInt64 account_id = 2;
+    System_String device_id = 3;
+    System_String ban_reason_detail = 4;
+    System_String noti_region = 5;
+    proto_EAccount_BanReason ban_reason = 6;
+    System_UInt32 ban_expire_timestamp = 7;
+}
+
+// Message: proto.BlacklistReq
+message BlacklistReq {
+    System_UInt64 account_id = 1;
+    System_String device_id = 2;
+    System_String lock_region = 3;
+    System_String noti_region = 4;
+}
+
+// Message: proto.BlacklistRes
+message BlacklistRes {
+    System_UInt64 account_id = 1;
+    System_String device_id = 2;
+    System_UInt32 ban_reason = 3;
+    System_UInt32 ban_time = 4;
+    System_String ban_reason_detail = 5;
+    System_Boolean is_in_blacklist = 6;
+    System_UInt32 ban_expire_duration = 7;
+}
+
+// Message: proto.WebAPIBanInfoInternalReq
+message WebAPIBanInfoInternalReq {
+    System_String env = 1;
+    System_UInt64 account_id = 2;
+    System_Int64 expire_at = 3;
+    System_String ban_reason = 4;
+    System_String ban_message = 5;
+    System_String operator_id = 6;
+    System_String lock_region = 7;
+    System_String noti_region = 8;
+}
+
+// Message: proto.WebAPIResetRankingPointsReq
+message WebAPIResetRankingPointsReq {
+    System_String lock_region = 1;
+    System_UInt64 account_id = 2;
+}
+

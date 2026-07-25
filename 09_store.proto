@@ -1,0 +1,389 @@
+syntax = "proto3";
+
+// Categoria: 09_store
+// Total: 51 segments
+
+// Message: proto.EStore
+message EStore {
+    // Sem campos definidos no dump
+}
+
+// Message: proto.RegionIDMapping
+message RegionIDMapping {
+    System_UInt32 id = 1;
+    System_String region = 2;
+}
+
+// Message: proto.ChoosedEmote
+message ChoosedEmote {
+    System_UInt32 slot_id = 1;
+    System_UInt32 emote_id = 2;
+}
+
+// Message: proto.ChoosedEmotes
+message ChoosedEmotes {
+    repeated proto_ChoosedEmote emotes = 1;
+}
+
+// Message: proto.DisplaySlot
+message DisplaySlot {
+    System_UInt32 slot_id = 1;
+    System_UInt32 item_id = 2;
+}
+
+// Message: proto.DisplaySlots
+message DisplaySlots {
+    repeated proto_DisplaySlot slots = 1;
+}
+
+// Message: proto.MaxLobbyDisplayInfo
+message MaxLobbyDisplayInfo {
+    repeated System_UInt32 weapon_ids = 1;
+    System_UInt32 vehicle_display = 2;
+    System_UInt32 gloo_display = 3;
+    System_UInt32 skyboard_display = 4;
+}
+
+// Message: proto.CSTopupEventInfoReq
+message CSTopupEventInfoReq {
+    System_UInt32 event_type = 1;
+}
+
+// Message: proto.MysteryBonusInfo
+message MysteryBonusInfo {
+    System_UInt32 bonus_max = 1;
+    System_String start_time = 2;
+    System_String end_time = 3;
+    System_UInt32 start_time_stamp = 4;
+    System_UInt32 end_time_stamp = 5;
+    System_UInt32 bonus_percent = 6;
+    System_UInt32 bonus_topup_times = 7;
+}
+
+// Message: proto.DiamondSpendEventInfo
+message DiamondSpendEventInfo {
+    repeated proto_DiamondSpendEventDesc descs = 1;
+    System_UInt32 topup_times = 2;
+}
+
+// Message: proto.CSTopupEventInfoRes
+message CSTopupEventInfoRes {
+    proto_MysteryBonusInfo mystery_bonus = 1;
+    proto_DiamondSpendEventInfo diamond_spend_event = 2;
+}
+
+// Message: proto.CSMysteryBonusSpinRes
+message CSMysteryBonusSpinRes {
+    System_UInt32 bonus_percent = 1;
+}
+
+// Message: proto.CSGetGiftStoreRes
+message CSGetGiftStoreRes {
+    System_UInt32 store_id = 1;
+    System_UInt32 open_time = 2;
+    System_UInt32 close_time = 3;
+    System_Boolean is_time_show = 4;
+    System_UInt32 giver_level = 5;
+    System_UInt32 receiver_level = 6;
+    System_UInt32 gift_time_limited = 7;
+    System_UInt32 gift_num_limited = 8;
+}
+
+// Message: proto.CSGetGiftStoreDetailsRes
+message CSGetGiftStoreDetailsRes {
+    System_UInt32 store_id = 1;
+    repeated proto_GiftItem items = 2;
+    System_UInt32 send_gift_times_today = 3;
+}
+
+// Message: proto.CSSendGiftReq
+message CSSendGiftReq {
+    repeated System_UInt64 receiver_account_ids = 1;
+    proto_EGiftStore_BuddyType buddy_type = 2;
+    System_UInt32 commodity_id = 3;
+    System_String message_content = 4;
+    proto_EInventory_CurrencyType currency_type = 5;
+    System_UInt64 clan_id = 6;
+    System_UInt32 commodity_cnt = 7;
+    System_UInt32 voucher_id = 8;
+}
+
+// Message: proto.CSSendGiftRes
+message CSSendGiftRes {
+    repeated System_UInt64 remove_ids = 1;
+    System_UInt32 send_gift_times_today = 2;
+}
+
+// Message: proto.CSGetExchangeStoreReq
+message CSGetExchangeStoreReq {
+    System_String language = 1;
+}
+
+// Message: proto.CSGetExchangeStoreRes
+message CSGetExchangeStoreRes {
+    repeated proto_ExchangeStore exchange_stores = 1;
+}
+
+// Message: proto.CSExchangeStorePurchaseReq
+message CSExchangeStorePurchaseReq {
+    System_UInt32 store_id = 1;
+    System_UInt32 commodity_id = 2;
+    System_UInt64 trans_id = 3;
+    System_UInt32 cnt = 4;
+    System_UInt32 currency_id = 5;
+    System_UInt32 currency_price = 6;
+    System_UInt32 gems_cost = 7;
+    System_UInt32 entry_from = 8;
+}
+
+// Message: proto.CSExchangeStorePurchaseRes
+message CSExchangeStorePurchaseRes {
+    proto_ExchangeChangeData data = 1;
+    System_UInt32 purchase_times = 2;
+}
+
+// Message: proto.IAPInfoItem
+message IAPInfoItem {
+    System_UInt32 pool_id = 1;
+    System_UInt32 store_id = 2;
+    System_UInt32 create_time = 3;
+    System_UInt32 end_time = 4;
+    proto_EStore_IapType iap_type = 5;
+    proto_EStore_RebateCardBillStatus status = 6;
+    System_String title = 7;
+}
+
+// Message: proto.CSGetAccountIAPInfoRes
+message CSGetAccountIAPInfoRes {
+    repeated proto_IAPInfoItem iap_info_res = 1;
+}
+
+// Message: proto.CSIAPPurchaseReq
+message CSIAPPurchaseReq {
+    System_String login_token = 1;
+    System_UInt32 plat_id = 2;
+    System_String external_id = 3;
+    System_UInt32 rebate_card_id = 4;
+    System_Boolean from_gop = 5;
+    System_UInt32 iap_type = 6;
+    System_UInt32 iap_consume_type = 7;
+    System_UInt32 store_id = 8;
+}
+
+// Message: proto.CSIAPPurchaseRes
+message CSIAPPurchaseRes {
+    repeated proto_AwardDesc awards = 1;
+    proto_EStore_RebateCardBillStatus status = 2;
+}
+
+// Message: proto.ClientGiftRankDesc
+message ClientGiftRankDesc {
+    System_UInt32 rank_id = 1;
+    System_String rank_name = 2;
+    System_Int64 open_time = 3;
+    System_Int64 close_time = 4;
+    System_Boolean is_time_show = 5;
+    System_UInt32 giver_item_id = 6;
+    System_UInt32 receiver_item_id = 7;
+    System_UInt32 gift_ratio = 8;
+}
+
+// Message: proto.CSGetGiftRankDescRes
+message CSGetGiftRankDescRes {
+    proto_ClientGiftRankDesc gift_rank_desc = 1;
+    repeated proto_GiftRewardDetail gift_reward_detail = 2;
+}
+
+// Message: proto.CSGetGiftRankRewardInfoReq
+message CSGetGiftRankRewardInfoReq {
+    System_UInt32 rank_id = 1;
+}
+
+// Message: proto.CSGetGiftRankRewardInfoRes
+message CSGetGiftRankRewardInfoRes {
+    repeated System_UInt32 receiver_rewarded_list = 1;
+    repeated System_UInt32 giver_rewarded_list = 2;
+}
+
+// Message: proto.CSGetGiftRankRewardReq
+message CSGetGiftRankRewardReq {
+    System_UInt32 rank_id = 1;
+    proto_EStore_GiftRankType gift_rank_type = 2;
+    System_UInt32 gift_item_num = 3;
+}
+
+// Message: proto.CSGetGiftRankRewardRes
+message CSGetGiftRankRewardRes {
+    proto_AwardDesc award = 1;
+    repeated System_UInt32 rewarded_list = 2;
+}
+
+// Message: proto.CSGetPayBundleWindowDescRes
+message CSGetPayBundleWindowDescRes {
+    repeated proto_PayBundleWindowDesc pay_bundle_windows = 1;
+    System_UInt32 next_refresh_time = 2;
+}
+
+// Message: proto.CSPayBundleWindowPurchaseReq
+message CSPayBundleWindowPurchaseReq {
+    System_String login_token = 1;
+    System_UInt32 rebate_card_id = 2;
+    System_UInt32 id = 3;
+    proto_EStore_PbwConsumeType consume_type = 4;
+    System_UInt32 rebate_card_end_timestamp = 5;
+}
+
+// Message: proto.CSPayBundleWindowPurchaseRes
+message CSPayBundleWindowPurchaseRes {
+    repeated proto_AwardDesc awards = 1;
+    System_UInt32 purchase_times = 2;
+    proto_EStore_RebateCardBillStatus status = 3;
+    System_UInt32 id = 4;
+}
+
+// Message: proto.CSGetPBWSpecialStoreRes
+message CSGetPBWSpecialStoreRes {
+    repeated proto_SpecialStoreDesc special_stores = 1;
+}
+
+// Message: proto.CSGetDiscountStoreDescRes
+message CSGetDiscountStoreDescRes {
+    repeated proto_DiscountStoreDesc discount_stores = 1;
+}
+
+// Message: proto.CSDiscountStorePurchaseReq
+message CSDiscountStorePurchaseReq {
+    System_UInt32 store_id = 1;
+    System_UInt32 item_id = 2;
+    System_UInt32 cnt = 3;
+    proto_EInventory_CurrencyType currency_type = 4;
+    System_UInt32 price = 5;
+    System_UInt32 voucher_id = 6;
+}
+
+// Message: proto.CSDiscountStorePurchaseRes
+message CSDiscountStorePurchaseRes {
+    proto_ExchangeChangeData data = 1;
+    System_UInt32 purchase_count = 2;
+}
+
+// Message: proto.CSGetStoreTabRes
+message CSGetStoreTabRes {
+    repeated proto_StoreTableDesc store_tables = 1;
+}
+
+// Message: proto.StoreTableDesc
+message StoreTableDesc {
+    System_UInt32 table_type = 1;
+    System_String language = 2;
+    System_String table_name = 3;
+    System_UInt32 mall_type = 4;
+    System_UInt32 sort_id = 5;
+}
+
+// Message: proto.ExchangeStore
+message ExchangeStore {
+    proto_ExchangeStoreDesc exchange_store_desc = 1;
+    repeated proto_ExchangeStoreItemDesc exchange_store_items = 2;
+}
+
+// Message: proto.GiftRewardDetail
+message GiftRewardDetail {
+    proto_EStore_GiftRankType gift_rank_type = 1;
+    repeated proto_GiftRewardDesc gift_rewards = 2;
+}
+
+// Message: proto.GiftItem
+message GiftItem {
+    System_UInt32 commodity_id = 1;
+    System_UInt32 sort_id = 2;
+    System_UInt32 item_id = 3;
+    System_UInt32 coins_price = 4;
+    System_UInt32 gems_price = 5;
+    System_UInt32 tag_type = 6;
+    System_UInt32 tag_value = 7;
+    System_UInt32 type_override = 8;
+    System_Boolean is_original_type_remain = 9;
+    System_Boolean is_exclusive = 10;
+    System_String image_url = 11;
+    System_Boolean is_quick_gift_recommended = 12;
+    System_UInt32 award_time = 13;
+    System_Int64 expire_timestamp = 14;
+}
+
+// Message: proto.CSGetInstallmentStoreDescReq
+message CSGetInstallmentStoreDescReq {
+    System_String language = 1;
+}
+
+// Message: proto.CSGetInstallmentStoreDescRes
+message CSGetInstallmentStoreDescRes {
+    repeated proto_InstallmentStoreDesc installment_stores = 1;
+}
+
+// Message: proto.CSInstallmentPurchaseReq
+message CSInstallmentPurchaseReq {
+    System_UInt32 item_id = 1;
+    System_UInt32 price = 2;
+    System_Boolean is_one_time_payment = 3;
+}
+
+// Message: proto.CSInstallmentPurchaseRes
+message CSInstallmentPurchaseRes {
+    proto_ExchangeChangeData data = 1;
+}
+
+// Message: proto.CSGetInstallmentItemsRes
+message CSGetInstallmentItemsRes {
+    repeated proto_Item items = 1;
+}
+
+// Message: proto.CSGetExchangeWebsiteRes
+message CSGetExchangeWebsiteRes {
+    repeated proto_ExchangeWebsiteDesc exchange_website = 1;
+}
+
+// Message: proto.CSGetMysteryExpressionRes
+message CSGetMysteryExpressionRes {
+    repeated proto_MysteryShopExpressionDesc mystery_shop_expressions = 1;
+}
+
+// Message: proto.ExchangeStoreDesc
+message ExchangeStoreDesc {
+    System_UInt32 store_id = 1;
+    System_String store_name = 2;
+    System_String open_time = 3;
+    System_String close_time = 4;
+    System_UInt32 open_time_stamp = 5;
+    System_UInt32 close_time_stamp = 6;
+    System_Boolean is_show_time = 7;
+    System_Boolean check_bundle_switch = 8;
+    System_Boolean need_clan = 9;
+    System_String token_box = 10;
+}
+
+// Message: proto.ExchangeStoreItemDesc
+message ExchangeStoreItemDesc {
+    System_UInt32 store_id = 1;
+    System_UInt32 commodity_id = 2;
+    System_UInt32 sort_id = 3;
+    System_String name = 4;
+    System_UInt32 item_id = 5;
+    System_UInt32 currency_id = 6;
+    System_String currency_name = 7;
+    System_UInt32 currency_price = 8;
+    System_UInt32 tag_type = 9;
+    System_UInt32 tag_value = 10;
+    System_UInt32 limited_purchase_times = 11;
+    System_UInt32 purchase_times = 12;
+    System_String added_time = 13;
+    System_String expire_time = 14;
+    System_String language = 15;
+    System_String image_url = 16;
+    System_String real_image_url = 17;
+    System_UInt32 gems_cost = 18;
+    System_UInt32 min_clan_level = 19;
+    System_UInt32 award_time = 20;
+    System_Int64 expire_timestamp = 21;
+}
+

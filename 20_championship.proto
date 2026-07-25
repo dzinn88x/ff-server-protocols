@@ -1,0 +1,297 @@
+syntax = "proto3";
+
+// Categoria: 20_championship
+// Total: 34 segments
+
+// Message: proto.EChampionship
+message EChampionship {
+    // Sem campos definidos no dump
+}
+
+// Message: proto.TeamIDReq
+message TeamIDReq {
+    System_UInt64 team_id = 1;
+}
+
+// Message: proto.TeamIDSlice
+message TeamIDSlice {
+    repeated System_UInt64 team_ids = 1;
+}
+
+// Message: proto.GetTeamChampionshipInfoStatsReq
+message GetTeamChampionshipInfoStatsReq {
+    System_UInt32 championship_type = 1;
+    System_UInt32 championship_id = 2;
+    repeated System_UInt64 team_ids = 3;
+}
+
+// Message: proto.CSChampionshipBasicInfoRes
+message CSChampionshipBasicInfoRes {
+    repeated proto_ChampionshipOpenInfoDesc open_infos = 1;
+    System_UInt32 limited_level = 2;
+    System_UInt32 limited_rank = 3;
+    repeated proto_ChampionshipScoreRewardDesc reward_infos = 4;
+    repeated proto_ChampionshipSettingDesc setting_infos = 5;
+    repeated proto_ChampionshipScoreBaseDesc score_bases = 6;
+    repeated proto_ChampionshipNameOverwriteDesc name_overwrite_infos = 7;
+    repeated proto_ChampionshipTeamDesc team_settings = 8;
+    System_Boolean is_in_blacklist = 9;
+    System_UInt32 upper_limited_level = 10;
+    System_UInt32 upper_limited_rank = 11;
+}
+
+// Message: proto.CSTeamMemberRes
+message CSTeamMemberRes {
+    System_UInt64 team_id = 1;
+    System_UInt64 member_id = 2;
+    System_UInt32 member_type = 3;
+    System_UInt64 join_at = 4;
+    System_Boolean is_not_in_team = 5;
+}
+
+// Message: proto.CSAddTeamContactInfoReq
+message CSAddTeamContactInfoReq {
+    System_UInt64 team_id = 1;
+    System_String contact_info = 2;
+}
+
+// Message: proto.CSTeamChampionshipInfoRes
+message CSTeamChampionshipInfoRes {
+    System_UInt64 team_id = 1;
+    repeated proto_ChampionshipInfo championship_infos = 2;
+}
+
+// Message: proto.ChampionshipInfo
+message ChampionshipInfo {
+    System_UInt32 championship_type = 1;
+    proto_TeamChampionshipInfo team_info = 2;
+    proto_AccountChampionshipInfo account_info = 3;
+    repeated proto_ChampionshipWinnerInfo winnner_infos = 4;
+}
+
+// Message: proto.ChampionshipWinnerInfo
+message ChampionshipWinnerInfo {
+    System_UInt32 championship_type = 1;
+    System_UInt32 championship_id = 2;
+    System_String region = 3;
+    System_UInt64 team_id = 4;
+}
+
+// Message: proto.TeamChampionshipInfo
+message TeamChampionshipInfo {
+    System_UInt64 team_id = 1;
+    System_UInt32 championship_type = 2;
+    System_UInt32 championship_id = 3;
+    System_UInt32 tickets_num = 4;
+    System_UInt32 trial_games_played = 5;
+    System_UInt32 trial_kills = 6;
+    System_UInt32 trial_valid_score = 7;
+    System_UInt32 trial_total_score = 8;
+    System_UInt32 trial_pos = 9;
+    System_Boolean is_enter_final = 10;
+    System_UInt32 final_games_played = 11;
+    System_UInt32 final_kills = 12;
+    System_UInt32 final_valid_score = 13;
+    System_UInt32 final_total_score = 14;
+    System_UInt32 final_pos = 15;
+}
+
+// Message: proto.AccountChampionshipInfo
+message AccountChampionshipInfo {
+    System_UInt64 account_id = 1;
+    System_UInt32 championship_type = 2;
+    System_UInt32 championship_id = 3;
+    System_UInt32 trial_valid_score = 4;
+    System_UInt32 trial_pos = 5;
+    System_Boolean can_get_trial_reward = 6;
+    System_UInt32 final_valid_score = 7;
+    System_UInt32 final_pos = 8;
+    System_Boolean rewarded = 9;
+    System_Boolean is_enter_final = 10;
+}
+
+// Message: proto.CSInitTeamChampionshipInfoReq
+message CSInitTeamChampionshipInfoReq {
+    System_UInt32 championship_type = 1;
+}
+
+// Message: proto.CSGetTeamChampionshipInfoReq
+message CSGetTeamChampionshipInfoReq {
+    System_UInt32 championship_type = 1;
+    System_UInt32 championship_id = 2;
+}
+
+// Message: proto.CSGetChampionshipConfigReq
+message CSGetChampionshipConfigReq {
+    System_UInt32 championship_type = 1;
+    System_UInt32 championship_id = 2;
+    System_String language = 3;
+}
+
+// Message: proto.CSGetChampionshipConfigRes
+message CSGetChampionshipConfigRes {
+    proto_ChampionshipOpenInfoDesc open_info = 1;
+    repeated proto_ChampionshipScoreRewardDesc reward_infos = 2;
+    proto_ChampionshipSettingDesc setting_info = 3;
+}
+
+// Message: proto.CSTeamChampionshipSeasonStatsRes
+message CSTeamChampionshipSeasonStatsRes {
+    System_UInt64 team_id = 1;
+    System_UInt32 championship_type = 2;
+    System_UInt32 championship_id = 3;
+    repeated System_UInt64 members = 4;
+    System_UInt32 games_played = 5;
+    System_Int32 max_score = 6;
+    System_UInt32 wins = 7;
+    System_UInt32 top_10_percent_times = 8;
+    System_UInt32 top_50_percent_times = 9;
+    System_UInt32 survival_time = 10;
+    System_UInt32 moving_distance = 11;
+    System_UInt32 kills = 12;
+    System_UInt32 damage = 13;
+    System_UInt32 one_game_most_kills = 14;
+    System_UInt32 one_game_most_damage = 15;
+    System_UInt32 headshot_kills = 16;
+    proto_AccountInfoBasicBundleRes members_info = 17;
+}
+
+// Message: proto.CSTeamChampionshipSeasonStatsReq
+message CSTeamChampionshipSeasonStatsReq {
+    System_UInt64 team_id = 1;
+    System_UInt32 championship_type = 2;
+    System_UInt32 championship_id = 3;
+    System_Boolean need_members_info = 4;
+}
+
+// Message: proto.TeamMatchStats
+message TeamMatchStats {
+    System_UInt64 team_id = 1;
+    repeated System_UInt64 member_account_ids = 2;
+    System_UInt32 rank = 3;
+    System_UInt32 kills = 4;
+    System_UInt32 damage = 5;
+    System_UInt32 moving_distance = 6;
+    System_UInt32 revival_count = 7;
+    System_UInt32 survival_time = 8;
+    System_UInt32 headshot_kills = 9;
+    System_UInt32 birth_island_quit = 10;
+    System_UInt32 knockdown_count = 11;
+    System_UInt32 team_count = 12;
+    System_UInt32 direct_kills = 13;
+}
+
+// Message: proto.CSTeamLifeSeasonStats
+message CSTeamLifeSeasonStats {
+    System_UInt64 team_id = 1;
+    System_UInt32 championship_type = 2;
+    repeated proto_TeamSeasonStats stats = 3;
+}
+
+// Message: proto.CSTeamLifeSeasonStatsReq
+message CSTeamLifeSeasonStatsReq {
+    System_UInt64 team_id = 1;
+    System_UInt32 championship_type = 2;
+}
+
+// Message: proto.CSAccountLifeSeasonStats
+message CSAccountLifeSeasonStats {
+    System_UInt64 account_id = 1;
+    System_UInt32 championship_type = 2;
+    repeated proto_AccountSeasonStats stats = 3;
+}
+
+// Message: proto.CSAccountLifeSeasonStatsReq
+message CSAccountLifeSeasonStatsReq {
+    System_UInt64 account_id = 1;
+    System_UInt32 championship_type = 2;
+}
+
+// Message: proto.TeamSeasonStats
+message TeamSeasonStats {
+    System_UInt64 team_id = 1;
+    System_UInt32 championship_type = 2;
+    System_UInt32 championship_id = 3;
+    System_UInt32 kills = 4;
+    System_UInt32 score = 5;
+    System_UInt32 pos = 6;
+}
+
+// Message: proto.AccountSeasonStats
+message AccountSeasonStats {
+    System_UInt64 account_id = 1;
+    System_UInt32 championship_type = 2;
+    System_UInt32 championship_id = 3;
+    System_UInt32 score = 4;
+    System_UInt32 pos = 5;
+}
+
+// Message: proto.TeamLeaderboardRes
+message TeamLeaderboardRes {
+    repeated proto_TeamLeaderboardItem items = 1;
+    proto_TeamLeaderboardItem self = 2;
+    System_UInt32 leaderboard_size = 3;
+}
+
+// Message: proto.TeamChampionshipInfoBundleRes
+message TeamChampionshipInfoBundleRes {
+    repeated proto_TeamChampionshipInfo infos = 1;
+}
+
+// Message: proto.TeamStatsBundleRes
+message TeamStatsBundleRes {
+    repeated proto_CSTeamChampionshipSeasonStatsRes statses = 1;
+}
+
+// Message: proto.TeamChampionshipMatchStats
+message TeamChampionshipMatchStats {
+    System_UInt64 team_id = 1;
+    System_UInt32 championship_type = 2;
+    System_UInt32 championship_id = 3;
+    System_UInt64 match_id = 4;
+    System_UInt32 create_time = 5;
+    System_UInt32 end_time = 6;
+    System_Int32 score = 7;
+    proto_EChampionship_ChampionshipPhase phase = 8;
+    System_Boolean is_invalid = 9;
+    proto_TeamMatchStats team_match_stats = 10;
+}
+
+// Message: proto.CSTeamMatchStatsHistoryReq
+message CSTeamMatchStatsHistoryReq {
+    System_UInt64 team_id = 1;
+    System_UInt32 championship_type = 2;
+    System_UInt32 championship_id = 3;
+}
+
+// Message: proto.CSTeamMatchStatsHistoryRes
+message CSTeamMatchStatsHistoryRes {
+    repeated proto_TeamChampionshipMatchStats match_stats = 1;
+}
+
+// Message: proto.FakeSubmitScore
+message FakeSubmitScore {
+    System_Int32 rank_score = 1;
+    System_Int32 battle_score = 2;
+    System_Int32 total_score = 3;
+}
+
+// Message: proto.SubmitChampionshipTeamMatchStatsReq
+message SubmitChampionshipTeamMatchStatsReq {
+    System_UInt64 match_id = 1;
+    System_UInt32 championship_type = 2;
+    System_UInt32 team_count = 3;
+    proto_TeamMatchStats team_stats = 4;
+    System_UInt32 create_time = 5;
+    System_UInt32 end_time = 6;
+    System_String noti_region = 7;
+    System_String lock_region = 8;
+    System_Boolean is_fake = 9;
+}
+
+// Message: proto.FakeSubmitRes
+message FakeSubmitRes {
+    proto_SubmitChampionshipTeamMatchStatsReq fake_submit_req = 1;
+    proto_FakeSubmitScore score = 2;
+}
+

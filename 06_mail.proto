@@ -1,0 +1,162 @@
+syntax = "proto3";
+
+// Categoria: 06_mail
+// Total: 13 segments
+
+// Enum: enum proto.EMail.Source
+enum Source {
+    Source_GAME = 0;
+    Source_ADMIN = 1;
+}
+
+// Enum: enum proto.EMail.ActionType
+enum ActionType {
+    ActionType_ATTACHMENT = 0;
+    ActionType_NOTICE = 1;
+    ActionType_CLAN_INVITE = 2;
+}
+
+// Enum: enum proto.EMail.Type
+enum Type {
+    Type_VIPCARD_SVIP_MONTHLY_WEEKLY_REWARD = 45;
+    Type_MSHOP_RECHARGE_NOTIFY = 46;
+    Type_CHUMMY_INTIMACY_REWARDS = 49;
+    Type_RANKING_RANK_LEVEL_REWARDS = 6;
+    Type_GOOGLE_PLAY_POINT = 51;
+    Type_RANKING_SEASON_REWARDS = 5;
+    Type_VIPCARD_SVIP_WEEKLY_REWARD = 43;
+    Type_VIPCARD_SVIP_REWARD = 42;
+    Type_NONE = 0;
+    Type_NEWBIE_RETURN = 22;
+    Type_CS_RANKING_HANGUP_BAN = 32;
+    Type_CLAN_WAR_ACCOUNT_REWARDS = 38;
+    Type_CLAN_REASSIGN_CAPTAIN = 4;
+    Type_LIMITEDEVENT_LEADERBOARD_REWARDS = 34;
+    Type_SUBSCRIPTION_EP = 17;
+    Type_EP_DAILY_QUEST_UNCLAIM_REWARDS = 28;
+    Type_GOP_PURCHASE = 21;
+    Type_CLAN_KICKOUT = 3;
+    Type_DEL_STREAMER = 15;
+    Type_NEW_PALYER_UNCLAIM_REWARDS = 26;
+    Type_CS_RANKING_HANGUP_WARN = 31;
+    Type_SKINHACK = 36;
+    Type_VIPCARD_MONTHLY_REWARD = 40;
+    Type_VETERAN_RETURN = 24;
+    Type_VIPCARD_MONTHLY_WEEKLY_REWARD = 41;
+    Type_EP_CHALLENGE_REWARD = 8;
+    Type_SET_STREAMER = 14;
+    Type_CHAMPIONSHIP_TEAM_KICKOUT = 19;
+    Type_RANKING_SEASON_TOP_REWARDS = 25;
+    Type_CS_RANKING_SEASON_TOP_REWARDS = 37;
+    Type_EP_UNLOCK_REWARD = 7;
+    Type_CS_RANKING_RANK_LEVEL_REWARDS = 29;
+    Type_CLAN_INVITE = 1;
+    Type_CLAN_RACE_AWARD = 11;
+    Type_FRESH_UNCLAIM_REWARDS = 27;
+    Type_INTIMACY_AWARDS = 35;
+    Type_VIPCARD_SVIP_MONTHLY_REWARD = 44;
+    Type_GLOBAL_DROPS = 10;
+    Type_CHAMPIONSHIP_TRIAL_REWARDS = 20;
+    Type_PERIODIC_RANKING_SEASON_REWARDS = 48;
+    Type_PERIODIC_RANKING_RANK_LEVEL_REWARDS = 47;
+    Type_VIPCARD_WEEKLY_REWARD = 39;
+    Type_INSTANT_GAME_REWARD = 16;
+    Type_CLAN_DEPUTY_CAPTAIN_NOTIFY = 33;
+    Type_LIMITED_EVENT_SETTLE_REWARDS = 50;
+    Type_CLAN_DISMISS = 2;
+    Type_STORE_SEND_GIFT = 9;
+    Type_CHAMPIONSHIP_TEAM_DISMISS = 18;
+    Type_CLAN_REGION_CHANGE = 23;
+    Type_CS_RANKING_SEASON_REWARDS = 30;
+}
+
+// Enum: enum proto.EMail.Status
+enum Status {
+    Status_INIT = 0;
+    Status_PROCESSED = 1;
+    Status_DELETED = 2;
+}
+
+// Message: proto.EMail
+message EMail {
+    // Sem campos definidos no dump
+}
+
+// Message: proto.MailAttachment
+message MailAttachment {
+    proto_AwardData rewards = 1;
+}
+
+// Message: proto.MailGlobalDropInfo
+message MailGlobalDropInfo {
+    System_UInt32 item_id = 1;
+    System_String url = 2;
+    System_UInt32 award_time = 3;
+}
+
+// Message: proto.MailSenderInfo
+message MailSenderInfo {
+    System_UInt64 sender_id = 1;
+    System_String sender_nick = 2;
+    System_UInt64 clan_id = 3;
+    System_String clan_name = 4;
+    System_UInt64 clan_captain_id = 5;
+    System_String clan_captain_nick = 6;
+    System_UInt32 season_id = 7;
+    System_UInt32 season_rank = 8;
+    System_UInt32 ep_unlock_id = 9;
+    System_UInt32 ep_challenge_id = 10;
+    System_String gift_message = 11;
+    proto_MailGlobalDropInfo global_drop = 12;
+    System_UInt32 honor_delta = 13;
+    System_UInt32 subscription_ep_id = 14;
+    System_UInt64 championship_team_id = 15;
+    System_String championship_team_name = 16;
+    System_UInt32 championship_type = 17;
+    System_UInt32 championship_id = 18;
+    System_UInt32 championship_trial_pos = 19;
+    System_String region = 20;
+    System_String championship_name = 21;
+    System_UInt32 limitedevent_leaderboard_type = 22;
+    System_UInt32 limitedevent_rank = 23;
+    System_UInt32 rank_master_level = 24;
+    System_UInt32 recharge_time = 25;
+    System_Int32 recharge_points = 26;
+}
+
+// Message: proto.MailInfo
+message MailInfo {
+    System_UInt64 mail_id = 1;
+    System_UInt32 type = 2;
+    System_String title = 3;
+    System_String content = 4;
+    proto_MailSenderInfo sender_info = 5;
+    proto_MailAttachment attachment = 6;
+    System_Int64 receive_time = 7;
+    proto_EMail_Status status = 8;
+    proto_EMail_Source source = 9;
+    proto_EMail_ActionType action_type = 10;
+}
+
+// Message: proto.CSReadMailReq
+message CSReadMailReq {
+    repeated System_UInt64 mail_ids = 1;
+    System_UInt32 status = 2;
+}
+
+// Message: proto.CSReadMailRes
+message CSReadMailRes {
+    proto_AwardData rewards = 1;
+    repeated proto_ExchangedAward exchanged_awards = 2;
+}
+
+// Message: proto.CSGetMailListReq
+message CSGetMailListReq {
+    System_String language = 1;
+}
+
+// Message: proto.CSGetMailListRes
+message CSGetMailListRes {
+    repeated proto_MailInfo mails = 1;
+}
+
